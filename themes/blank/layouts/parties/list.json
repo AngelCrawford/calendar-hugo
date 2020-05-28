@@ -1,6 +1,6 @@
 {{- $.Scratch.Add "partiesList" slice -}}
 {{- range where .Site.RegularPages "Section" "=" "parties" -}}
     
-    {{- $.Scratch.Add "partiesList" (dict "title" .Title "start" .Date "tags" .Params.tags "content" .Summary "permalink" .Permalink) -}}
+    {{- $.Scratch.Add "partiesList" (dict "title" .Title "start" .Date "tags" .Params.tags "content" .Summary "url" .Permalink) -}}
 {{- end -}}
 {{- $.Scratch.Get "partiesList" | jsonify -}}

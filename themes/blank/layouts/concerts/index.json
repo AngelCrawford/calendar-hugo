@@ -1,6 +1,0 @@
-{{- $.Scratch.Add "concertsIndex" slice -}}
-{{- range where .Site.RegularPages "Section" "=" "concerts" -}}
-    
-    {{- $.Scratch.Add "concertsIndex" (dict "title" .Title "tags" .Params.tags "content" .Summary "permalink" .Permalink) -}}
-{{- end -}}
-{{- $.Scratch.Get "concertsIndex" | jsonify -}}

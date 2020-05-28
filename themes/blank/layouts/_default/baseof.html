@@ -12,7 +12,6 @@
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
-
 	<!-- Styles -->
 	{{- $sassOptions := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true ) -}}
 	{{- $sass := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.css" . -}}
@@ -24,9 +23,11 @@
 	{{- $fullCore := resources.Get "js/core.js" -}}
 	{{- $fullDayGrid := resources.Get "js/daygrid.js" -}}
 	{{- $fullListGrid := resources.Get "js/list.js" -}}
+	{{- $locale := resources.Get "js/de.js" -}}
+	{{- $google := resources.Get "js/google.js" -}}
 	{{- $main := resources.Get "js/main.js" -}}
 	
-	{{- $script := slice $fullCore $fullDayGrid $fullListGrid $jQuery $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $fullCore $fullDayGrid $fullListGrid $locale $google $jQuery $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	<script src="{{ $script.Permalink }}"></script>
 
 </head>
