@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ .Title }}</title>
+	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+
+	{{ with .OutputFormats.Get "RSS" -}}
+		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+	{{- end }}
+
+
+	<!-- Styles -->
+	{{- $sassOptions := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true ) -}}
+	{{- $sass := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.css" . -}}
+	{{- $style := $sass | resources.ToCSS $sassOptions | resources.Fingerprint -}}
+	<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+	<!-- Scripts -->
+	{{- $jQuery := resources.Get "js/jquery-3.5.1.js" -}}
+	{{- $fullCore := resources.Get "js/core.js" -}}
+	{{- $fullDayGrid := resources.Get "js/daygrid.js" -}}
+	{{- $fullListGrid := resources.Get "js/list.js" -}}
+	{{- $main := resources.Get "js/main.js" -}}
+	
+	{{- $script := slice $fullCore $fullDayGrid $fullListGrid $jQuery $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	<script src="{{ $script.Permalink }}"></script>
+
+</head>
+<body>
+	{{ partial "header" . }}
+	{{ block "main" . }}{{ end }}
+	{{ partial "footer" . }}
+</body>
+</html>

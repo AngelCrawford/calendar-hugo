@@ -1,0 +1,6 @@
+{{- $.Scratch.Add "partiesIndex" slice -}}
+{{- range where .Site.RegularPages "Section" "=" "parties" -}}
+    
+    {{- $.Scratch.Add "partiesIndex" (dict "title" .Title "tags" .Params.tags "content" .Summary "permalink" .Permalink) -}}
+{{- end -}}
+{{- $.Scratch.Get "partiesIndex" | jsonify -}}

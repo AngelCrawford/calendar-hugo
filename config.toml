@@ -1,0 +1,18 @@
+title = "Cities in Dust"
+baseURL = "/"
+languageCode = "de-DE"
+theme = "blank"
+
+enableGitInfo = true
+
+DefaultContentLanguage = "de"
+
+[frontmatter]
+  lastmod = [":git", "lastmod"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "JSON"]
+
+[params]
+  mainSections = ["articles", "parties", "concerts"]

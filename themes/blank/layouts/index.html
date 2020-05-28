@@ -1,0 +1,12 @@
+{{ define "main" }}
+	<main>
+
+		<div id="calendar"></div>
+
+		{{  range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+			{{ .Render "summary" }}
+		{{ end }}
+
+	</main>
+{{ partial "sidebar.html" . }}
+{{ end }}
