@@ -1,10 +1,11 @@
 <header>
 	<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-	<a href="/index.json">index.json</a>
-	
-	<a href="/parties/index.json">party json</a>
-	<a href="/concerts/index.json">concert json</a>
-
+	<ul>
+		<li><a href="/index.json" target="_blank">index.json</a></li>
+		<li><a href="/parties/index.json" target="_blank">party json</a></li>
+		<li><a href="/concerts/index.json" target="_blank">concert json</a></li>
+		<li><a href="/festivals/index.json" target="_blank">festival json</a></li>
+	</ul>
 	{{ with .Site.Menus.main }}
 	<nav>
 		<ul>

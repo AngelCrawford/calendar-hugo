@@ -1,6 +1,21 @@
 {{ define "main" }}
 	<main>
 
+		<input id="all" class="event_filter_box" name="event_filter_select" type="radio" value="all" checked="true" />
+		<label for="all">All</label>
+		<input id="hamburg" class="event_filter_box" name="event_filter_select" type="radio" value="hamburg" />
+		<label for="hamburg">Hamburg</label>
+		<input id="sh" class="event_filter_box" name="event_filter_select" type="radio" value="sh" />
+		<label for="sh">Schleswig-Holstein</label>
+
+		<input id="party" class="event_filter_box" name="event_filter_select" type="radio" value="party" />
+		<label for="party">Party</label>
+		<input id="concert" class="event_filter_box" name="event_filter_select" type="radio" value="concert" />
+		<label for="concert">Concert</label>
+		<input id="festival" class="event_filter_box" name="event_filter_select" type="radio" value="festival" />
+		<label for="festival">Festival</label>
+
+
 		<div id="calendar"></div>
 
 		{{  range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}

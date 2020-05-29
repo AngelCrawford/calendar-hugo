@@ -1,3 +1,7 @@
 @import "fullcalendar/core";
 @import "fullcalendar/daygrid";
 @import "fullcalendar/list";
+
+.festival .fc-time {display: none;}
+
+a.past-event {background-color: grey !important; border: none;}

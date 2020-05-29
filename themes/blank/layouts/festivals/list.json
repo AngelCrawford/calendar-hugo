@@ -1,0 +1,8 @@
+{{- $.Scratch.Add "festivalsList" slice -}}
+{{- range where .Site.RegularPages "Section" "=" "festivals" -}}
+    {{ $dateStart := dateFormat "2006-01-02" .Params.startDate }}
+    {{ $dateEnd := dateFormat "2006-01-02" .Params.endDate }}
+
+    {{- $.Scratch.Add "festivalsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink) -}}
+{{- end -}}
+{{- $.Scratch.Get "festivalsList" | jsonify -}}
