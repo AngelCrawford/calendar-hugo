@@ -3,6 +3,6 @@
     {{ $dateStart := dateFormat "2006-01-02" .Params.startDate }}
     {{ $dateEnd := dateFormat "2006-01-02" .Params.endDate }}
 
-    {{- $.Scratch.Add "festivalsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink) -}}
+    {{- $.Scratch.Add "festivalsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink "kind" .Params.kind "state" .Params.state) -}}
 {{- end -}}
 {{- $.Scratch.Get "festivalsList" | jsonify -}}

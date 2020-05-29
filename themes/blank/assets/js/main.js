@@ -1,10 +1,3 @@
-
-let filter_option = "all";
-// console.log(filter_option);
-// $(document).ready(function () {
-//   $('#' + filter_option).prop('checked', true);
-// });
-
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
@@ -49,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
       { 
         eventDataTransform: function(eventData) {
           eventData.rendering = 'background';
+          eventData.kind = 'holiday';
         },
         className: 'holiday',
         url: 'de.german#holiday@group.v.calendar.google.com' 
@@ -60,24 +54,40 @@ document.addEventListener('DOMContentLoaded', function() {
       if (rendering == "background") {
         $(info.el).text(info.event.title);
       }
-      // Filter Options
-      if (filter_option !== "all") {
-        if ( (filter_option == "sh" || filter_option == "hamburg") && info.event.extendedProps.city !== filter_option ) {
-          if (rendering != "background") {
-            return false;
-          }
-        }
-        if ( (filter_option == "concert" || filter_option == "party" || filter_option == "festival") && info.event.extendedProps.kind !== filter_option ) {
-          if (rendering != "background") {
-            return false;
-          }
-        }
-      }
+
       // Past Event, add a class
       var d = new Date();
       if (info.event.end < d) {
         $(info.el).addClass("past-event");
       }
+
+      var display = true;
+      var states = [];
+      var kinds = [];
+      kinds.push('holiday');
+      // Find all checkbox that are event filters that are enabled and save the values.
+      $("input[name='event_filter_select']:checked").each(function () {
+        console.log($("input[name='event_filter_select']:checked").val());
+        // Saving each type separately
+        if ($(this).data('type') == 'state') {
+          states.push($(this).val());  
+        }
+        else if ($(this).data('type') == 'kind') {
+          kinds.push($(this).val());
+        }
+      });
+
+      // If there are locations to check
+      if (states.length) {
+        display = display && states.indexOf(info.event.extendedProps.state) >= 0;
+      }
+      // If there are specific types of events
+      if (kinds.length) {
+        display = display && kinds.indexOf(info.event.extendedProps.kind) >= 0;
+      }
+
+      return display;
+
     },
     // TODO: Funktioniert nicht im FF aber im Chrome
     windowResize: function(view) {
@@ -97,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   $('input[class=event_filter_box]').change(function() {
-    filter_option = $(this).val();
     calendar.rerenderEvents();
   });
 });

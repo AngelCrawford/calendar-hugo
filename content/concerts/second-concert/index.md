@@ -3,7 +3,7 @@ title: A new Concert
 date: 2020-05-13T10:58:08-04:00
 startDate: 2020-05-13T10:58:08-04:00
 endDate: 2020-05-13T20:00:08-04:00
-city: hamburg
+state: hh
 kind: concert
 ---
 

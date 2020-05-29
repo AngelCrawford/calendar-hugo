@@ -1,6 +1,6 @@
 {{- $.Scratch.Add "concertsList" slice -}}
 {{- range where .Site.RegularPages "Section" "=" "concerts" -}}
     
-    {{- $.Scratch.Add "concertsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink "city" .Params.city "kind" .Params.kind) -}}
+    {{- $.Scratch.Add "concertsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind) -}}
 {{- end -}}
 {{- $.Scratch.Get "concertsList" | jsonify -}}

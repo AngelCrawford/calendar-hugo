@@ -4,7 +4,7 @@ date: 2020-05-13T11:13:32-04:00
 startDate: 2020-05-14T10:58:08-04:00
 endDate: 2020-05-14T20:00:08-04:00
 authors: angel
-city: sh
+state: sh
 kind: party
 ---
 
