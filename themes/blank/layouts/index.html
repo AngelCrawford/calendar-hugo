@@ -1,17 +1,20 @@
 {{ define "main" }}
 	<main>
 
-		<input id="hh" class="event_filter_box" name="event_filter_select" type="checkbox" value="hh" data-type="state" />
+		<input id="hh" class="event_filter" name="event_filter_sel" type="checkbox" value="hh" data-type="state" />
 		<label for="hh">Hamburg</label>
-		<input id="sh" class="event_filter_box" name="event_filter_select" type="checkbox" value="sh" data-type="state" />
+		<input id="sh" class="event_filter" name="event_filter_sel" type="checkbox" value="sh" data-type="state" />
 		<label for="sh">Schleswig-Holstein</label>
 
-		<input id="party" class="event_filter_box" name="event_filter_select"  type="checkbox" value="party" data-type="kind" checked="true" />
+		<input id="party" class="event_filter" name="event_filter_sel"  type="checkbox" value="party" data-type="kind" checked="true" />
 		<label for="party">Party</label>
-		<input id="concert" class="event_filter_box" name="event_filter_select" type="checkbox" value="concert" data-type="kind" checked="true" />
+		<input id="concert" class="event_filter" name="event_filter_sel" type="checkbox" value="concert" data-type="kind" checked="true" />
 		<label for="concert">Concert</label>
-		<input id="festival" class="event_filter_box" name="event_filter_select" type="checkbox" value="festival" data-type="kind" checked="true" />
+		<input id="festival" class="event_filter" name="event_filter_sel" type="checkbox" value="festival" data-type="kind" checked="true" />
 		<label for="festival">Festival</label>
+		<input id="other" class="event_filter" name="event_filter_sel" type="checkbox" value="other" data-type="kind" checked="true" />
+		<label for="other">Sonstige</label>
+
 
 		<div id="calendar"></div>
 

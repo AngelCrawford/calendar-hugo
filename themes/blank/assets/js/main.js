@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
       center: 'title',
       right: 'dayGridMonth,dayGridWeek,listWeek'
     },
-    defaultDate: '2020-05-12',
     eventLimit: false,
     weekNumbers: true,
     defaultView: 'dayGridMonth',
@@ -39,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         color: 'brightblue',
         textColor: 'white'
       },
+      {
+        className: 'other',
+        url: '/others/index.json',
+        color: 'red',
+        textColor: 'white'
+      },
       { 
         eventDataTransform: function(eventData) {
           eventData.rendering = 'background';
@@ -50,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     eventRender : function(info) {
       // Holiday Background, add event title
-      const props = info.event.extendedProps, rendering = info.event.rendering;
+      const rendering = info.event.rendering;
       if (rendering == "background") {
         $(info.el).text(info.event.title);
       }
@@ -66,8 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var kinds = [];
       kinds.push('holiday');
       // Find all checkbox that are event filters that are enabled and save the values.
-      $("input[name='event_filter_select']:checked").each(function () {
-        console.log($("input[name='event_filter_select']:checked").val());
+      $("input[name='event_filter_sel']:checked").each(function () {
         // Saving each type separately
         if ($(this).data('type') == 'state') {
           states.push($(this).val());  
@@ -76,20 +80,25 @@ document.addEventListener('DOMContentLoaded', function() {
           kinds.push($(this).val());
         }
       });
-
+      
       // If there are locations to check
       if (states.length) {
         display = display && states.indexOf(info.event.extendedProps.state) >= 0;
       }
       // If there are specific types of events
       if (kinds.length) {
-        display = display && kinds.indexOf(info.event.extendedProps.kind) >= 0;
+        display = display && kinds.indexOf(info.event.extendedProps.kind) >= 0 || info.event.extendedProps.kind == 'holiday';
+      }
+      // If all filters are deselected, show all
+      if(kinds.length == 1 && !states.length) {
+        display = true;
       }
 
-      return display;
+      console.log(kinds);
 
+      return display;
     },
-    // TODO: Funktioniert nicht im FF aber im Chrome
+
     windowResize: function(view) {
       var current_view = view.type;
       var expected_view = $(window).width() > 700 ? 'dayGridMonth' : 'listWeek';
@@ -105,8 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.changeView('listWeek');
   }
 
-
-  $('input[class=event_filter_box]').change(function() {
+  $('input[name="event_filter_sel"]').change(function() {
     calendar.rerenderEvents();
   });
 });

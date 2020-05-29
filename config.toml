@@ -15,4 +15,4 @@ DefaultContentLanguage = "de"
   section = ["HTML", "JSON"]
 
 [params]
-  mainSections = ["festivals", "articles", "parties", "concerts"]
+  mainSections = ["others", "festivals", "articles", "parties", "concerts"]
