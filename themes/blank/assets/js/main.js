@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timeZone: 'Europe/Berlin',
     locale: 'de',
     header: {
-      left: 'prev,next today',
+      left: 'prev today next',
       center: 'title',
       right: 'dayGridMonth,dayGridWeek,listWeek'
     },
@@ -54,9 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }        
     ],
     eventRender : function(info) {
+
+
       // Holiday Background, add event title
-      const rendering = info.event.rendering;
-      if (rendering == "background") {
+      if (info.event.rendering == "background") {
         $(info.el).text(info.event.title);
       }
 
@@ -93,8 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if(kinds.length == 1 && !states.length) {
         display = true;
       }
-
-      console.log(kinds);
 
       return display;
     },
