@@ -69,6 +69,20 @@ document.addEventListener('DOMContentLoaded', function() {
         $(info.el).text(info.event.title);
       }
 
+
+      console.log(info.el);
+      if (info.event.extendedProps.content != '') {
+        // data-tooltip="{{ .name }}" 
+        $(info.el).addClass('has-tooltip-multiline').attr('data-tooltip', info.event.extendedProps.content);
+      }
+
+      // new Tooltip(info.el, {
+      //   title: info.event.extendedProps.content,
+      //   placement: 'top',
+      //   trigger: 'hover',
+      //   container: 'body'
+      // });
+
       // Past Event, add a class
       var d = new Date();
       if (info.event.end < d) {
