@@ -20,14 +20,19 @@
 
 	<!-- Scripts -->
 	{{- $jQuery := resources.Get "js/jquery-3.5.1.js" -}}
-	{{- $fullCore := resources.Get "js/core.js" -}}
-	{{- $fullDayGrid := resources.Get "js/daygrid.js" -}}
-	{{- $fullListGrid := resources.Get "js/list.js" -}}
-	{{- $locale := resources.Get "js/de.js" -}}
-	{{- $google := resources.Get "js/google.js" -}}
+	{{- $moment := resources.Get "js/moment-2.26.0.js" -}}
 	{{- $main := resources.Get "js/main.js" -}}
+
+	<!-- Fullcalendar -->
+	{{- $fullCore := resources.Get "js/fullcalendar-core.js" -}}
+	{{- $fullDaygrid := resources.Get "js/fullcalendar-daygrid.js" -}}
+	{{- $fullList := resources.Get "js/fullcalendar-list.js" -}}
+	{{- $fullDe := resources.Get "js/fullcalendar-de.js" -}}
+	{{- $fullGoogle := resources.Get "js/fullcalendar-google.js" -}}
+	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
+	<!-- {{- $fullMomentTz := resources.Get "js/fullcalendar-moment-tz.js" -}} -->
 	
-	{{- $script := slice $fullCore $fullDayGrid $fullListGrid $locale $google $jQuery $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $jQuery $moment $fullCore $fullDaygrid $fullList $fullDe $fullGoogle $fullMoment $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	<script src="{{ $script.Permalink }}"></script>
 
 </head>

@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: [ 'dayGrid', 'list', 'googleCalendar' ],
+    plugins: [ 'dayGrid', 'list', 'googleCalendar', 'moment' ],
     timeZone: 'Europe/Berlin',
     locale: 'de',
     header: {
-      left: 'prev today next',
+      left: 'prev,today,next',
       center: 'title',
       right: 'dayGridMonth,dayGridWeek,listWeek'
     },
@@ -14,10 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
     weekNumbers: true,
     defaultView: 'dayGridMonth',
     googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
-    eventTimeFormat: {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
+    eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
+    views: {
+      dayGridWeek: {
+        titleFormat: '{DD. {MMMM}} YYYY',
+        columnHeaderFormat: { weekday: 'short', month: '2-digit', day: '2-digit', omitCommas: true }
+      },
+      listWeek: {
+        titleFormat: '{DD.{MM.}}YYYY',
+        listDayAltFormat: 'DD.MM.YY',
+      }
     },
     eventSources: [
       {
@@ -48,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         eventDataTransform: function(eventData) {
           eventData.rendering = 'background';
           eventData.kind = 'holiday';
+          eventData.groupId = 'holiday';
+          eventData.allDay = true;
         },
         className: 'holiday',
         url: 'de.german#holiday@group.v.calendar.google.com' 
@@ -55,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     eventRender : function(info) {
 
-
+      // TODO: Two Background events overlap each other
       // Holiday Background, add event title
       if (info.event.rendering == "background") {
         $(info.el).text(info.event.title);
@@ -70,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var display = true;
       var states = [];
       var kinds = [];
+      // Show holiday events always 
       kinds.push('holiday');
       // Find all checkbox that are event filters that are enabled and save the values.
       $("input[name='event_filter_sel']:checked").each(function () {
