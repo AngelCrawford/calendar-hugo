@@ -18,25 +18,6 @@ $primary      : #e0b361;
 $accent       : #b87333;
 $secondary    : #777777;
 
-// Breakpoints
-// $bp-smallish        : {{ .Site.Params.breakpoints.bp_smallish | default "1200px" }};
-// $bp-tablet          : {{ .Site.Params.breakpoints.bp_tablet | default "800px" }};
-// $bp-mobile          : {{ .Site.Params.breakpoints.bp_mobile | default "500px" }};
-
-// Bulma CSS Framework (https://bulma.io/documentation/overview/start)
-
-// Miscellaneous
-$easing: ease-out;
-$radius-small: 0px;
-$radius: 0px;
-$radius-large: 0px;
-
-$family-primary: 'Montserrat-Regular';
-$family-secondary: 'Montserrat-Regular';
-
-$column-gap: 1rem 1rem 1rem 2.5rem;
-
-@import "bulma/bulma.sass";
 
 @import "fullcalendar/core";
 @import "fullcalendar/daygrid";
@@ -44,7 +25,7 @@ $column-gap: 1rem 1rem 1rem 2.5rem;
 
 @import "00-fonts";
 @import "01-mixins";
-@import "02-tooltip";
+@import "bootstrap/bootstrap";
 
 html, body {
   background-color: darken($background, 3%);
