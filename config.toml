@@ -6,6 +6,8 @@ theme = "blank"
 # enableGitInfo = true
 
 DefaultContentLanguage = "de"
+timeZone = "Europe/Berlin"
+copyright = "Design / Programmierung: <a href=\"https://angel-crawford.de/\" target=\"_blank\">Angel Crawford</a>. | Alle Rechte vorbehalten."
 
 # [frontmatter]
 #   lastmod = [":git", "lastmod"]
@@ -17,3 +19,8 @@ DefaultContentLanguage = "de"
 [params]
   mainSections = ["articles"]
   eventSections = ["others", "festivals", "parties", "concerts"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = "0.9"
+  filename = "sitemap.xml"

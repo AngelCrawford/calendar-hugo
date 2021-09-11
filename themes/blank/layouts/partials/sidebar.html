@@ -1,7 +1,7 @@
 <aside>
 	<div class="brand-logo">
 		<h1 class="title">Cities in Dust</h1>
-		<a href="/" title="Startseite"><img src="img/logo/logo.png" alt="Logo" /></a>
+		<a href="{{ .Site.BaseURL }}" title="Startseite"><img src="img/logo/logo.png" alt="Logo" /></a>
 	</div>
 
 	<div class="section">
@@ -15,11 +15,27 @@
 	<div class="section festival">
 		<div class="section-header"><h2 class="subtitle">Festivalzähler</h2></div>
 		<div class="section-body">
+
 			<ul>
-				<li>WGT</li>
-				<li>Blackfield</li>
-				<li>Amphi</li>
-				<li>Wacken</li>
+				{{ range sort $.Site.Data.festivalcounter "start" "asc" }}
+					
+					{{ $start := .start }}
+					{{ $ageDays := div (sub .start.Unix now.Unix) 86400 }}
+					{{ $days := add $ageDays 1 }}
+					<a href="{{ .url }}" title="{{ .name }} Webseite" target="_blank">
+						<li style="{{ if le $days 0 }}opacity:.2;{{ end }}{{ if ge $days 30 }}opacity:.5;{{ end }}">
+							<span class="variable">{{ .name }}</span>
+							<span class="variable-number">
+
+								{{ if le $days 0 }}
+									---
+								{{ else }}
+									{{ $days }}
+								{{ end }}
+							</span>
+						</li>
+					</a>
+				{{ end }}
 			</ul>
 		</div>
 	</div>

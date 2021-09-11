@@ -15,10 +15,11 @@ $background     : #2f2f2f;
 $sidebar-back   : #003333;
 $sidebar-header : #002825;
 $sidebar-text   : #9e9e9e;
-$text         : #f2ebe3;
-$hover        : #b87333;
-$primary      : #e0b361;
-$accent       : #b87333;
+$text           : #f2ebe3;
+$link           : #4caf50;
+$hover          : #b87333;
+$primary        : #e0b361;
+$accent         : #b87333;
 
 
 @import "fullcalendar/core";
@@ -34,6 +35,10 @@ $accent       : #b87333;
 html, body {
   background-color: darken($background, 3%);
   color: $text;
+}
+
+p:not(:first-of-type) {
+  padding-top: 1em;
 }
 
 hr {
