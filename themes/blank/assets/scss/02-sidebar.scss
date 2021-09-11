@@ -1,0 +1,34 @@
+aside {
+    background: $sidebar-back;
+    height: 100%;
+
+    .brand-logo {
+        height: auto;
+        
+        a {
+            display: flex;
+        }
+        h1.title {
+            position: absolute;
+        }
+    }
+
+    .section {
+        padding: 0;
+        color: $sidebar-text;
+
+        .section-header {
+            background: $sidebar-header;
+            padding: .5em 1em;
+        }
+        .section-body {
+            padding: 1em 1em 2em;
+        }
+
+        &.festival {
+            ul li {
+                padding: .5em 0;
+            }
+        }
+    }
+}

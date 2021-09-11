@@ -11,12 +11,14 @@
 //-------------------------------------------------------------------------------
 
 // Colors
-$background   : #2f2f2f;
+$background     : #2f2f2f;
+$sidebar-back   : #003333;
+$sidebar-header : #002825;
+$sidebar-text   : #9e9e9e;
 $text         : #f2ebe3;
 $hover        : #b87333;
 $primary      : #e0b361;
 $accent       : #b87333;
-$secondary    : #777777;
 
 
 @import "fullcalendar/core";
@@ -25,7 +27,9 @@ $secondary    : #777777;
 
 @import "00-fonts";
 @import "01-mixins";
-@import "bootstrap/bootstrap";
+// @import "bootstrap/bootstrap";
+@import "bulma/bulma";
+@import "02-sidebar";
 
 html, body {
   background-color: darken($background, 3%);

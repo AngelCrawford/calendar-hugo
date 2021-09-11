@@ -1,8 +1,8 @@
 ---
 title: Concert juni
 date: 2020-05-13T10:58:08-04:00
-startDate: 2021-08-25T10:58:08-04:00
-endDate: 2021-08-25T20:00:08-04:00
+startDate: 2021-09-14T10:58:08-04:00
+endDate: 2021-09-14T20:00:08-04:00
 state: hh
 kind: concert
 ---

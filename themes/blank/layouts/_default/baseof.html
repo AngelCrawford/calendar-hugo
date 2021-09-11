@@ -35,10 +35,24 @@
 	{{- $script := slice $jQuery $moment $fullCore $fullDaygrid $fullList $fullDe $fullGoogle $fullMoment $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	<script src="{{ $script.Permalink }}"></script>
 
+	<!-- Favicon -->
+
+
 </head>
 <body>
-	{{ partial "header" . }}
-	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
+	<div class="columns is-gapless">
+		<div class="column is-2">
+			{{ partial "sidebar" . }}
+		</div>
+
+		<div class="column">
+			<main>
+				{{ block "main" . }}
+					{{ partial "header" . }}
+				{{ end }}
+			</main>
+		</div>
+	</div>
+
 </body>
 </html>
