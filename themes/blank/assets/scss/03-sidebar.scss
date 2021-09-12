@@ -65,17 +65,17 @@ aside {
         }
 
         &.sky {
-            background: radial-gradient(circle, rgba(#32bafa, 1) 0%, rgba(#49d8dd, 1) 50%, rgba($text, 1) 100%);
+            background: radial-gradient(circle, rgba(#85e1e4, 1) 0%, rgba(#4cc5c9, 1) 50%, rgba($text, 1) 100%);
         
             &.night {
-                background: radial-gradient(circle, rgba(#000000, 1) 0%, rgba(#010010, 1) 5%, rgba(#0c1a37, 1) 100%);
+                background: radial-gradient(circle, rgba(#031e22, 1) 0%, rgba(#062629, 1) 75%, rgba(#0c3733, 1) 100%);
             }
             &.dawn {
                 // day start
                 background: radial-gradient(ellipse at bottom, rgba(#0c1a37, 1) 0%, rgba(#2c449d, 1) 50%, rgba(#ce98af, 1) 100%);
             }
             &.day {
-                background: radial-gradient(circle, rgba(#32bafa, 1) 0%, rgba(#49d8dd, 1) 50%, rgba($text, 1) 100%);
+                background: radial-gradient(circle, rgba(#85e1e4, 1) 0%, rgba(#4cc5c9, 1) 50%, rgba($text, 1) 100%);
             }
             &.dusk {
                 // day evening
