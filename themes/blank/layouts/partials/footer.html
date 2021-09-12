@@ -2,7 +2,7 @@
 	<p>Version <abbr title='Build Date: {{ readFile "buildDate.txt" }}'>{{ readFile "version.txt" }}</abbr> | Copyright &copy; 2020 - {{ dateFormat "2006" now }}</p>
 	<p>{{ .Site.Copyright | safeHTML }}</p>
 
-	<div class="has-text-centered navi">
+	<div class="navi">
 		{{- if .Site.Menus.footer -}}
 		  <ul>
 			{{- $currentPage := . -}}

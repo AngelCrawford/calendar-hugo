@@ -5,13 +5,69 @@ aside {
     flex-direction: column;
 
     .brand-logo {
-        height: auto;
-        
+        // background: $sidebar-header;
+        width: 16.5vw;
+        height: 16.5vw;
+
         a {
             display: flex;
         }
+
         h1.title {
+            // display: none;
+            @include font-header;
+            font-size: 7.3vw;
+            margin-top: 2.7%;
+            margin-left: .1%;
+            line-height: 0;
+            font-weight: 400;
             position: absolute;
+            z-index: 3;
+            color: #E5E9E9;
+            opacity: .4;
+
+            span {
+                display: block;
+                margin: 25% 0 0 7px;
+                letter-spacing: -2px;
+                font-size: 5.8vw;
+            }
+        }
+
+        #city {
+            position: relative;
+
+            width: 16.5vw;
+            height: 16.5vw;
+            z-index: 1;
+
+            background-image: url("/img/logo/header.svg");
+            background-repeat: repeat-x;
+            background-position: 47% 100%;
+            background-size: auto 100%;
+        }
+
+        #fog {
+            // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
+            position: absolute;
+            width: 16.5vw;
+            height: 16.5vw;
+            z-index: 2;
+            opacity: .6;
+
+            background-image: url("/img/logo/fog.png");
+            background-repeat: no-repeat;
+            background-position: 47% 100%;
+            background-size: 150% 50%;
+        }
+
+
+        img {
+            display: none;
+            width: 16.5vw;
+            height: 16.5vw;
+            position: absolute;
+            z-index: 0;
         }
     }
 
@@ -23,7 +79,9 @@ aside {
             background: $sidebar-header;
             padding: 1em;
             text-transform: uppercase;
+
             h2.subtitle {
+                @include font-header;
                 color: $sidebar-text;
             }
         }
@@ -127,6 +185,10 @@ aside {
 
                 &:first-of-type {
                     border: none;
+    
+                    a {
+                        padding: .7em .7em .7em 0;
+                    }
                 }
             }
         }

@@ -55,9 +55,8 @@
 
 		<div class="column">
 			<main>
-				{{ block "main" . }}
-					{{ partial "header" . }}
-				{{ end }}
+				{{ partial "header" . }}
+				{{ block "main" . }}{{ end }}
 			</main>
 		</div>
 	</div>

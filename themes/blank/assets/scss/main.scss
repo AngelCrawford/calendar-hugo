@@ -1,9 +1,9 @@
 /*
- * Template Name: Card
+ * Template Name: Cities in Dust
  * Author: Angel Crawford
  * Author URI: https://angel-crawford.de
  * Template URI: https://angel-crawford.de
- * Description: Theme for my online presence.
+ * Description: Theme for Cities in Dust.
 */
 
 //-------------------------------------------------------------------------------
@@ -22,6 +22,8 @@ $hover          : #b87333;
 $primary        : #e0b361;
 $accent         : #b87333;
 
+$family-primary: 'Montserrat-Regular';
+$family-secondary: 'Montserrat-Regular';
 
 @import "fullcalendar/core";
 @import "fullcalendar/daygrid";
@@ -32,6 +34,10 @@ $accent         : #b87333;
 // @import "bootstrap/bootstrap";
 @import "bulma/bulma";
 @import "02-sidebar";
+
+html {
+  font-size: 15px;
+}
 
 html, body {
   background-color: darken($background, 3%);
