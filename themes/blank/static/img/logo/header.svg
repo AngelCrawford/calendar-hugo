@@ -92,7 +92,7 @@
 	.st0{fill:#000000 !important;} <!-- dark -->
 	.st3{fill:#001C19;} <!-- middle -->
 	.st1{fill:#30504D !important;} <!-- light -->
-	.st2{fill:#E5E9E9 !important; opacity: .5;} <!-- lights -->
+	.st2{fill:#E5E9E9 !important; opacity: 1;} <!-- lights -->
 	.st4{fill:none;}
 	.st5{fill:none;stroke:#E5E9E9;stroke-width:2;stroke-miterlimit:10.0002; opacity: .5;} <!-- clock light -->
 	.st6{fill:none;stroke:#E5E9E9;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} <!-- clock light -->

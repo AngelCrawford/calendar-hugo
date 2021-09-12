@@ -3,6 +3,8 @@ aside {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    width: 16.5vw;
 
     .brand-logo {
         // background: $sidebar-header;
@@ -22,9 +24,10 @@ aside {
             line-height: 0;
             font-weight: 400;
             position: absolute;
-            z-index: 3;
+            z-index: 4;
             color: #E5E9E9;
-            opacity: .4;
+            text-shadow: 2px 2px 7px rgba(#000000, .7), 
+                        -2px -2px 7px rgba(#000000, .7);
 
             span {
                 display: block;
@@ -39,21 +42,21 @@ aside {
 
             width: 16.5vw;
             height: 16.5vw;
-            z-index: 1;
+            z-index: 2;
 
             background-image: url("/img/logo/header.svg");
             background-repeat: repeat-x;
             background-position: 47% 100%;
             background-size: auto 100%;
         }
-
+        
+        // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
         #fog {
-            // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
             position: absolute;
             width: 16.5vw;
-            height: 16.5vw;
-            z-index: 2;
-            opacity: .6;
+            height: 16.5vw;;
+            z-index: 3;
+            opacity: .4;
 
             background-image: url("/img/logo/fog.png");
             background-repeat: no-repeat;
@@ -61,13 +64,149 @@ aside {
             background-size: 150% 50%;
         }
 
+        &.sky {
+            background: radial-gradient(circle, rgba(#32bafa, 1) 0%, rgba(#49d8dd, 1) 50%, rgba($text, 1) 100%);
+        
+            &.night {
+                background: radial-gradient(circle, rgba(#000000, 1) 0%, rgba(#010010, 1) 5%, rgba(#0c1a37, 1) 100%);
+            }
+            &.dawn {
+                // day start
+                background: radial-gradient(ellipse at bottom, rgba(#0c1a37, 1) 0%, rgba(#2c449d, 1) 50%, rgba(#ce98af, 1) 100%);
+            }
+            &.day {
+                background: radial-gradient(circle, rgba(#32bafa, 1) 0%, rgba(#49d8dd, 1) 50%, rgba($text, 1) 100%);
+            }
+            &.dusk {
+                // day evening
+                background: radial-gradient(ellipse at bottom, rgba(#0c1a37, 1) 0%, rgba(#2c449d, 1) 50%, rgba(#ef8d5c, 1) 100%);
+            }
+        }
 
-        img {
-            display: none;
+        #sky-stars-wrapper {
             width: 16.5vw;
             height: 16.5vw;
             position: absolute;
-            z-index: 0;
+            overflow: hidden;
+            z-index: 1;
+          
+            // n is number of stars required
+            @function multiple-box-shadow ($n) {
+                $value: '#{random(2000)}px #{random(270)}px #FFF';
+                    @for $i from 2 through $n {
+                        $value: '#{$value} , #{random(2000)}px #{random(270)}px #FFF'
+                    }
+                @return unquote($value);
+            }
+            $shadows-small: multiple-box-shadow(100);
+            $shadows-medium: multiple-box-shadow(80);
+            $shadows-big: multiple-box-shadow(30);
+          
+            #sky-stars-1,
+            #sky-stars-2,
+            #sky-stars-3 {
+                background: transparent;
+                opacity: .4;
+            }
+          
+            #sky-stars-1 {
+                width: 1px;
+                height: 1px;
+                box-shadow: $shadows-small;
+            }
+            
+            #sky-stars-2 {
+                width: 2px;
+                height: 2px;
+                box-shadow: $shadows-medium;
+            }
+            
+            #sky-stars-3 {
+                width: 3px;
+                height: 3px;
+                box-shadow: $shadows-big;
+            }
+        }
+
+        // THANKS: https://codepen.io/nicooprat/pen/ALANqj
+        #hotairballoon {
+            // width: 35px;
+            position: absolute;
+            margin-top: 9%;
+            margin-left: 7%;
+            background: url("/img/logo/hotairballoon.svg") no-repeat;
+            width: 40px;
+            height: 40px;
+            transform: rotate(10deg)
+        }
+
+        // THANKS: https://codepen.io/bennettfeely/pen/mEjio
+        #santahat {
+            display: none;
+            position: absolute;
+            z-index: 55;
+            margin-top: 4.75%;
+            margin-left: 4.6%;
+          
+            .front, .back {
+                position: absolute;
+                width: 4.7vw;
+                height: 3.6vw;
+                transform: rotate(-15deg);
+            }
+          
+            .front { 
+                z-index: 9; 
+            }
+            .back {
+                z-index: 1;
+                animation: counter-wiggle 4s ease-in-out;
+                -webkit-animation: counter-wiggle 4s ease-in-out;
+                transform-origin: 1.5rem 2rem;
+            }
+            .santa-hat-piece {
+                fill: firebrick;
+            }
+            
+            @keyframes counter-wiggle {
+                33%{ transform: rotate(-20deg); }
+                66%{ transform: rotate(10deg); }
+            }
+        }
+        
+        // THANKS: https://codepen.io/uchardon/pen/eGjJap?editors=0100
+        #ghosty {
+            position: absolute;
+            margin-top: 4.5%;
+            margin-left: -3.1%;
+            width: 16.5vw;
+            height: 16.5vw;
+            z-index: 3;
+            display: none;
+        
+            svg#ghost {
+                -webkit-filter: url("#disfilter");
+                filter: url("#disfilter") blur(1px);
+                animation: ghost 4s forwards 1;
+                animation-iteration-count: 1;
+                animation-delay: .5s;
+                opacity: 0;
+            }
+            @keyframes ghost {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        }
+        
+        #firework {
+            width: 16.5vw;
+            height: 16.5vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 0%;
+            z-index: 1;
         }
     }
 

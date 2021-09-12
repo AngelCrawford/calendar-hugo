@@ -137,7 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   $('input[name="event_filter_sel"]').change(function() {
-    calendar.rerenderEvents();
+      calendar.rerenderEvents();
   });
+
+  dayNightSky();
 });
   
