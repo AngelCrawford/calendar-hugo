@@ -1,6 +1,8 @@
 aside {
     background: $sidebar-back;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .brand-logo {
         height: auto;
@@ -20,6 +22,10 @@ aside {
         .section-header {
             background: $sidebar-header;
             padding: 1em;
+            text-transform: uppercase;
+            h2.subtitle {
+                color: $sidebar-text;
+            }
         }
         .section-body {
             padding: 1em 1em 2em;
@@ -79,9 +85,50 @@ aside {
                 }
             }
         }
+    }
 
-        &.weather {
-            
+    footer {
+        padding: 1em 1em 2em;
+        font-size: 80%;
+        color: $small;
+        align-self: flex-end;
+        margin-top: auto;
+        width: 100%;
+
+        p, p:not(:first-of-type) {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            color: $sidebar-text;
+            text-decoration: underline;
+    
+            &:hover {
+                color: $text;
+            }
+        }
+
+        .navi ul {
+            margin-top: 1em; 
+
+            li {
+                width: auto;
+                display: inline-block;
+                border-left: 1px solid $sidebar-text;
+    
+                a {
+                    padding: .7em;
+                }
+                span.is-active {
+                    color: $text;
+                    padding: .7em;
+                }
+
+                &:first-of-type {
+                    border: none;
+                }
+            }
         }
     }
 }

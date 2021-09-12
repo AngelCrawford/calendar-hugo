@@ -1,7 +1,7 @@
 <aside>
 	<div class="brand-logo">
 		<h1 class="title">Cities in Dust</h1>
-		<a href="{{ .Site.BaseURL }}" title="Startseite"><img src="img/logo/logo.png" alt="Logo" /></a>
+		<a href="{{ .Site.BaseURL }}" title="Startseite"><img src="/img/logo/logo.png" alt="Logo" /></a>
 	</div>
 
 	<div class="section">
@@ -33,42 +33,6 @@
 							</span>
 						</li>
 					</a>
-				{{ end }}
-			</ul>
-		</div>
-	</div>
-
-	<div class="section weather">
-		<div class="section-header"><h2 class="subtitle">Wetter</h2></div>
-		<div class="section-body">
-
-			
-			<h1 id="temperature"></h1>
-			<h2 id="description"></h2>
-			<p id="location"></p>
-
-	
-			<div class="select is-primary">
-				<select>
-					<option selected>Schleswig-Holstein</option>
-					<option>Hamburg</option>
-					<option>With options</option>
-				</select>
-			</div>
-			
-
-		</div>
-	</div>
-
-
-	<div>
-		<div>
-			<h3>LATEST POSTS</h3>
-		</div>
-		<div>
-			<ul>
-				{{ range first 5 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-				<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 				{{ end }}
 			</ul>
 		</div>

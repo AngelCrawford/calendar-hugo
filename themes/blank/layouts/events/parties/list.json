@@ -1,6 +1,0 @@
-{{- $.Scratch.Add "partiesList" slice -}}
-{{- range where .Site.RegularPages "Section" "=" "parties" -}}
-
-    {{- $.Scratch.Add "partiesList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind) -}}
-{{- end -}}
-{{- $.Scratch.Get "partiesList" | jsonify -}}

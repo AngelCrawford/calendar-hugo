@@ -1,6 +1,0 @@
-{{- $.Scratch.Add "list" slice -}}
-{{- range where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-    
-    {{- $.Scratch.Add "list" (dict "title" .Title "tags" .Params.tags "content" .Summary "url" .Permalink) -}}
-{{- end -}}
-{{- $.Scratch.Get "list" | jsonify -}}

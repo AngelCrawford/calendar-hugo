@@ -1,5 +1,4 @@
 {{ define "main" }}
-	<main>
 		{{ if or .Title .Content }}
 		<div>
 			{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
@@ -8,7 +7,4 @@
 		{{ end }}
 
 		{{ .Render "summary" }}
-		
-	</main>
-{{ partial "sidebar.html" . }}
 {{ end }}

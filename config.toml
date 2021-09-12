@@ -7,7 +7,7 @@ theme = "blank"
 
 DefaultContentLanguage = "de"
 timeZone = "Europe/Berlin"
-copyright = "Design / Programmierung: <a href=\"https://angel-crawford.de/\" target=\"_blank\">Angel Crawford</a>. | Alle Rechte vorbehalten."
+copyright = "Design / Programmierung: <a href=\"https://angel-crawford.de/\" target=\"_blank\">Angel Crawford</a>.<br />Alle Rechte vorbehalten."
 
 # [frontmatter]
 #   lastmod = [":git", "lastmod"]

@@ -1,4 +1,21 @@
 <footer>
 	<p>Version <abbr title='Build Date: {{ readFile "buildDate.txt" }}'>{{ readFile "version.txt" }}</abbr> | Copyright &copy; 2020 - {{ dateFormat "2006" now }}</p>
 	<p>{{ .Site.Copyright | safeHTML }}</p>
+
+	<div class="has-text-centered navi">
+		{{- if .Site.Menus.footer -}}
+		  <ul>
+			{{- $currentPage := . -}}
+			{{- range .Site.Menus.footer -}}
+			  <li>
+				{{- if not (eq $currentPage.RelPermalink .URL) -}}
+				  <a href="{{ .URL }}" title="{{ .Name }} page">{{ .Name }}</a>
+				{{- else -}}
+				  <span class="is-active">{{ .Name }}</span>
+				{{- end -}}
+			  </li>
+			{{- end -}}
+		  </ul>
+		{{- end -}}
+	  </div>
 </footer>
