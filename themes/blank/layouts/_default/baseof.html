@@ -59,7 +59,10 @@
 		<div class="column">
 			<main>
 				{{ partial "header" . }}
-				{{ block "main" . }}{{ end }}
+
+				<div class="container">
+					{{ block "main" . }}{{ end }}
+				</div>
 			</main>
 		</div>
 	</div>

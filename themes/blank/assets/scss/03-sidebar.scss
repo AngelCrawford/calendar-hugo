@@ -83,6 +83,30 @@ aside {
             }
         }
 
+        // THANKS: https://codepen.io/uchardon/pen/bxbqoG
+        .wave-wrapper {
+            position: absolute;
+            width: 4vw;
+            height: auto;
+
+            top: 0;
+            margin-top: 15.4%;
+            margin-left: -1.7%;
+            // opacity: .7;
+
+            .wave {
+                fill: #4478e3;
+            }
+            #wave2 {
+                opacity: 1;
+            }
+            #wave3 {
+                opacity: .5;
+                margin-top: -10px;
+                margin-left: 15px;
+            }
+        }
+
         #sky-stars-wrapper {
             width: 16.5vw;
             height: 16.5vw;

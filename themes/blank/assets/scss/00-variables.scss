@@ -1,0 +1,34 @@
+//-------------------------------------------------------------------------------
+// Variables
+//-------------------------------------------------------------------------------
+
+// ***************** COLORS *****************
+$background     : #2f2f2f;
+$sidebar-back   : #003333;
+$sidebar-header : #002825;
+$sidebar-text   : #9e9e9e;
+$back           : $sidebar-back;
+$text           : #9e9e9e;
+$small          : #9e9e9e;
+$link           : #4caf50;
+$hover          : #b87333;
+$primary        : #e0b361;
+$accent         : #b87333;
+
+$family-primary: 'Montserrat-Regular';
+$family-secondary: 'Montserrat-Regular';
+
+// ***************** NAVBAR *****************
+$navbar-fixed-z: 30;
+$navbar-background-color: transparent;
+
+$navbar-item-color: $text;
+// $navbar-item-background-color: $back;
+
+$navbar-item-hover-color: $back;
+$navbar-item-hover-background-color: rgba(#000000, .5);
+
+$navbar-item-active-color: back;
+$navbar-item-active-background-color: transparent;
+
+$navbar-burger-color: red;

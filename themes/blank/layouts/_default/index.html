@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-
 	<input id="hh" class="event_filter" name="event_filter_sel" type="checkbox" value="hh" data-type="state" />
 	<label for="hh">Hamburg</label>
 	<input id="sh" class="event_filter" name="event_filter_sel" type="checkbox" value="sh" data-type="state" />
@@ -21,6 +20,5 @@
 	{{  range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 		{{ .Render "summary" }}
 	{{ end }}
-
 
 {{ end }}

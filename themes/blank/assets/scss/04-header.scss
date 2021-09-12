@@ -1,0 +1,36 @@
+// NAVIGATION
+
+.navbar-start {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .navbar-item {
+        flex-grow: 1;
+        @include font-header;
+        background: $back;
+
+        span {
+            width: 100%;
+            text-align: center;
+        }
+
+        svg.remix {
+            fill: $text;
+            @include translate(-5px, 6px);
+        }
+
+        &.is-active svg.remix {
+            fill: $back;
+            @include translate(-5px, 6px);
+        }
+
+        &:hover svg.remix {
+            fill: $back;
+        }
+    }
+}
+
+.navbar-end {
+    background: $back;
+}
