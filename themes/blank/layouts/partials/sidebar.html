@@ -15,10 +15,8 @@
 	<div class="section festival">
 		<div class="section-header"><h2 class="subtitle">Festivalzähler</h2></div>
 		<div class="section-body">
-
 			<ul>
 				{{ range sort $.Site.Data.festivalcounter "start" "asc" }}
-					
 					{{ $start := .start }}
 					{{ $ageDays := div (sub .start.Unix now.Unix) 86400 }}
 					{{ $days := add $ageDays 1 }}
@@ -40,9 +38,24 @@
 		</div>
 	</div>
 
-	<div class="section">
+	<div class="section weather">
 		<div class="section-header"><h2 class="subtitle">Wetter</h2></div>
 		<div class="section-body">
+
+			
+			<h1 id="temperature"></h1>
+			<h2 id="description"></h2>
+			<p id="location"></p>
+
+	
+			<div class="select is-primary">
+				<select>
+					<option selected>Schleswig-Holstein</option>
+					<option>Hamburg</option>
+					<option>With options</option>
+				</select>
+			</div>
+			
 
 		</div>
 	</div>

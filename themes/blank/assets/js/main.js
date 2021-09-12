@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
 
-      console.log(info.el);
+      // console.log(info.el);
       if (info.event.extendedProps.content != '') {
         // data-tooltip="{{ .name }}" 
         $(info.el).addClass('has-tooltip-multiline').attr('data-tooltip', info.event.extendedProps.content);

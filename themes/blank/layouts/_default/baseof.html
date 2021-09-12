@@ -31,8 +31,9 @@
 	{{- $fullGoogle := resources.Get "js/fullcalendar-google.js" -}}
 	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
 	<!-- {{- $fullMomentTz := resources.Get "js/fullcalendar-moment-tz.js" -}} -->
+	{{- $weather := resources.Get "js/weather.js" -}}
 	
-	{{- $script := slice $jQuery $moment $fullCore $fullDaygrid $fullList $fullDe $fullGoogle $fullMoment $main | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $jQuery $moment $fullCore $fullDaygrid $fullList $fullDe $fullGoogle $fullMoment $main $weather | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	<script src="{{ $script.Permalink }}"></script>
 
 	<!-- Favicon -->
