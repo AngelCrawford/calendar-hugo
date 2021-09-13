@@ -30,7 +30,12 @@
 	<!-- Fullcalendar -->
 	{{- $fullCore := resources.Get "js/fullcalendar.js" -}}
 	{{- $fullDe := resources.Get "js/fullcalendar-de.js" -}}
-	
+
+
+	<!-- FIXME: Moment.js im Kalender funktioniert nicht, siehe wechsel Monat auf Woche! -->
+
+
+
 	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $suncalc $main $header $firework | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	
 	<script src="{{ $script.Permalink }}"></script>
