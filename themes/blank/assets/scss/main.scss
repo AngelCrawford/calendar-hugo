@@ -6,9 +6,7 @@
  * Description: Theme for Cities in Dust.
 */
 
-@import "fullcalendar/core";
-@import "fullcalendar/daygrid";
-@import "fullcalendar/list";
+@import "fullcalendar/fullcalendar";
 
 @import "00-variables";
 @import "01-fonts";
@@ -17,6 +15,7 @@
 @import "bulma/bulma";
 @import "03-sidebar";
 @import "04-header";
+@import "05-fullcalendar";
 
 html {
   font-size: 15px;
