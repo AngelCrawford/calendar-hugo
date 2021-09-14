@@ -1,12 +1,85 @@
+$event-concert:  #009688;
+$event-other:    #7fb4a6;
+$event-festival: #005f5c;
+$event-party:    #53c0a2;
+
 #calendar-filter {
     position: absolute;
     margin-top: 10em;
+
+    input {
+        float: left;
+        display: none;
+
+        &:not(:checked) + label {
+            background: rgba(#000000, .3);
+            color: darken(#607d8b, 30%);
+
+            &::before {
+                content: "\eb98";
+            }
+        }
+    }
+    label {
+        float: right;
+        background: black;
+        padding: 0 20px 0 60px;
+        margin: 0 1em 0 0;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        color: #ffffff;
+        font-weight: 600;
+        transition: all linear .1s;
+
+        &::before {
+            font-family: 'remixicon' !important;
+            content: "\eb7a";
+            position: absolute;
+            font-size: 20px;
+            font-weight: 900;
+            margin-left: -60px;
+            line-height: 40px;
+            text-align: center;
+            height: 40px;
+            width: 40px;
+            background: rgba(#000000, .2);
+            color: #ffffff;
+            transition: all linear .1s;
+        }
+
+        &.sh, &.hh {
+            background: #607d8b;
+        }
+        &.party {
+            background: $event-party;
+        }
+        &.festival {
+            background: $event-festival;
+        }
+        &.concert {
+            background: $event-concert;
+        }
+        &.other {
+            background: $event-other;
+        }
+
+        &:hover {
+            background: rgba(#000000, .3);
+            color: darken(#607d8b, 30%);
+
+            &::before {
+                content: "\eb98";
+            }
+        }
+    }
+    
 }
+
 
 #calendar {
     margin-bottom: 1.5rem;
     color: #ffffff;
-
 
     .fc-header-toolbar {
         margin-bottom: 10em;
@@ -18,21 +91,47 @@
         }
     }
 
-    a.fc-event.hidden {
-        display: none;
+    a.fc-event.hidden,
+    .festival .fc-time, 
+    .fc-event-time {
+        // display: none;
     }
-    
-    
-    .festival .fc-time {
-        display: none;
-    }
-    
-    .past-event:not(.holiday) {
-        background-color: grey !important; 
+        
+    .fc-daygrid-event {
+        white-space: normal;
+        border-radius: 0;
+        color: #ffffff;
+        font-size: 15px;
+        margin: 0 0 7px 0;
+        padding: .7em 1em;
         border: none;
+
+        .fc-event-title {
+            font-weight: 400;
+        }
+
+        .fc-daygrid-event-dot {
+            display: none;
+        }
+
+        &.concert {
+            background: $event-concert;
+        }
+        &.party {
+            background: $event-party;
+        }
+        &.festival {
+            background: $event-festival;
+        }
+        &.other {
+            background: $event-other;
+        }
+
+        &.past-event {
+            background: #607d8b;
+            opacity: .7;
+            color: darken(#607d8b, 30%);
+        }
     }
     
-    .fc-day-grid-event .fc-content {
-      white-space: normal;
-    }
 }

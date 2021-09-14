@@ -68,14 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
         content: tooltip,
         allowHTML: true
       });
-    },
-    eventClassNames: function(info) {
 
       // Past Event, add a class
       var d = new Date();
       if (info.event.end < d) {
         $(info.el).addClass("past-event");
       }
+    },
+    eventClassNames: function(info) {
         
       var result = true;
       var states = [];
@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
           kinds.push($(this).val());
         }
       });
+      
+      console.log(kinds);
       
       // If there are locations to check
       if (states.length) {
