@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -12,14 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
     weekNumbers: true,
     initialView: 'dayGridMonth',
     googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
-    eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
+    eventTimeFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    },
     views: {
       dayGridWeek: {
-        titleFormat: '{DD. {MMMM}} YYYY'
+        titleFormat: '{DD.{MM.}}YYYY'
       },
       listWeek: {
-        titleFormat: '{DD.{MM.}}YYYY',
-      //   listDayAltFormat: 'DD.MM.YY',
+        titleFormat: '{DD.{MM.}}YYYY'
       }
     },
     eventSources: [
@@ -58,20 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
         url: 'de.german#holiday@group.v.calendar.google.com' 
       }        
     ],
+    eventDidMount: function(info) {
+      var tooltip = "<strong>" + info.event.title + "</strong><br />" + info.event.extendedProps.content;
+      tippy(info.el, {
+        content: tooltip,
+        allowHTML: true
+      });
+    },
     eventClassNames: function(info) {
-
-      // console.log(info.el);
-      // if (info.event.extendedProps.content != '') {
-      //   // data-tooltip="{{ .name }}" 
-      //   $(info.el).addClass('has-tooltip-multiline').attr('data-tooltip', info.event.extendedProps.content);
-      // }
-
-      // new Tooltip(info.el, {
-      //   title: info.event.extendedProps.content,
-      //   placement: 'top',
-      //   trigger: 'hover',
-      //   container: 'body'
-      // });
 
       // Past Event, add a class
       var d = new Date();
@@ -135,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   
-
+  // ***************** Night Sky Funktion einmal aufrufen
   dayNightSky();
   
 

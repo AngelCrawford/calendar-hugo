@@ -21,8 +21,9 @@
 	<!-- Scripts -->
 	{{- $jQuery := resources.Get "js/jquery-3.6.0.js" -}}
 	{{- $momentJS := resources.Get "js/moment.js" -}}
-	{{- $main := resources.Get "js/main.js" -}}
+	{{- $tooltip := resources.Get "js/tooltip.js" -}}
 	
+	{{- $main := resources.Get "js/main.js" -}}
 	{{- $suncalc := resources.Get "js/suncalc.js" -}}
 	{{- $header := resources.Get "js/header.js" -}}
 	{{- $firework := resources.Get "js/firework.js" -}}
@@ -30,13 +31,9 @@
 	<!-- Fullcalendar -->
 	{{- $fullCore := resources.Get "js/fullcalendar.js" -}}
 	{{- $fullDe := resources.Get "js/fullcalendar-de.js" -}}
+	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
 
-
-	<!-- FIXME: Moment.js im Kalender funktioniert nicht, siehe wechsel Monat auf Woche! -->
-
-
-
-	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $suncalc $main $header $firework | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $fullMoment $tooltip $suncalc $main $header $firework | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	
 	<script src="{{ $script.Permalink }}"></script>
 
