@@ -129,12 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
   $('input[class=event_filter]').change(function() {
     calendar.render();
   });
-
-
-
-  
-  // ***************** Night Sky Funktion einmal aufrufen
-  dayNightSky();
   
 
   // Bulma Navbar Header Toggle

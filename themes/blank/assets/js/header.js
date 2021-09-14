@@ -8,6 +8,8 @@ function dayNightSky() {
     var location = {lat:"53.551086", long:"9.993682"};
     var now = new Date();
     var times = SunCalc.getTimes(now, location.lat, location.long);
+
+    // console.log("2021-09-14T18:17:46.660Z");
     // console.log(SunCalc.getTimes(now, location.lat, location.long));
   
     var nightStart = [ times.night.getHours(), times.night.getMinutes() + 1 ];
@@ -26,7 +28,7 @@ function dayNightSky() {
         { start: nightStart, end: nightEnd, class: "night" },
         { start: dawnStart, end: dawnEnd, class: "dawn" },
         { start: dayStart, end: dayEnd, class: "day" },
-        { start: duskStart, end: duskEnd, class: "dusk" }
+        { start: duskStart, end: duskEnd, class: "night" }
     ]
   
     // Start by looping through the objects in the timeBlocks array
@@ -129,3 +131,8 @@ function to_hm_string(timearr){
     // console.log(hours + ":" + minutes);
     return hours + ":" + minutes;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ***************** Night Sky Funktion einmal aufrufen
+    dayNightSky();
+});

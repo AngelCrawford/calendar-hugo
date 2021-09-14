@@ -16,7 +16,6 @@ aside {
         }
 
         h1.title {
-            // display: none;
             @include font-header;
             font-size: 7.3vw;
             margin-top: 2.7%;
@@ -54,7 +53,7 @@ aside {
         #fog {
             position: absolute;
             width: 16.5vw;
-            height: 16.5vw;;
+            height: 16.5vw;
             z-index: 3;
             opacity: .4;
 
@@ -64,22 +63,64 @@ aside {
             background-size: 150% 50%;
         }
 
+        .sun {
+            position: absolute;
+            margin-top: 8%;
+            margin-left: 5%;
+            #sun {
+                fill: #e0d8a6;
+            }
+        }
+
+        .moon {
+            position: absolute;
+            margin-top: 9%;
+            margin-left: 6.2%;
+        }
+
         &.sky {
-            background: radial-gradient(circle, rgba(#85e1e4, 1) 0%, rgba(#4cc5c9, 1) 50%, rgba($text, 1) 100%);
+            background: radial-gradient(circle, rgba(#031122, 1) 0%, rgba(#062629, 1) 75%, rgba(#0c3733, 1) 100%);
+            .moon {
+                display: none;
+            }
         
             &.night {
-                background: radial-gradient(circle, rgba(#031e22, 1) 0%, rgba(#062629, 1) 75%, rgba(#0c3733, 1) 100%);
+                background: radial-gradient(circle, rgba(#031122, 1) 0%, rgba(#062629, 1) 75%, rgba(#0c3733, 1) 100%);
+                .sun {
+                    display: none;
+                }
+                .moon {
+                    display: block;
+                }
             }
             &.dawn {
                 // day start
-                background: radial-gradient(ellipse at bottom, rgba(#0c1a37, 1) 0%, rgba(#2c449d, 1) 50%, rgba(#ce98af, 1) 100%);
+                background: radial-gradient(ellipse at bottom, rgba(#b98b45, 1) 0%, rgba(#b3849f, 1) 75%, rgba(#3d5096, 1) 100%);
+                #sun {
+                    fill: #e7c27c;
+                }
+                .moon {
+                    display: none;
+                }
             }
             &.day {
                 background: radial-gradient(circle, rgba(#85e1e4, 1) 0%, rgba(#4cc5c9, 1) 50%, rgba($text, 1) 100%);
+                #sun {
+                    fill: #ffffff;
+                }
+                .moon {
+                    display: none;
+                }
             }
             &.dusk {
                 // day evening
-                background: radial-gradient(ellipse at bottom, rgba(#0c1a37, 1) 0%, rgba(#2c449d, 1) 50%, rgba(#ef8d5c, 1) 100%);
+                background: radial-gradient(ellipse at bottom, rgba(#ef8d5c, 1) 0%, rgba(#2c449d, 1) 80%, rgba(#0c1a37, 1) 100%);
+                #sun {
+                    fill: #e0d8a6;
+                }
+                .moon {
+                    display: none;
+                }
             }
         }
 
@@ -109,7 +150,7 @@ aside {
 
         #sky-stars-wrapper {
             width: 16.5vw;
-            height: 16.5vw;
+            height: 14vw;
             position: absolute;
             overflow: hidden;
             z-index: 1;
