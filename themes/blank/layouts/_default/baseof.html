@@ -59,9 +59,11 @@
 			<main>
 				{{ partial "header" . }}
 
-				<div class="container">
-					{{ block "main" . }}{{ end }}
-				</div>
+				<section class="section">
+					<div class="container">
+						{{ block "main" . }}{{ end }}
+					</div>
+				</section>
 			</main>
 		</div>
 	</div>

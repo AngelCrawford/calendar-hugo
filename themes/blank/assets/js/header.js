@@ -28,7 +28,7 @@ function dayNightSky() {
         { start: nightStart, end: nightEnd, class: "night" },
         { start: dawnStart, end: dawnEnd, class: "dawn" },
         { start: dayStart, end: dayEnd, class: "day" },
-        { start: duskStart, end: duskEnd, class: "night" }
+        { start: duskStart, end: duskEnd, class: "dusk" }
     ]
   
     // Start by looping through the objects in the timeBlocks array

@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     timeZone: 'Europe/Berlin',
     locale: 'de',
     headerToolbar: {
-      left: 'prev,today,next',
-      center: 'title',
-      right: 'dayGridMonth,dayGridWeek,listWeek'
+      left: 'title',
+      center: '',
+      right: 'prev,today,next dayGridMonth,dayGridWeek,listWeek'
     },
     weekNumbers: true,
     initialView: 'dayGridMonth',

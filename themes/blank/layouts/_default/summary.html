@@ -1,13 +1,23 @@
-<article>
-	<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-	<time>{{ .Date.Format "02.01.2006 15:04" }}</time>
-	{{ range .Params.tags }}
-	<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-	{{ end }}
-	<div>
-		{{ .Summary }}
-		{{ if .Truncated }}
-			<a href="{{ .Permalink }}">Read more...</a>
-		{{ end }}
-	</div>
+<article class='message {{ if eq .Params.kind "info" }} message-info{{ end }}{{ if eq .Params.kind "warning" }} message-warning{{ end }}{{ if eq .Params.kind "shoutout" }} message-shoutout{{ end }}'>
+	<div class="columns is-gapless">
+		<div class="column is-1"></div>
+		<div class="column">
+			<div class="message-header">
+				<a href="{{ .Permalink }}">{{ .Title }}</a>
+				<button class="delete" aria-label="delete"></button>
+			</div>
+			<div class="message-body">
+				<time>{{ .Date.Format "02.01.2006 15:04" }}</time>
+				<div>
+					{{ .Summary }}
+					{{ if .Truncated }}
+						<a href="{{ .Permalink }}">Read more...</a>
+					{{ end }}
+				</div>
+			</div>
+
+
+		</div>
+	  </div>
+	
 </article>

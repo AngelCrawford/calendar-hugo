@@ -1,4 +1,38 @@
+#calendar-filter {
+    position: absolute;
+    margin-top: 10em;
+}
 
-a.fc-event.hidden {
-    display: none;
+#calendar {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+
+
+    .fc-header-toolbar {
+        margin-bottom: 10em;
+
+        h2.fc-toolbar-title {
+            @include font-header;
+            letter-spacing: 1px;
+            font-size: 50px;
+        }
+    }
+
+    a.fc-event.hidden {
+        display: none;
+    }
+    
+    
+    .festival .fc-time {
+        display: none;
+    }
+    
+    .past-event:not(.holiday) {
+        background-color: grey !important; 
+        border: none;
+    }
+    
+    .fc-day-grid-event .fc-content {
+      white-space: normal;
+    }
 }
