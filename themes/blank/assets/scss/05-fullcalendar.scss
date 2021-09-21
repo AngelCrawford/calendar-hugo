@@ -5,7 +5,7 @@ $event-party:    #53c0a2;
 
 #calendar-filter {
     position: absolute;
-    margin-top: 10em;
+    margin-top: 8em;
 
     input {
         float: left;
@@ -65,11 +65,25 @@ $event-party:    #53c0a2;
         }
 
         &:hover {
-            background: rgba(#000000, .3);
-            color: darken(#607d8b, 30%);
 
             &::before {
                 content: "\eb98";
+            }
+
+            &.sh, &.hh {
+                background: darken(#607d8b, 10%);
+            }
+            &.party {
+                background: darken($event-party, 10%);
+            }
+            &.festival {
+                background: darken($event-festival, 5%);
+            }
+            &.concert {
+                background: darken($event-concert, 7%);
+            }
+            &.other {
+                background: darken($event-other, 10%);
             }
         }
     }
@@ -78,7 +92,7 @@ $event-party:    #53c0a2;
 
 
 #calendar {
-    margin-bottom: 1.5rem;
+    margin-bottom: 5rem;
     color: #ffffff;
 
     .fc-header-toolbar {
@@ -89,12 +103,95 @@ $event-party:    #53c0a2;
             letter-spacing: 1px;
             font-size: 50px;
         }
+
+        button {
+            border-radius: 0;
+            height: 45px;
+            border: none;
+            padding: .7em;
+            font-weight: 600;
+
+            &.fc-button-primary {
+                background: $sidebar-back;
+            }
+            &.fc-button-primary:not(.fc-prev-button):not(.fc-next-button) {
+                padding-left: 1.2em;
+                padding-right: 1.2em;
+            }
+            
+            &.fc-today-button {
+                background: $link;
+            }
+
+            &:disabled {
+                background: $disabled;
+                opacity: 1;
+                cursor: not-allowed;
+            }
+
+            &.fc-button-active {
+                background: $disabled;
+                cursor: not-allowed;
+            }
+
+            &:hover:not(:disabled):not(.fc-button-active) {
+                background: $link;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
     }
+
+    table, table tr, table td {
+        border: none;
+    }
+
+    tr.fc-scrollgrid-section-sticky > * {
+        background: transparent !important;
+    }
+
+    table {
+        border-collapse: separate;
+        border-spacing: 10px 0;
+    }
+
+    table.fc-col-header th.fc-day {
+        background: $sidebar-header;
+        border: none;
+        padding: .5em 1em;
+
+        a {
+            color: #ffffff;
+        }
+
+
+        &.fc-day-today {
+            background: $link;
+        }
+    }
+
+    table.fc-scrollgrid-sync-table td {
+        &.fc-day {
+            background: rgba($sidebar-back, 1);
+    
+            .fc-daygrid-day-frame {
+                min-height: 400px;
+            }
+        }
+
+        &.fc-day-past {
+            background: rgba($sidebar-back, .5);
+        }
+    }
+
+
 
     a.fc-event.hidden,
     .festival .fc-time, 
     .fc-event-time {
-        // display: none;
+        display: none;
     }
         
     .fc-daygrid-event {
@@ -128,9 +225,9 @@ $event-party:    #53c0a2;
         }
 
         &.past-event {
-            background: #607d8b;
+            background: $disabled;
             opacity: .7;
-            color: darken(#607d8b, 30%);
+            color: darken($disabled, 30%);
         }
     }
     

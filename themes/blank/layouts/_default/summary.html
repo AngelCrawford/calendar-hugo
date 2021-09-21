@@ -3,15 +3,21 @@
 		<div class="column is-1"></div>
 		<div class="column">
 			<div class="message-header">
-				<a href="{{ .Permalink }}">{{ .Title }}</a>
+				{{ if eq .Permalink "" }}
+					{{ .Title }}
+				{{ else }}
+					<a href="{{ .Permalink }}">{{ .Title }}</a>
+				{{ end }}
 				<button class="delete" aria-label="delete"></button>
 			</div>
 			<div class="message-body">
 				<time>{{ .Date.Format "02.01.2006 15:04" }}</time>
 				<div>
 					{{ .Summary }}
-					{{ if .Truncated }}
-						<a href="{{ .Permalink }}">Read more...</a>
+					{{ if ne .Permalink "" }}
+						{{ if .Truncated }}
+							<a href="{{ .Permalink }}">Read more...</a>
+						{{ end }}
 					{{ end }}
 				</div>
 			</div>

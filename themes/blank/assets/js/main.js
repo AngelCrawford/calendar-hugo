@@ -5,18 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: 'Europe/Berlin',
     locale: 'de',
+    height: 'auto',
+    // aspectRatio: 2,
     headerToolbar: {
       left: 'title',
       center: '',
-      right: 'prev,today,next dayGridMonth,dayGridWeek,listWeek'
+      right: 'prev,today,next dayGridWeek,listWeek'
     },
     weekNumbers: true,
-    initialView: 'dayGridMonth',
+    initialView: 'dayGridWeek',
     googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
     eventTimeFormat: {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false
+    },
+    dayHeaderContent: function(args) {
+ 
+        console.log(args);
+
+        return "<span>" + moment(args.date).format('dd') + "</span>" + moment(args.date).format('DD.MM.');
     },
     views: {
       dayGridWeek: {
@@ -28,30 +36,23 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     eventSources: [
       {
-        className: 'party',
-        url: '/parties/index.json',
-        color: 'yellow',
-        textColor: 'black',
+        eventDataTransform: function(eventData) {
+          if(eventData.kind == "concert") {
+            eventData.className = "concert";
+          }
+          if(eventData.kind == "party") {
+            eventData.className = "party";
+          }
+          if(eventData.kind == "festival") {
+            eventData.className = "festival";
+          }
+          if(eventData.kind == "other") {
+            eventData.className = "other";
+          }
+        },
+        url: '/events/index.json'
       },
       {
-        className: 'concert',
-        url: '/concerts/index.json',
-        color: 'orange',
-        textColor: 'black',
-      },
-      {
-        className: 'festival',
-        url: '/festivals/index.json',
-        color: 'brightblue',
-        textColor: 'white'
-      },
-      {
-        className: 'other',
-        url: '/others/index.json',
-        color: 'red',
-        textColor: 'white'
-      },
-      { 
         eventDataTransform: function(eventData) {
           eventData.display = 'background';
           eventData.kind = 'holiday';
@@ -64,10 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
     ],
     eventDidMount: function(info) {
       var tooltip = "<strong>" + info.event.title + "</strong><br />" + info.event.extendedProps.content;
-      tippy(info.el, {
-        content: tooltip,
-        allowHTML: true
-      });
+
+      if(info.event.extendedProps.kind != "holiday") {
+        tippy(info.el, {
+          content: tooltip,
+          allowHTML: true
+        });
+      }
 
       // Past Event, add a class
       var d = new Date();
@@ -95,11 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      console.log(kinds);
+      // console.log(info.event.title + " - " + info.event.extendedProps.state + " - " + states.length);
       
       // If there are locations to check
       if (states.length) {
-        result = result && states.indexOf(info.event.extendedProps.state) >= 0;
+        result = result && states.indexOf(info.event.extendedProps.state) >= 0 || info.event.extendedProps.state === null;
       }
       // If there are specific types of events
       if (kinds.length) {
