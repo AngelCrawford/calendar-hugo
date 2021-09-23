@@ -15,7 +15,7 @@
             }
 
             &:hover {
-                color: #ffffff;
+                color: $text;
 
                 &::before {
                     content: "\eb7a";
@@ -31,7 +31,7 @@
         height: 40px;
         line-height: 40px;
         cursor: pointer;
-        color: #ffffff;
+        color: $text;
         font-weight: 600;
         transition: all linear .1s;
 
@@ -47,7 +47,7 @@
             height: 40px;
             width: 40px;
             background: rgba(#000000, .2);
-            color: #ffffff;
+            color: $text;
             transition: all linear .1s;
         }
 
@@ -93,10 +93,14 @@
     
 }
 
+:root {
+    --fc-list-event-hover-bg-color: transparent;
+}
+
 
 #calendar {
     margin-bottom: 5rem;
-    color: #ffffff;
+    color: $text;
 
     .fc-header-toolbar {
         margin-bottom: 10em;
@@ -147,91 +151,86 @@
         }
     }
 
-    table, table tr, table td {
+    table, table tr, table td, table th,
+    .fc-list table.fc-list-table th,
+    .fc-list {
         border: none;
     }
 
-    tr.fc-scrollgrid-section-sticky > * {
-        background: transparent !important;
-    }
+    // table {
+    //     border-collapse: separate;
+    //     border-spacing: 0 10px;
+    // }
 
-    table {
-        // border-collapse: separate;
-        // border-spacing: 10px 0;
-    }
-
-    table.fc-col-header th.fc-day {
-        background: $sidebar-header;
-        border: none;
-        padding: .5em 1em;
-
-        a {
-            color: #ffffff;
-        }
-
-
-        &.fc-day-today {
-            background: $link;
-        }
-    }
-
-    table.fc-scrollgrid-sync-table td {
-        &.fc-day {
-            background: rgba($sidebar-back, 1);
-    
-            .fc-daygrid-day-frame {
-                min-height: 400px;
-            }
-        }
-
-        &.fc-day-past {
-            background: rgba($sidebar-back, .5);
-        }
-    }
-
-
-
-    .fc-event.hidden,
+    tr.fc-list-event.hidden,
     .festival .fc-time, 
     .fc-event-time {
         display: none;
     }
-        
-    .fc-daygrid-event {
-        white-space: normal;
-        border-radius: 0;
-        color: #ffffff;
-        font-size: 15px;
-        margin: 0 0 7px 0;
-        padding: .7em 1em;
+
+    .fc-list-day .fc-list-day-cushion {
+        background-color: $sidebar-header;
         border: none;
 
-        .fc-event-title {
-            font-weight: 400;
+        a.fc-list-day-text,
+        a.fc-list-day-side-text {
+            color: $text;
+            text-transform: uppercase;
+            @include font-header;
         }
+    }
 
-        .fc-daygrid-event-dot {
+    .fc-list-event {
+        margin: 1em 0;
+        // display: block;
+        // width: 100%;
+
+        .fc-list-event-graphic {
             display: none;
         }
 
-        &.concert {
+        &.concert .fc-list-event-title {
             background: $event-concert;
         }
-        &.party {
+        &.party .fc-list-event-title {
             background: $event-party;
         }
-        &.festival {
+        &.festival .fc-list-event-title {
             background: $event-festival;
         }
-        &.other {
+        &.other .fc-list-event-title {
             background: $event-other;
         }
 
-        &.past-event {
+        &.past-event .fc-list-event-title {
             background: $disabled;
-            opacity: .7;
+            // opacity: .7;
             color: darken($disabled, 30%);
         }
+
+        &:hover, &:hover .fc-list-event-title {
+            // background: green !important;
+
+            .fc-list-event-title a {
+                text-decoration: none;
+            }
+        }
+
+        .fc-list-event-time {
+            width: 150px;
+            padding: 0;
+            vertical-align: middle;
+            color: $text;
+            font-weight: 600;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+
+            span {
+                font-size: 2rem;
+            }
+            // border: 1px solid purple;
+        }
     }
-    
+
 }

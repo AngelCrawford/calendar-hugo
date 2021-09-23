@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    timeZone: 'Europe/Berlin',
+    timeZone: 'local',
     locale: 'de',
     height: 'auto',
     // aspectRatio: 2,
@@ -13,18 +13,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // right: 'prev,today,next dayGridWeek,listWeek'
       right: 'prev,today,next'
     },
-    weekNumbers: true,
+    // weekNumbers: true,
     initialView: 'listWeek',
-    googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+    // googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
     eventTimeFormat: {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false
     },
-    // dayHeaderContent: function(args) {
-    //     console.log(args);
-    //     return "<span>" + moment(args.date).format('dd') + "</span>" + moment(args.date).format('DD.MM.');
-    // },
+    dayHeaderContent: function(args) {
+        args.sideText = moment(args.date).format('DD.MM.YY');
+    },
     views: {
       dayGridWeek: {
         titleFormat: '{DD.{MM.}}YYYY'
@@ -50,39 +49,23 @@ document.addEventListener('DOMContentLoaded', function() {
         eventDataTransform: function(eventData) {
           if(eventData.kind == "concert") {
             eventData.className = "concert";
-            eventData.backgroundColor = "#009688";
           }
           if(eventData.kind == "party") {
             eventData.className = "party";
-            eventData.backgroundColor = "#53c0a2";
           }
           if(eventData.kind == "festival") {
             eventData.className = "festival";
-            eventData.backgroundColor = "#005f5c";
           }
           if(eventData.kind == "other") {
             eventData.className = "other";
-            eventData.backgroundColor = "#7fb4a6";
           }
           if(eventData.kind == "holiday") {
             eventData.className = "holiday";
             eventData.allDay = true;
-            eventData.backgroundColor = "red";
           }
         },
         url: '/events/index.json'
-      },
-      {
-        eventDataTransform: function(eventData) {
-          eventData.display = 'background';
-          eventData.kind = 'holiday';
-          eventData.groupId = 'holiday';
-          eventData.allDay = true;
-        },
-        className: 'holiday',
-        // url: 'de.german#holiday@group.v.calendar.google.com' 
-        // url: '/data/holidays.json'
-      }        
+      }    
     ],
     eventDidMount: function(info) {
       var tooltip = "<strong>" + info.event.title + "</strong><br />" + info.event.extendedProps.content;
@@ -99,6 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
       if (info.event.end < d) {
         $(info.el).addClass("past-event");
       }
+
+      startDate = moment(info.event.start).format('HH:mm');
+      endDate = moment(info.event.end).format('HH:mm');
+      string = '<span>' + startDate + '</span><br />- ' + endDate + ' Uhr';
+
+      var eventTime = $(info.el).find('.fc-list-event-time');
+      if (eventTime.text() == 'Ganztägig') {
+        eventTime.html('<span>00:00</span><br />- 00:00 Uhr');
+      } else {
+        eventTime.html(string);
+      }
+
     },
     eventClassNames: function(info) {
         
@@ -138,20 +133,20 @@ document.addEventListener('DOMContentLoaded', function() {
       return result;
     },
 
-    windowResize: function(view) {
-      var current_view = view.type;
-      var expected_view = $(window).width() > 800 ? 'dayGridMonth' : 'listWeek';
-      if (current_view !== expected_view) {
-        calendar.changeView(expected_view);
-      }
-    },
+    // windowResize: function(view) {
+    //   var current_view = view.type;
+    //   var expected_view = $(window).width() > 800 ? 'dayGridMonth' : 'listWeek';
+    //   if (current_view !== expected_view) {
+    //     calendar.changeView(expected_view);
+    //   }
+    // },
   });
 
   calendar.render();
 
-  if ($(window).width() < 800) {
-    calendar.changeView('listWeek');
-  }
+  // if ($(window).width() < 800) {
+  //   calendar.changeView('listWeek');
+  // }
 
   $('input[class=event_filter]').change(function() {
     calendar.render();

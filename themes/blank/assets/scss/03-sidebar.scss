@@ -106,7 +106,7 @@ aside {
             &.day {
                 background: radial-gradient(circle, rgba(#85e1e4, 1) 0%, rgba(#4cc5c9, 1) 50%, rgba($text, 1) 100%);
                 #sun {
-                    fill: #ffffff;
+                    fill: $text;
                 }
                 .moon {
                     display: none;
@@ -329,7 +329,7 @@ aside {
                             content: "\f08f";
                             position: relative;
                             top: 3px;
-                            color: #fff;
+                            color: $text;
                             padding-left: 10px;
                         }
                     }

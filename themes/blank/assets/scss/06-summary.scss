@@ -9,7 +9,7 @@ article.message {
         &::after {
             font-size: 80px;
             text-align: center;
-            color: #ffffff;    
+            color: $text;    
             font-family: "remixicon";
             margin: auto;
         }
@@ -22,7 +22,7 @@ article.message {
     }
     .message-body {
         padding: 20px;
-        color: darken(#ffffff, 20%);
+        color: darken($text, 20%);
     }
 
     &.message-warning {

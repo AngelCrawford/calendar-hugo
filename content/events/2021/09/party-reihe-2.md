@@ -1,8 +1,8 @@
 ---
 title: "Party Reihe #2"
 date: 2020-05-20T21:13:32-04:00
-startDate: 2021-09-20T10:58:08-04:00
-endDate: 2021-09-20T20:00:08-04:00
+startDate: 2021-09-20T10:58:08
+endDate: 2021-09-20T20:00:08
 authors: angel
 state: hh
 kind: party
