@@ -18,6 +18,14 @@ $event-party:    #53c0a2;
             &::before {
                 content: "\eb98";
             }
+
+            &:hover {
+                color: #ffffff;
+
+                &::before {
+                    content: "\eb7a";
+                }
+            }
         }
     }
     label {
@@ -153,8 +161,8 @@ $event-party:    #53c0a2;
     }
 
     table {
-        border-collapse: separate;
-        border-spacing: 10px 0;
+        // border-collapse: separate;
+        // border-spacing: 10px 0;
     }
 
     table.fc-col-header th.fc-day {
@@ -188,7 +196,7 @@ $event-party:    #53c0a2;
 
 
 
-    a.fc-event.hidden,
+    .fc-event.hidden,
     .festival .fc-time, 
     .fc-event-time {
         display: none;

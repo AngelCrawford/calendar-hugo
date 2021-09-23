@@ -5,6 +5,7 @@ startDate: 2021-09-20T10:58:08-04:00
 endDate: 2021-09-20T20:00:08-04:00
 state: hh
 kind: concert
+summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ---
 
 Lorem ipsum *dolor* sit amet, consetetur sadipscing elitr, 

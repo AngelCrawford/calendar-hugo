@@ -10,22 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
     headerToolbar: {
       left: 'title',
       center: '',
-      right: 'prev,today,next dayGridWeek,listWeek'
+      // right: 'prev,today,next dayGridWeek,listWeek'
+      right: 'prev,today,next'
     },
     weekNumbers: true,
-    initialView: 'dayGridWeek',
+    initialView: 'listWeek',
     googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
     eventTimeFormat: {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false
     },
-    dayHeaderContent: function(args) {
- 
-        console.log(args);
-
-        return "<span>" + moment(args.date).format('dd') + "</span>" + moment(args.date).format('DD.MM.');
-    },
+    // dayHeaderContent: function(args) {
+    //     console.log(args);
+    //     return "<span>" + moment(args.date).format('dd') + "</span>" + moment(args.date).format('DD.MM.');
+    // },
     views: {
       dayGridWeek: {
         titleFormat: '{DD.{MM.}}YYYY'
@@ -33,6 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
       listWeek: {
         titleFormat: '{DD.{MM.}}YYYY'
       }
+    },
+    eventContent: function(arg) {
+      createDiv = document.createElement('div');
+
+      var desc = (arg.event.extendedProps.summary) ? arg.event.extendedProps.summary : '';
+      
+      createDiv.innerHTML = '<strong>' + arg.event.title + '</strong><br/>' + desc;
+      
+      let arrayOfDomNodes = [ createDiv ];
+      return { domNodes: arrayOfDomNodes };
     },
     eventSources: [
       {
