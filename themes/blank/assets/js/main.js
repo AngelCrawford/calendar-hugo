@@ -50,15 +50,24 @@ document.addEventListener('DOMContentLoaded', function() {
         eventDataTransform: function(eventData) {
           if(eventData.kind == "concert") {
             eventData.className = "concert";
+            eventData.backgroundColor = "#009688";
           }
           if(eventData.kind == "party") {
             eventData.className = "party";
+            eventData.backgroundColor = "#53c0a2";
           }
           if(eventData.kind == "festival") {
             eventData.className = "festival";
+            eventData.backgroundColor = "#005f5c";
           }
           if(eventData.kind == "other") {
             eventData.className = "other";
+            eventData.backgroundColor = "#7fb4a6";
+          }
+          if(eventData.kind == "holiday") {
+            eventData.className = "holiday";
+            eventData.allDay = true;
+            eventData.backgroundColor = "red";
           }
         },
         url: '/events/index.json'
@@ -71,7 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
           eventData.allDay = true;
         },
         className: 'holiday',
-        url: 'de.german#holiday@group.v.calendar.google.com' 
+        // url: 'de.german#holiday@group.v.calendar.google.com' 
+        // url: '/data/holidays.json'
       }        
     ],
     eventDidMount: function(info) {

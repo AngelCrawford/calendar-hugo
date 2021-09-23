@@ -22,8 +22,7 @@ copyright = "Design / Programmierung: <a href=\"https://angel-crawford.de/\" tar
   filename = "sitemap.xml"
 
 [params]
-  mainSections = ["articles"]
-  eventSections = ["others", "festivals", "parties", "concerts"]
+  mainSections = ["messages"]
 
   author = "Angel Crawford"
   favicon = "favicon.ico"
