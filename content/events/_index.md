@@ -1,5 +1,5 @@
 ---
-title: "Concerts Feed"
+title: "Events"
 date: 2020-05-13T10:58:08-04:00
 ---
 

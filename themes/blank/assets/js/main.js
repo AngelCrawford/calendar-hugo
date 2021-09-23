@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
     eventContent: function(arg) {
-      createDiv = document.createElement('div');
+      createDiv = document.createElement('a');
+      createDiv.href = arg.event.url;
+      createDiv.title = arg.event.title;
 
       var desc = (arg.event.extendedProps.summary) ? arg.event.extendedProps.summary : '';
       
