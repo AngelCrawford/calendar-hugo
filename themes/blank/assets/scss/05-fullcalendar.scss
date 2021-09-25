@@ -162,51 +162,57 @@
     //     border-spacing: 0 10px;
     // }
 
-    tr.fc-list-event.hidden,
-    .festival .fc-time, 
-    .fc-event-time {
+    tr.fc-list-event.hidden {
         display: none;
     }
 
-    .fc-list-day .fc-list-day-cushion {
-        background-color: $sidebar-header;
-        border: none;
+    // Green Header with Weekday
+    .fc-list-day {
+        z-index: 5;
+        position: relative;
 
-        a.fc-list-day-text,
-        a.fc-list-day-side-text {
-            color: $text;
-            text-transform: uppercase;
-            @include font-header;
+        .fc-list-day-cushion {
+            background-color: $sidebar-header;
+            border: none;
+    
+            a.fc-list-day-text,
+            a.fc-list-day-side-text {
+                color: $text;
+                text-transform: uppercase;
+                @include font-header;
+                cursor: default;
+            }
         }
     }
 
+    // The Event
     .fc-list-event {
         margin: 1em 0;
-        // display: block;
-        // width: 100%;
+        display: block;
+        width: 100%;
 
         .fc-list-event-graphic {
             display: none;
         }
 
-        &.concert .fc-list-event-title {
-            background: $event-concert;
+        &.concert .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-concert;
         }
-        &.party .fc-list-event-title {
-            background: $event-party;
+        &.party .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-party;
         }
-        &.festival .fc-list-event-title {
-            background: $event-festival;
+        &.festival .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-festival;
         }
-        &.other .fc-list-event-title {
-            background: $event-other;
+        &.other .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-other;
         }
 
-        &.past-event .fc-list-event-title {
-            background: $disabled;
-            // opacity: .7;
-            color: darken($disabled, 30%);
-        }
+        // &.past-event .fc-list-event-title {
+        //     background: $disabled;
+        //     // opacity: .7;
+        //     color: darken($disabled, 30%);
+        // }
 
         &:hover, &:hover .fc-list-event-title {
             // background: green !important;
@@ -216,21 +222,65 @@
             }
         }
 
-        .fc-list-event-time {
-            width: 150px;
+        .fc-list-event-title {
             padding: 0;
-            vertical-align: middle;
-            color: $text;
-            font-weight: 600;
-            text-align: center;
-            line-height: 20px;
-            font-size: 14px;
+            width: 100%;
+            display: block;
 
-            span {
-                font-size: 2rem;
+            a {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+    
+                .fc-list-event-time {
+                    width: 150px;
+                    color: $small;
+                    font-weight: 600;
+                    line-height: 20px;
+                    font-size: 14px;
+                    text-align: center;
+                    flex: none;
+                    z-index: 2;
+                    position: relative;
+                    padding: 1.5em 0 1.2em 0;
+                    background: transparent;
+        
+                    span {
+                        font-size: 2rem;
+                    }
+                }
+    
+                .fc-list-event-body {
+                    flex-grow: 1;
+                    padding: 2em;
+                    position: relative;
+                    background: rgba($sidebar-back, .7);
+
+                    &::before, &::after {
+                        content: "";
+                        position: absolute;
+                        width: 5px;
+                        background: transparent;
+                        border-left: 3px dotted $sidebar-back;
+                        display: block;
+                        margin-left: calc(-3em + -80px);
+                        z-index: 1;
+                    }
+                    &::before {
+                        height: calc(50% + 1em - 30px);
+                        margin-top: calc(-3em - 3px);
+                    }
+                    &::after {
+                        // border-left: 3px dotted red;
+                        height: calc(50% - 30px);
+                        bottom: 0;
+                    }
+                }
             }
-            // border: 1px solid purple;
         }
+
+        
     }
 
 }

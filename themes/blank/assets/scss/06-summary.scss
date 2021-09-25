@@ -1,10 +1,11 @@
 article.message {
-    background: rgba($sidebar-back, .8);
+    background: rgba($sidebar-back, .5);
 
     .column.is-1 {
         display: flex;
         align-content: center;
         justify-content: center;
+        width: 150px;
         
         &::after {
             font-size: 80px;
@@ -16,6 +17,10 @@ article.message {
     }
     .message-header {
         padding: 10px 20px;
+        background: transparent;
+        @include font-header;
+        color: $text;
+
         a:not(.button):not(.tag):not(.dropdown-item) {
             text-decoration: none;
         }
@@ -33,9 +38,6 @@ article.message {
                 content: "\eca0";
             }
         }
-        .message-header {
-            background: #b94747;
-        }
     }
     &.message-info {
         .column.is-1 {
@@ -45,9 +47,6 @@ article.message {
                 content: "\ee58";
             }
         }
-        .message-header {
-            background: #536c76;
-        }
     }
     &.message-shoutout {
         .column.is-1 {
@@ -56,9 +55,6 @@ article.message {
             &::after {
                 content: "\eabb";
             }
-        }
-        .message-header {
-            background: #44904b;
         }
     }
 }

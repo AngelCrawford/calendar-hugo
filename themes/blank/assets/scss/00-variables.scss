@@ -3,8 +3,9 @@
 //-------------------------------------------------------------------------------
 
 // ***************** COLORS *****************
-$background     : #2f2f2f;
+
 $sidebar-back   : #003333;
+$background     : darken(#002825, 2%);
 $sidebar-header : #002825;
 $sidebar-text   : #9e9e9e;
 $back           : $sidebar-back;
@@ -16,10 +17,10 @@ $hover          : #b87333;
 $primary        : #e0b361;
 $accent         : #b87333;
 
-$event-concert:  #009688;
-$event-other:    #7fb4a6;
-$event-festival: #005f5c;
-$event-party:    #53c0a2;
+$event-party:    #009688;
+$event-concert:  #006a4e;
+$event-festival: #7fb4a6;
+$event-other:    #9aa43c;
 
 $family-primary: 'Montserrat-Regular';
 $family-secondary: 'Montserrat-Regular';

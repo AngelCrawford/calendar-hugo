@@ -20,13 +20,22 @@
             @include translate(-5px, 6px);
         }
 
-        &.is-active svg.remix {
-            fill: $back;
-            @include translate(-5px, 6px);
+        &.is-active {
+            color: $sidebar-header;
+
+            svg.remix {
+                fill: $sidebar-header;
+                @include translate(-5px, 6px);
+            }
         }
 
-        &:hover svg.remix {
-            fill: $back;
+        &:hover {
+            background: $sidebar-header;
+            color: $text;
+
+            svg.remix {
+                fill: #ffffff;
+            }
         }
     }
 }

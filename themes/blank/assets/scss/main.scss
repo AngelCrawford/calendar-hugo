@@ -63,6 +63,23 @@ main {
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
+	background-attachment: fixed;
+  // background-color: $background;
+
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    background: rgba(black, .3);
+  }
+}
+
+h3 {
+  @include font-header;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 .container {

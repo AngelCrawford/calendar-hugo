@@ -16,11 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // weekNumbers: true,
     initialView: 'listWeek',
     // googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
-    eventTimeFormat: {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    },
+    // eventTimeFormat: {
+    //   hour: '2-digit',
+    //   minute: '2-digit',
+    //   hour12: false,
+    //   meridiem: false
+    // },
+    displayEventTime: false,
     dayHeaderContent: function(args) {
         args.sideText = moment(args.date).format('DD.MM.YY');
     },
@@ -38,60 +40,50 @@ document.addEventListener('DOMContentLoaded', function() {
       createDiv.title = arg.event.title;
 
       var desc = (arg.event.extendedProps.summary) ? arg.event.extendedProps.summary : '';
-      
-      createDiv.innerHTML = '<strong>' + arg.event.title + '</strong><br/>' + desc;
+      var location = (arg.event.extendedProps.location) ? '<div class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg>' + arg.event.extendedProps.location + '</div>' : '';
+      var startTime = moment(arg.event.start).format('HH:mm');
+      var endTime = moment(arg.event.end).format('HH:mm');
+
+      var startDate = moment(arg.event.start, 'YYYY/MM/DD HH:mm');
+      var endDate = moment(arg.event.end, 'YYYY/MM/DD HH:mm');
+      var hoursDiff = endDate.diff(startDate, 'hours', true);
+
+
+      console.log();
+
+      if (hoursDiff >= 24 || arg.event.allDay) {
+        // string = '<span>00:00</span><br />- 00:00 Uhr';
+        string = '<span>Ganz</span><br />- tägig';
+      } else {
+        string = '<span>' + startTime + '</span><br />- ' + endTime + ' Uhr';
+      }
+
+      createDiv.innerHTML = '<div class="fc-list-event-time">' + string + '</div>' + 
+                            '<div class="fc-list-event-body">' + 
+                              '<h3>' + arg.event.title + '</h3>' + 
+                              desc + location + 
+                            '</div>';
       
       let arrayOfDomNodes = [ createDiv ];
       return { domNodes: arrayOfDomNodes };
     },
-    eventSources: [
-      {
-        eventDataTransform: function(eventData) {
-          if(eventData.kind == "concert") {
-            eventData.className = "concert";
-          }
-          if(eventData.kind == "party") {
-            eventData.className = "party";
-          }
-          if(eventData.kind == "festival") {
-            eventData.className = "festival";
-          }
-          if(eventData.kind == "other") {
-            eventData.className = "other";
-          }
-          if(eventData.kind == "holiday") {
-            eventData.className = "holiday";
-            eventData.allDay = true;
-          }
-        },
-        url: '/events/index.json'
-      }    
-    ],
+    eventSources: [{
+      url: '/events/index.json'
+    }],
     eventDidMount: function(info) {
-      var tooltip = "<strong>" + info.event.title + "</strong><br />" + info.event.extendedProps.content;
+      // var tooltip = "<strong>" + info.event.title + "</strong><br />" + info.event.extendedProps.content;
 
-      if(info.event.extendedProps.kind != "holiday") {
-        tippy(info.el, {
-          content: tooltip,
-          allowHTML: true
-        });
-      }
+      // if(info.event.extendedProps.kind != "holiday") {
+      //   tippy(info.el, {
+      //     content: tooltip,
+      //     allowHTML: true
+      //   });
+      // }
 
       // Past Event, add a class
       var d = new Date();
       if (info.event.end < d) {
         $(info.el).addClass("past-event");
-      }
-
-      startDate = moment(info.event.start).format('HH:mm');
-      endDate = moment(info.event.end).format('HH:mm');
-      string = '<span>' + startDate + '</span><br />- ' + endDate + ' Uhr';
-
-      var eventTime = $(info.el).find('.fc-list-event-time');
-      if (eventTime.text() == 'Ganztägig') {
-        eventTime.html('<span>00:00</span><br />- 00:00 Uhr');
-      } else {
-        eventTime.html(string);
       }
 
     },
