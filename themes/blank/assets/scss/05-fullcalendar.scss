@@ -253,9 +253,78 @@
     
                 .fc-list-event-body {
                     flex-grow: 1;
-                    padding: 2em;
                     position: relative;
                     background: rgba($sidebar-back, .7);
+                    
+                    .event-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0 1.5em !important;
+
+                        h3 {
+                            color: $link;
+                            padding-top: 1em;
+                        }
+                        h4 {
+                            color: $link;
+                            font-weight: 600;
+                        }
+
+                        p {
+                            padding: .7em 0 1.5em 0;
+                            flex-grow: 1;
+                        }
+
+                        .event-footer {
+                            background: rgba(black, .3);
+                            width: calc(100% + 3em);
+                            align-self: center;
+                            margin-bottom: auto;
+    
+                            .event-location, .event-presale, .event-boxoffice, .event-corona {
+                                display: inline-block;
+                                padding: .5em 1.5em .7em 1.5em;
+                                color: lighten($small, 15%);
+
+                                svg {
+                                    @include translate(-5px, 5px);
+                                    fill: $small;
+                                }
+                            }
+                            .event-corona {
+                                svg {
+                                    @include translate(-7px, 6px);
+                                }
+                            }
+                        }
+                    }
+
+                    figure {
+                        height: 100%;
+                        width: auto;
+
+                        figcaption {
+                            position: absolute;
+                            border-top: 1px solid rgba(black, .5);
+                            height: auto;
+                            min-height: 48px;
+                            bottom: 0;
+                            width: 100%;
+                            padding: 5px;
+                            font-size: 80%;
+                            background: rgba(black, .4);
+                            color: lighten($small, 15%);
+                            display: flex;
+                            justify-content: left;
+                            align-items: center;
+
+                            &::before {
+                                content: "\ebe2";
+                                font-family: 'remixicon' !important;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
 
                     &::before, &::after {
                         content: "";
@@ -264,12 +333,12 @@
                         background: transparent;
                         border-left: 3px dotted $sidebar-back;
                         display: block;
-                        margin-left: calc(-3em + -80px);
+                        margin-left: calc(-1em + -80px);
                         z-index: 1;
                     }
                     &::before {
                         height: calc(50% + 1em - 30px);
-                        margin-top: calc(-3em - 3px);
+                        margin-top: calc(-1em - 3px);
                     }
                     &::after {
                         // border-left: 3px dotted red;

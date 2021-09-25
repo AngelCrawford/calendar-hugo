@@ -39,15 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
       createDiv.href = arg.event.url;
       createDiv.title = arg.event.title;
 
-      var desc = (arg.event.extendedProps.summary) ? arg.event.extendedProps.summary : '';
-      var location = (arg.event.extendedProps.location) ? '<div class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg>' + arg.event.extendedProps.location + '</div>' : '';
+      var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
+      var location = (arg.event.extendedProps.location) ? '<span class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg>' + arg.event.extendedProps.location + '</span>' : '';
+      
+      var imageCopyright = (arg.event.extendedProps.imageCopyright) ? '<figcaption>' + arg.event.extendedProps.imageCopyright + '</figcaption>' : '';
+      var image = (arg.event.extendedProps.image) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.image + '" alt="' + arg.event.title + '" loading="lazy" />' + imageCopyright + '</figure></div>' : '';
+
+      var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
+      
+      var preSale = (arg.event.extendedProps.preSale) ? '<span class="event-presale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg>' + arg.event.extendedProps.preSale + ' €</span>' : '';
+      var boxOffice = (arg.event.extendedProps.boxOffice) ? '<span class="event-boxoffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg>' + arg.event.extendedProps.boxOffice + ' €</span>' : '';
+
+      var corona = (arg.event.extendedProps.corona) ? '<span class="event-corona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg>' + arg.event.extendedProps.corona + '</span>' : '';
       var startTime = moment(arg.event.start).format('HH:mm');
       var endTime = moment(arg.event.end).format('HH:mm');
 
       var startDate = moment(arg.event.start, 'YYYY/MM/DD HH:mm');
       var endDate = moment(arg.event.end, 'YYYY/MM/DD HH:mm');
       var hoursDiff = endDate.diff(startDate, 'hours', true);
-
 
       console.log();
 
@@ -59,9 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       createDiv.innerHTML = '<div class="fc-list-event-time">' + string + '</div>' + 
-                            '<div class="fc-list-event-body">' + 
-                              '<h3>' + arg.event.title + '</h3>' + 
-                              desc + location + 
+                            '<div class="fc-list-event-body columns is-gapless">' + 
+                              '<div class="column event-wrapper">' +
+                                '<h3>' + arg.event.title + '</h3>' + subtitle +  
+                                desc +  '<div class="event-footer">' + location + preSale + boxOffice + corona + '</div>' +
+                              '</div>' +
+                              image +
                             '</div>';
       
       let arrayOfDomNodes = [ createDiv ];
