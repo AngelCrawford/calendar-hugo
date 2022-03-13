@@ -11,7 +11,8 @@ preSale: "15,00"
 boxOffice: "20.00"
 location: "Kitz • Schauenburgerstr. 116 • 24118 Kiel"
 corona: "3G • Maskenpflicht"
-imageCopyright: "Fotograf Namen und Webseite"
+flyer: "/flyer.jpg"
+flyerCopyright: "Fotograf Namen und Webseite"
 ---
 
 Lorem ipsum *dolor* sit amet, consetetur sadipscing elitr, 

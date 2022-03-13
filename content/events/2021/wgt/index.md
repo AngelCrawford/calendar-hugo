@@ -9,7 +9,8 @@ location: "In ganz Leipzig"
 preSale: "15,00"
 boxOffice: "20.00"
 corona: "2G • Keine Maskenpflicht"
-imageCopyright: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore"
+flyer: "/flyer.jpg"
+flyerCopyright: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore"
 ---
 
 Lorem ipsum *dolor* sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.

@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
       var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
       var location = (arg.event.extendedProps.location) ? '<span class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg>' + arg.event.extendedProps.location + '</span>' : '';
       
-      var imageCopyright = (arg.event.extendedProps.imageCopyright) ? '<figcaption>' + arg.event.extendedProps.imageCopyright + '</figcaption>' : '';
-      var image = (arg.event.extendedProps.image) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.image + '" alt="' + arg.event.title + '" loading="lazy" />' + imageCopyright + '</figure></div>' : '';
+      var flyerCopyright = (arg.event.extendedProps.flyerCopyright) ? '<figcaption>' + arg.event.extendedProps.flyerCopyright + '</figcaption>' : '';
+      var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
 
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
       
@@ -52,16 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var corona = (arg.event.extendedProps.corona) ? '<span class="event-corona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg>' + arg.event.extendedProps.corona + '</span>' : '';
       var startTime = moment(arg.event.start).format('HH:mm');
-      var endTime = moment(arg.event.end).format('HH:mm');
+      var endTime = (arg.event.end) ? moment(arg.event.end).format('HH:mm') : '00:00';
 
       var startDate = moment(arg.event.start, 'YYYY/MM/DD HH:mm');
       var endDate = moment(arg.event.end, 'YYYY/MM/DD HH:mm');
       var hoursDiff = endDate.diff(startDate, 'hours', true);
 
-      console.log();
-
-      if (hoursDiff >= 24 || arg.event.allDay) {
-        // string = '<span>00:00</span><br />- 00:00 Uhr';
+      if (hoursDiff >= 24 || arg.event.allDay || arg.event.end == null) {
         string = '<span>Ganz</span><br />- tägig';
       } else {
         string = '<span>' + startTime + '</span><br />- ' + endTime + ' Uhr';
@@ -73,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 '<h3>' + arg.event.title + '</h3>' + subtitle +  
                                 desc +  '<div class="event-footer">' + location + preSale + boxOffice + corona + '</div>' +
                               '</div>' +
-                              image +
+                              flyer +
                             '</div>';
       
       let arrayOfDomNodes = [ createDiv ];

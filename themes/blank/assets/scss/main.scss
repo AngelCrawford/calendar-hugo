@@ -59,7 +59,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 main {
-  background: url("/img/background.jpg");
+  background: url("/img/background-darker.jpg");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,7 +72,7 @@ main {
     width: 100%;
     display: block;
     position: absolute;
-    background: rgba(black, .3);
+    // background: rgba(black, .3);
   }
 }
 

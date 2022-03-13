@@ -207,6 +207,9 @@
         &.other .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-other;
         }
+        &.holiday .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-holiday;
+        }
 
         // &.past-event .fc-list-event-title {
         //     background: $disabled;

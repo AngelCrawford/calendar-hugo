@@ -7,6 +7,6 @@
         {{ $.Scratch.Set "image" $resize.Permalink }}
     {{- end -}}
     
-    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "image" ($.Scratch.Get "image") "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "imageCopyright" .Params.imageCopyright ) -}}
+    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "flyerCopyright" .Params.flyerCopyright "flyer" .Params.flyer ) -}}
 {{- end -}}
 {{- $.Scratch.Get "eventsList" | jsonify -}}
