@@ -1,8 +1,9 @@
 ---
 title: "** Concert juni"
 date: 2020-05-13T10:58:08-04:00
-startDate: 2022-03-14T10:58:08
-endDate: 2022-03-14T20:00:08
+startDate: 2022-03-14T21:00:00
+endDate: 2022-03-14T23:15:00
+entryTime: 2022-03-14T20:00:00
 state: hh
 kind: concert
 ---

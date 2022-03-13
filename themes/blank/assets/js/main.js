@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       right: 'prev,today,next'
     },
     // weekNumbers: true,
-    initialView: 'listWeek',
+    initialView: 'listMonth',
     // googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
     // eventTimeFormat: {
     //   hour: '2-digit',
@@ -23,17 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
     //   meridiem: false
     // },
     displayEventTime: false,
-    dayHeaderContent: function(args) {
-        args.sideText = moment(args.date).format('DD.MM.YY');
-    },
-    views: {
-      dayGridWeek: {
-        titleFormat: '{DD.{MM.}}YYYY'
-      },
-      listWeek: {
-        titleFormat: '{DD.{MM.}}YYYY'
-      }
-    },
+    // dayHeaderContent: function(args) {
+        // args.sideText = moment(args.date).format('DD.MM.YY');
+    // },
+    // views: {
+    //   dayGridWeek: {
+    //     titleFormat: '{DD.{MM.}}YYYY'
+    //   },
+    //   listWeek: {
+    //     titleFormat: '{DD.{MM.}}YYYY'
+    //   }
+    // },
     eventContent: function(arg) {
       createDiv = document.createElement('a');
       createDiv.href = arg.event.url;
@@ -46,11 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
       var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
 
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
+
+      var entryTime = (arg.event.extendedProps.entryTime) ? '<span class="event-entry"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg>' + moment(arg.event.extendedProps.entryTime).format('HH:mm') + '</span>' : '';
       
       var preSale = (arg.event.extendedProps.preSale) ? '<span class="event-presale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg>' + arg.event.extendedProps.preSale + ' €</span>' : '';
       var boxOffice = (arg.event.extendedProps.boxOffice) ? '<span class="event-boxoffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg>' + arg.event.extendedProps.boxOffice + ' €</span>' : '';
 
       var corona = (arg.event.extendedProps.corona) ? '<span class="event-corona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg>' + arg.event.extendedProps.corona + '</span>' : '';
+
       var startTime = moment(arg.event.start).format('HH:mm');
       var endTime = (arg.event.end) ? moment(arg.event.end).format('HH:mm') : '00:00';
 
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             '<div class="fc-list-event-body columns is-gapless">' + 
                               '<div class="column event-wrapper">' +
                                 '<h3>' + arg.event.title + '</h3>' + subtitle +  
-                                desc +  '<div class="event-footer">' + location + preSale + boxOffice + corona + '</div>' +
+                                desc +  '<div class="event-footer">' + location + entryTime + preSale + boxOffice + corona +'</div>' +
                               '</div>' +
                               flyer +
                             '</div>';

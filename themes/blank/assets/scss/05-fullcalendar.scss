@@ -209,6 +209,19 @@
         }
         &.holiday .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-holiday;
+            background: rgba($sidebar-back, .5);
+            
+            .event-wrapper {
+                padding-bottom: 1.5em !important;
+
+                h3 {
+                    color: rgba($text, .7);
+
+                    &::before {
+                        content: "Feiertag: ";
+                    }
+                }
+            }
         }
 
         // &.past-event .fc-list-event-title {
@@ -238,7 +251,7 @@
     
                 .fc-list-event-time {
                     width: 150px;
-                    color: $small;
+                    color: rgba($text, .7);
                     font-weight: 600;
                     line-height: 20px;
                     font-size: 14px;
@@ -262,11 +275,12 @@
                     .event-wrapper {
                         display: flex;
                         flex-direction: column;
-                        padding: 0 1.5em !important;
+                        padding: 1.5em 1.5em 0 1.5em !important;
 
                         h3 {
                             color: $link;
-                            padding-top: 1em;
+                            // padding-top: 1em;
+                            font-size: 1.6em;
                         }
                         h4 {
                             color: $link;
@@ -274,7 +288,7 @@
                         }
 
                         p {
-                            padding: .7em 0 1.5em 0;
+                            padding: 0 0 1.5em 0;
                             flex-grow: 1;
                         }
 
@@ -284,7 +298,7 @@
                             align-self: center;
                             margin-bottom: auto;
     
-                            .event-location, .event-presale, .event-boxoffice, .event-corona {
+                            .event-location, .event-presale, .event-boxoffice, .event-corona, .event-entry {
                                 display: inline-block;
                                 padding: .5em 1.5em .7em 1.5em;
                                 color: lighten($small, 15%);
@@ -352,7 +366,6 @@
             }
         }
 
-        
     }
 
 }

@@ -1,12 +1,19 @@
 {{- $.Scratch.Add "eventsList" slice -}}
 {{- range where .Site.RegularPages "Section" "=" "events" -}}
 
-    {{- $img := (.Resources.ByType "image").GetMatch "flyer*" -}}
-    {{- with $img -}}
-      {{- $resize := .Fill "320x320" -}}
-        {{ $.Scratch.Set "image" $resize.Permalink }}
+    {{- if .Resources -}}
+      {{- range first 1 (.Resources.ByType "image") -}}
+        {{- $img := .Fill "320x320" -}}
+
+        {{ $.Scratch.Set "image" $img.Permalink }}
+        {{ $.Scratch.Set "imageCaption" $img.Params.Caption }}
+
+      {{- end -}}
     {{- end -}}
+
+    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "flyerCopyright" ($.Scratch.Get "imageCaption") "flyer" ($.Scratch.Get "image") "entryTime" .Params.entryTime ) -}}
     
-    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "flyerCopyright" .Params.flyerCopyright "flyer" .Params.flyer ) -}}
+    {{ $.Scratch.Delete "image" }}
+    {{ $.Scratch.Delete "imageCaption" }}
 {{- end -}}
 {{- $.Scratch.Get "eventsList" | jsonify -}}
