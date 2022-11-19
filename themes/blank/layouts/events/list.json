@@ -11,7 +11,7 @@
       {{- end -}}
     {{- end -}}
 
-    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "flyerCopyright" ($.Scratch.Get "imageCaption") "flyer" ($.Scratch.Get "image") "entryTime" .Params.entryTime ) -}}
+    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "locationMap" .Params.locationMap "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "flyerCopyright" ($.Scratch.Get "imageCaption") "flyer" ($.Scratch.Get "image") "entryTime" .Params.entryTime "facebook" .Params.facebook "homepage" .Params.homepage ) -}}
     
     {{ $.Scratch.Delete "image" }}
     {{ $.Scratch.Delete "imageCaption" }}

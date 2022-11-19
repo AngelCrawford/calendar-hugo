@@ -107,7 +107,6 @@
 
         h2.fc-toolbar-title {
             @include font-header;
-            letter-spacing: 1px;
             font-size: 50px;
         }
 
@@ -168,6 +167,10 @@
     tr.fc-event-forced-url {
         cursor: default;
     }
+    tr.fc-list-event:not(.fc-event-future),
+    tr.fc-list-day.fc-day-past {
+        opacity: .35;
+    }
 
     // Green Header with Weekday
     .fc-list-day {
@@ -227,11 +230,10 @@
             }
         }
 
-        // &.past-event .fc-list-event-title {
-        //     background: $disabled;
-        //     // opacity: .7;
-        //     color: darken($disabled, 30%);
-        // }
+        &.past-event {
+            // background: $disabled;
+            opacity: .35;
+        }
 
         &:hover, &:hover .fc-list-event-title {
             // background: green !important;
@@ -274,48 +276,23 @@
                     flex-grow: 1;
                     position: relative;
                     background: rgba($sidebar-back, .7);
+                    display: flex;
                     
                     .event-wrapper {
-                        display: flex;
-                        flex-direction: column;
-                        padding: 1.5em 1.5em 0 1.5em !important;
+                        padding: 1.5em !important;
 
                         h3 {
-                            color: $link;
-                            // padding-top: 1em;
+                            color: $text;
                             font-size: 1.6em;
                         }
                         h4 {
                             color: $link;
                             font-weight: 600;
+                            padding: .3em 0 .7em 0;
                         }
 
                         p {
                             padding: 0 0 1.5em 0;
-                            flex-grow: 1;
-                        }
-
-                        .event-footer {
-                            background: rgba(black, .3);
-                            width: calc(100% + 3em);
-                            align-self: center;
-                            margin-bottom: auto;
-    
-                            .event-location, .event-presale, .event-boxoffice, .event-corona, .event-entry {
-                                display: inline-block;
-                                padding: .5em 1em .7em 1em;
-                                color: lighten($small, 15%);
-
-                                svg {
-                                    @include translate(-5px, 5px);
-                                    fill: $small;
-                                }
-                            }
-                            .event-corona {
-                                svg {
-                                    @include translate(-7px, 6px);
-                                }
-                            }
                         }
                     }
 
@@ -346,6 +323,87 @@
                         }
                     }
 
+                    .event-footer {
+                        background: rgba(black, .15);
+                        width: 300px;
+                        bottom: 0;
+                        top: 0;
+
+                        ul {
+                            height: 100%;
+                            padding: 1em;
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: row;
+                            height: 0%;
+                            
+                            li {
+                                display: block;
+                                padding: .3em;
+                                color: lighten($small, 15%);
+                                display: flex;
+                                flex-basis: 100%;
+                                align-self: center;
+                                justify-self: center;
+
+                                svg {
+                                    fill: rgba($small, .6);
+                                    flex-shrink: 0;
+                                    width: 24px;
+                                }
+                                span {
+                                    padding-left: .7em;
+                                }
+
+                                &.event-presale,
+                                &.event-boxoffice {
+                                    flex-basis: 50%;
+                                }
+
+                                a {
+                                    border-bottom: 1px dotted rgba($small, .5);
+
+                                    &:hover {
+                                        color: darken($link, 5%);
+                                    }
+                                }
+                            }
+                        }
+                    }                  
+
+                    .event-links{
+                        background: rgba(black, .15);
+                        width: 5%;
+                        bottom: 0;
+                        top: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+
+                        a {
+                            transition: all 5s ease-out;
+                            margin-bottom: .7em;
+
+                            svg {
+                                fill: lighten($small, 15%);
+                                background: rgba($text, .17);
+                                padding: 5px;
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                            }
+
+                            &:hover svg {
+                                background: $link;
+                            }
+
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+
                     &::before, &::after {
                         content: "";
                         position: absolute;
@@ -357,8 +415,8 @@
                         z-index: 1;
                     }
                     &::before {
-                        height: calc(50% + 1em - 30px);
-                        margin-top: calc(-1em - 3px);
+                        height: calc(50% + 1em - 33px);
+                        margin-top: calc(-1em - -3px);
                     }
                     &::after {
                         // border-left: 3px dotted red;

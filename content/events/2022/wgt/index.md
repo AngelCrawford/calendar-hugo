@@ -6,6 +6,7 @@ endDate: 2022-11-24T20:00:08-04:00
 kind: festival
 allDay: true
 location: "In ganz Leipzig"
+locationMap: false
 preSale: "15,00"
 boxOffice: "20.00"
 corona: "2G • Keine Maskenpflicht"

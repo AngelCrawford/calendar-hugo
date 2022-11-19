@@ -65,6 +65,8 @@ main {
   background-size: cover;
 	background-attachment: fixed;
   // background-color: $background;
+  z-index: 6;
+  position: relative;
 
   &::before {
     content: "";

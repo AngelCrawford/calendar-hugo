@@ -2,6 +2,7 @@
 date: 2017-04-10T11:00:59-04:00
 description: "Pierre Gringoire"
 kind: "info" # possible: info, warning, shoutout
+position: bottom # possible: top and bottom
 title: "Keine Single Page Seite, aber wird gelistet"
 _build:
   render: false # no permalink/single-page, we WANT THIS

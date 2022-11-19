@@ -4,11 +4,11 @@ aside {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    width: 16.5vw;
+    // width: 16.5vw;
 
     .brand-logo {
         // background: $sidebar-header;
-        width: 16.5vw;
+        // width: 100%;
         height: 16.5vw;
 
         a {
@@ -25,6 +25,7 @@ aside {
             position: absolute;
             z-index: 4;
             color: #E5E9E9;
+            letter-spacing: 0;
             text-shadow: 2px 2px 7px rgba(#000000, .7), 
                         -2px -2px 7px rgba(#000000, .7);
 
@@ -39,7 +40,7 @@ aside {
         #city {
             position: relative;
 
-            width: 16.5vw;
+            width: 17vw;
             height: 16.5vw;
             z-index: 2;
 
@@ -52,7 +53,7 @@ aside {
         // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
         #fog {
             position: absolute;
-            width: 16.5vw;
+            width: 17vw;
             height: 16.5vw;
             z-index: 3;
             opacity: .4;
@@ -149,7 +150,7 @@ aside {
         }
 
         #sky-stars-wrapper {
-            width: 16.5vw;
+            width: 17vw;
             height: 14vw;
             position: absolute;
             overflow: hidden;
@@ -244,7 +245,7 @@ aside {
             position: absolute;
             margin-top: 4.5%;
             margin-left: -3.1%;
-            width: 16.5vw;
+            width: 17vw;
             height: 16.5vw;
             z-index: 3;
             display: none;
@@ -265,7 +266,7 @@ aside {
         }
         
         #firework {
-            width: 16.5vw;
+            width: 17vw;
             height: 16.5vw;
             position: absolute;
             top: 0;

@@ -16,7 +16,7 @@ article.message {
         }
     }
     .message-header {
-        padding: 10px 20px;
+        padding: 10px 20px 0 20px;
         background: transparent;
         @include font-header;
         color: $text;
@@ -26,8 +26,15 @@ article.message {
         }
     }
     .message-body {
-        padding: 20px;
+        padding: 0 20px 20px 20px;
         color: darken($text, 20%);
+
+        time {
+            display: block;
+            padding: 7px 0;
+            color: $link;
+            font-weight: 600;
+        }
     }
 
     &.message-warning {

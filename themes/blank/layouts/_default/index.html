@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-	{{  range (where (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) ".Params.kind" "in" (slice "warning") ) }}
+	{{  range (where (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) ".Params.position" "in" "top" ) }}
 		{{ .Render "summary" }}
 	{{ end }}
 
@@ -27,7 +27,7 @@
 
 	<div id="calendar"></div>
 
-	{{  range (where (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) ".Params.kind" "in" (slice "info" "shoutout") ) }}
+	{{  range (where (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) ".Params.position" "in" "bottom" ) }}
 		{{ .Render "summary" }}
 	{{ end }}
 

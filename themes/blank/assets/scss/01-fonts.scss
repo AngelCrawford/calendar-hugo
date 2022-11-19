@@ -38,6 +38,7 @@
 @mixin font-header {
   @include font-family('Iceland', 600);
   font-size: 150%;
+  letter-spacing: 1px;
 }
 
 @mixin font-light {
