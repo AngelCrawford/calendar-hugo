@@ -165,6 +165,9 @@
     tr.fc-list-event.hidden {
         display: none;
     }
+    tr.fc-event-forced-url {
+        cursor: default;
+    }
 
     // Green Header with Weekday
     .fc-list-day {
@@ -243,7 +246,7 @@
             width: 100%;
             display: block;
 
-            a {
+            > div {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -300,7 +303,7 @@
     
                             .event-location, .event-presale, .event-boxoffice, .event-corona, .event-entry {
                                 display: inline-block;
-                                padding: .5em 1.5em .7em 1.5em;
+                                padding: .5em 1em .7em 1em;
                                 color: lighten($small, 15%);
 
                                 svg {

@@ -19,21 +19,21 @@
 	<link rel="stylesheet" href="{{ $style.Permalink }}">
 
 	<!-- Scripts -->
-	{{- $jQuery := resources.Get "js/jquery-3.6.0.js" -}}
+	{{- $jQuery := resources.Get "js/jquery-3.6.1.js" -}}
 	{{- $momentJS := resources.Get "js/moment.js" -}}
 	{{- $tooltip := resources.Get "js/tooltip.js" -}}
 	
 	{{- $main := resources.Get "js/main.js" -}}
 	{{- $suncalc := resources.Get "js/suncalc.js" -}}
-	{{- $header := resources.Get "js/header.js" -}}
 	{{- $firework := resources.Get "js/firework.js" -}}
+	{{- $header := resources.Get "js/header.js" -}}
 
 	<!-- Fullcalendar -->
 	{{- $fullCore := resources.Get "js/fullcalendar.js" -}}
 	{{- $fullDe := resources.Get "js/fullcalendar-de.js" -}}
 	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
 
-	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $fullMoment $tooltip $suncalc $main $header $firework | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $fullMoment $suncalc $main $firework $header | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	
 	<script src="{{ $script.Permalink }}"></script>
 

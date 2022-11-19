@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //   }
     // },
     eventContent: function(arg) {
-      createDiv = document.createElement('a');
-      createDiv.href = arg.event.url;
-      createDiv.title = arg.event.title;
+      createDiv = document.createElement('div');
+      // createDiv.href = arg.event.url;
+      // createDiv.title = arg.event.title;
 
       var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
       var location = (arg.event.extendedProps.location) ? '<span class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg>' + arg.event.extendedProps.location + '</span>' : '';

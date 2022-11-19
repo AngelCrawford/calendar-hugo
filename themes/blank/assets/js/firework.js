@@ -237,11 +237,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	var month = dateObject.getMonth() + 1;
 	var day = dateObject.getDate();
 
-	var xmasStart = dateObject.getFullYear() + "-12-31";
-	var xmasEnd = dateObject.getFullYear() + "-01-07";
+	var newYearStartOldYear = dateObject.getFullYear() + "-12-27";
+	var newYearEndOldYear = dateObject.getFullYear() + "-12-31";
+	var newYearStartNewYear = dateObject.getFullYear() + "-01-01";
+	var newYearEndNewYear = dateObject.getFullYear() + "-01-07";
 	var nowDate = dateObject.getFullYear() + "-" + (month < 10 ? '0' : '') + month + "-" + (day < 10 ? '0' : '') + day;
 
-	if (nowDate >= xmasStart && nowDate <= xmasEnd) {
+	if ( (nowDate >= newYearStartOldYear && nowDate <= newYearEndOldYear) || (nowDate >= newYearStartNewYear && nowDate <= newYearEndNewYear) ) {
 		window.onload = loop;
 	}
 

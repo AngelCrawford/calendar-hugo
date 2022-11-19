@@ -74,6 +74,8 @@ function dayNightSky() {
     } else {
         $("#ghosty").css("display", "none");
     }
+
+    // Firework loads inanother file "firework.js"
   
 }
   

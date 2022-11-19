@@ -1,6 +1,6 @@
 ---
 title: 2. Weihnachtsfeiertag
-startDate: 2021-12-26
-endDate: 2021-12-26
+startDate: 2022-12-26
+endDate: 2022-12-26
 kind: holiday
 ---

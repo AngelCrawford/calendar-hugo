@@ -1,0 +1,6 @@
+---
+title: Neujahr
+startDate: 2023-01-01
+endDate: 2023-01-01
+kind: holiday
+---
