@@ -156,11 +156,6 @@
         border: none;
     }
 
-    // table {
-    //     border-collapse: separate;
-    //     border-spacing: 0 10px;
-    // }
-
     tr.fc-list-event.hidden {
         display: none;
     }
@@ -214,7 +209,7 @@
             border-left: 20px solid $event-other;
         }
         &.holiday .fc-list-event-title .fc-list-event-body {
-            border-left: 20px solid $event-holiday;
+            border-left: 20px solid transparent;
             background: rgba($sidebar-back, .5);
             
             .event-wrapper {
