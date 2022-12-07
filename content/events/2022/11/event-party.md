@@ -1,8 +1,8 @@
 ---
 title: "Event Party Nummer #1"
 date: 2020-05-13T10:58:08-04:00
-startDate: 2022-11-22T10:58:08
-endDate: 2022-11-22T20:00:08
+startDate: 2022-12-22T10:58:08
+endDate: 2022-12-22T20:00:08
 state: sh
 kind: party
 _build:

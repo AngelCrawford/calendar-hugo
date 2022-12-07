@@ -32,33 +32,9 @@ copyright = "Design / Programmierung: <a href=\"https://angel-crawford.de/\" tar
     twitterHandle = "crawford_ftw" #Twitter name, to bind shared cards to your profile
     keywords = "Webcard, Profil Karte, Angel Crawford"
 
-  [[params.social]]
-    name = "Facebook"
-    link = "https://facebook.com"
-    icon = "facebook-circle-line"
-    inHeader = false
-    inFooter = true
-  [[params.social]]
-    name = "Twitter"
-    link = "#"
-    icon = "twitter-line"
-    inHeader = false
-    inFooter = true
-  [[params.social]]
-    name = "Instagram"
-    link = "#"
-    icon = "instagram-line"
-    inHeader = false
-    inFooter = true
-  [[params.social]]
-    name = "Github"
-    link = "#"
-    icon = "github-line"
-    inHeader = false
-    inFooter = true
-  [[params.social]]
-    name = "RSS"
-    link = "/index.xml"
-    icon = "rss-line"
-    inHeader = true
-    inFooter = true
+  # [[params.social]]
+  #   name = "RSS"
+  #   link = "/index.xml"
+  #   icon = "rss-line"
+  #   inHeader = true
+  #   inFooter = true

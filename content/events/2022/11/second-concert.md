@@ -1,8 +1,8 @@
 ---
 title: Second Concert
 date: 2020-05-13T10:58:08-04:00
-startDate: 2022-11-20T18:00:08
-endDate: 2022-11-20T20:00:08
+startDate: 2022-12-20T18:00:08
+endDate: 2022-12-20T20:00:08
 state: hh
 kind: concert
 location: Markthalle, Klosterwall 11, 20095 Hamburg

@@ -1,20 +1,5 @@
 article.message {
     background: rgba($sidebar-back, .5);
-
-    .column.is-1 {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        width: 150px;
-        
-        &::after {
-            font-size: 80px;
-            text-align: center;
-            color: $text;    
-            font-family: "remixicon";
-            margin: auto;
-        }
-    }
     .message-header {
         padding: 10px 20px 0 20px;
         background: transparent;
@@ -38,30 +23,12 @@ article.message {
     }
 
     &.message-warning {
-        .column.is-1 {
-            background: #b94747;
-            
-            &::after {
-                content: "\eca0";
-            }
-        }
+        border-left: 20px solid #b94747;
     }
     &.message-info {
-        .column.is-1 {
-            background: #536c76;
-            
-            &::after {
-                content: "\ee58";
-            }
-        }
+        border-left: 20px solid #536c76;
     }
     &.message-shoutout {
-        .column.is-1 {
-            background: #44904b;
-            
-            &::after {
-                content: "\eabb";
-            }
-        }
+        border-left: 20px solid #44904b;
     }
 }

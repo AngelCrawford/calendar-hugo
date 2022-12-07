@@ -1,8 +1,8 @@
 ---
 title: WGT
 date: 2020-05-10T10:58:08-04:00
-startDate: 2022-11-20T10:58:08-04:00
-endDate: 2022-11-24T20:00:08-04:00
+startDate: 2022-12-20T10:58:08-04:00
+endDate: 2022-12-24T20:00:08-04:00
 kind: festival
 allDay: true
 location: "In ganz Leipzig"

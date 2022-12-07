@@ -1,8 +1,8 @@
 ---
 title: Event juni (Wiederholend)
 date: 2020-05-13T10:58:08-04:00
-startDate: 2022-11-21T10:58:08
-endDate: 2022-11-21T20:00:08
+startDate: 2022-12-21T10:58:08
+endDate: 2022-12-21T20:00:08
 state: hh
 kind: party
 location: "Kitz, Schauenburgerstraße 116, 24118 Kiel"
