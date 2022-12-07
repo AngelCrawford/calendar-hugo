@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
       var flyerCopyright = (arg.event.extendedProps.flyerCopyright) ? '<figcaption>' + arg.event.extendedProps.flyerCopyright + '</figcaption>' : '';
       var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
+      var statusLabel = (arg.event.extendedProps.statusLabel) ? arg.event.extendedProps.statusLabel : '';
+      var statusReason = (arg.event.extendedProps.statusReason) ? '<div>' + arg.event.extendedProps.statusReason + '</div>' : '';
       var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
 
       var location = '';
@@ -68,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         string = '<span>' + startTime + '</span><br />- ' + endTime + ' Uhr';
       }
 
-      createDiv.innerHTML = '<div class="fc-list-event-time">' + string + '</div>' + 
+      createDiv.innerHTML = '<div class="fc-list-event-time ' + statusLabel + '">' + string + '</div>' + 
                             '<div class="fc-list-event-body columns is-gapless">' + 
                               eventFooter +
                               '<div class="column event-wrapper">' +
-                                '<h3>' + arg.event.title + '</h3>' + subtitle +  
+                                '<h3 class="' + statusLabel + '">' + arg.event.title + '</h3>' + statusReason + subtitle +  
                                 desc +
                               '</div>' +
                               links +

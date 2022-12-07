@@ -34,10 +34,9 @@
 	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
 
 	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $fullMoment $suncalc $main $firework $header | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
-	
 	<script src="{{ $script.Permalink }}"></script>
 
-	    <!-- Robots -->
+	<!-- Robots -->
 	{{- with .Params.robotsdisallow -}}
 		<meta name="robots" content="noindex, nofollow, noarchive">
 	{{- else -}}

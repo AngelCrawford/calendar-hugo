@@ -178,7 +178,7 @@
     
             a.fc-list-day-text,
             a.fc-list-day-side-text {
-                color: $text;
+                color: darken($text, 20%);
                 text-transform: uppercase;
                 @include font-header;
                 cursor: default;
@@ -214,6 +214,7 @@
             
             .event-wrapper {
                 padding-bottom: 1.5em !important;
+                padding-left: calc(1.5em - 20px) !important;
 
                 h3 {
                     color: rgba($text, .7);
@@ -265,6 +266,24 @@
                     span {
                         font-size: 2rem;
                     }
+
+                    &.cancel {
+                        opacity: .2;
+
+                        &::before {
+                            position: absolute;
+                            @include font-header;
+                            font-size: 3em;
+                            color: darken(#b94747, 10%);
+                            content: "Abgesagt";
+                            transform: rotate(-60deg);
+                            left: -30px;
+                            border: 2px solid #b94747;
+                            border-radius: 5px;
+                            padding: .2em .4em .45em .4em;
+                            background: rgba($text, .4)
+                        }
+                    }
                 }
     
                 .fc-list-event-body {
@@ -279,6 +298,17 @@
                         h3 {
                             color: $text;
                             font-size: 1.6em;
+
+                            &.cancel {
+                                color: #b94747;
+                                text-decoration: line-through;
+                            }
+
+                            ~ div {
+                                color: #b94747;
+                                font-weight: 600;
+                                padding: .3em 0 .7em 0;
+                            }
                         }
                         h4 {
                             color: $link;

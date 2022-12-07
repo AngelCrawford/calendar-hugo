@@ -6,6 +6,9 @@ endDate: 2022-12-18T20:00:08
 authors: angel
 state: hh
 kind: party
+status:
+  label: cancel # possible: cancel, soldout
+  reason: Abgesagt wegen Covid-19
 _build:
   render: false # no permalink/single-page, we WANT THIS
   list: true # but render on the list pages
