@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     timeZone: 'local',
     locale: 'de',
     height: 'auto',
-    // aspectRatio: 2,
     headerToolbar: {
       left: 'title',
       center: '',
@@ -17,42 +16,41 @@ document.addEventListener('DOMContentLoaded', function() {
     displayEventTime: false,
     eventContent: function(arg) {
       createDiv = document.createElement('div');
-      // createDiv.href = arg.event.url;
-      // createDiv.title = arg.event.title;
    
       var flyerCopyright = (arg.event.extendedProps.flyerCopyright) ? '<figcaption>' + arg.event.extendedProps.flyerCopyright + '</figcaption>' : '';
       var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
-      var statusLabel = (arg.event.extendedProps.statusLabel) ? arg.event.extendedProps.statusLabel : '';
-      var statusReason = (arg.event.extendedProps.statusReason) ? '<div>' + arg.event.extendedProps.statusReason + '</div>' : '';
+      var infoStatus = (arg.event.extendedProps.infoStatus) ? arg.event.extendedProps.infoStatus : '';
+      var infoReason = (arg.event.extendedProps.infoReason) ? '<div>' + arg.event.extendedProps.infoReason + '</div>' : '';
       var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
 
       var location = '';
-      if (arg.event.extendedProps.location) {
-        var argloc = arg.event.extendedProps.location;
+      if (arg.event.extendedProps.locationAddress) {
+        var argloc = arg.event.extendedProps.locationAddress;
+        var arglocV = arg.event.extendedProps.locationVenue;
         location = '<li class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg><span>';
 
-        if (arg.event.extendedProps.locationMap != false ) {
-          location = location + '<a href="https://maps.google.com/?q=' + argloc + '" title="' + argloc + '" target="_blank">' + argloc + '</a>';
+        if (arg.event.extendedProps.locationShowMap != false ) {
+          location = location + '<a href="https://maps.google.com/?q=' + arglocV + ', ' + argloc + '" title="' + arglocV + ' ' + argloc + '" target="_blank">' + arglocV + ', ' + argloc + '</a>';
         } else {
-          location = location + argloc;
+          location = location + arglocV + ', ' + argloc;
         }
         location = location + '</span></li>';
       }
 
-      var entryTime = (arg.event.extendedProps.entryTime) ? '<li class="event-entry"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg><span>' + moment(arg.event.extendedProps.entryTime).format('HH:mm') + ' Uhr</span></li>' : '';
+      var dateEntry = (arg.event.extendedProps.dateEntry) ? '<li class="event-entry"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg><span>' + moment(arg.event.extendedProps.dateEntry).format('HH:mm') + ' Uhr</span></li>' : '';
       
-      var preSale = (arg.event.extendedProps.preSale) ? '<li class="event-presale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg><span>' + arg.event.extendedProps.preSale + ' €</span></li>' : '';
-      var boxOffice = (arg.event.extendedProps.boxOffice) ? '<li class="event-boxoffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg><span>' + arg.event.extendedProps.boxOffice + ' €</span></li>' : '';
+      var pricePreSale = (arg.event.extendedProps.pricePreSale) ? '<li class="event-pricePreSale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg><span>' + arg.event.extendedProps.pricePreSale + ' €</span></li>' : '';
+      var priceBoxOffice = (arg.event.extendedProps.priceBoxOffice) ? '<li class="event-priceBoxOffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg><span>' + arg.event.extendedProps.priceBoxOffice + ' €</span></li>' : '';
 
-      var corona = (arg.event.extendedProps.corona) ? '<li class="event-corona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.corona + '</span></li>' : '';
+      var infoCorona = (arg.event.extendedProps.infoCorona) ? '<li class="event-infoCorona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.infoCorona + '</span></li>' : '';
 
-      var facebook = (arg.event.extendedProps.facebook) ? '<a href="' + arg.event.extendedProps.facebook + '" title="FaceBook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
-      var homepage = (arg.event.extendedProps.homepage) ? '<a href="' + arg.event.extendedProps.homepage + '" title="Homepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
-      var links = (facebook.length != '' || homepage.length != '') ? '<div class="event-links">' + facebook + homepage + '</div>' : '';
+      var linkFacebook = (arg.event.extendedProps.linkFacebook) ? '<a href="' + arg.event.extendedProps.linkFacebook + '" title="linkFacebook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
+      var linkHomepage = (arg.event.extendedProps.linkHomepage) ? '<a href="' + arg.event.extendedProps.linkHomepage + '" title="linkHomepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
+      var links = (linkFacebook.length != '' || linkHomepage.length != '') ? '<div class="event-links">' + linkFacebook + linkHomepage + '</div>' : '';
 
-      if (location.length != '' || entryTime.length != '' || preSale.length != '' || boxOffice.length != '' || corona.length != '') {
-        var eventFooter = '<div class="event-footer"><ul>' + location + entryTime + preSale + boxOffice + corona +'</ul></div>';
+      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '') {
+        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona +'</ul></div>';
       } else {
         var eventFooter = '';
       }
@@ -70,11 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
         string = '<span>' + startTime + '</span><br />- ' + endTime + ' Uhr';
       }
 
-      createDiv.innerHTML = '<div class="fc-list-event-time ' + statusLabel + '">' + string + '</div>' + 
-                            '<div class="fc-list-event-body columns is-gapless ' + statusLabel + '">' + 
+      createDiv.innerHTML = '<div class="fc-list-event-time ' + infoStatus + '">' + string + '</div>' + 
+                            '<div class="fc-list-event-body columns is-gapless ' + infoStatus + '">' + 
                               eventFooter +
                               '<div class="column event-wrapper">' +
-                                '<h3>' + arg.event.title + '</h3>' + statusReason + subtitle +  
+                                '<h3>' + arg.event.title + '</h3>' + infoReason + subtitle +  
                                 desc +
                               '</div>' +
                               links +
@@ -111,11 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // If there are locations to check
       if (states.length) {
-        result = result && states.indexOf(info.event.extendedProps.state) >= 0 || info.event.extendedProps.state === null;
+        result = result && states.indexOf(info.event.extendedProps.filterState) >= 0 || info.event.extendedProps.filterState === null;
       }
       // If there are specific types of events
       if (kinds.length) {
-        result = result && kinds.indexOf(info.event.extendedProps.kind) >= 0 || info.event.extendedProps.kind == 'holiday';
+        result = result && kinds.indexOf(info.event.extendedProps.filterKind) >= 0 || info.event.extendedProps.filterKind == 'holiday';
       }
       
       if (!result) {

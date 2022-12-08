@@ -1,6 +1,11 @@
 ---
 title: 1. Weihnachtsfeiertag
-startDate: 2022-12-25
-endDate: 2022-12-25
-kind: holiday
+filter:
+    kind: holiday
+dates:
+    start: 2022-12-25
+    end: 2022-12-25
+_build:
+  render: false # no permalink/single-page, we WANT THIS
+  list: true # but render on the list pages
 ---

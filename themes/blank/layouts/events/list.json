@@ -5,13 +5,13 @@
       {{- range first 1 (.Resources.ByType "image") -}}
         {{- $img := .Fill "320x320" -}}
 
-        {{ $.Scratch.Set "image" $img.Permalink }}
-        {{ $.Scratch.Set "imageCaption" $img.Params.Caption }}
+        {{- $.Scratch.Set "image" $img.Permalink -}}
+        {{- $.Scratch.Set "imageCaption" $img.Params.Caption -}}
 
       {{- end -}}
     {{- end -}}
 
-    {{- $.Scratch.Add "eventsList" (dict "title" .Title "start" .Params.StartDate "end" .Params.endDate "content" .Content "summary" .Summary "url" .Permalink "state" .Params.state "kind" .Params.kind "allDay" .Params.allDay "classNames" .Params.kind "location" .Params.location "locationMap" .Params.locationMap "subtitle" .Params.subtitle "preSale" .Params.preSale "boxOffice" .Params.boxOffice "corona" .Params.corona "statusLabel" .Params.status.label "statusReason" .Params.status.reason "flyerCopyright" ($.Scratch.Get "imageCaption") "flyer" ($.Scratch.Get "image") "entryTime" .Params.entryTime "facebook" .Params.facebook "homepage" .Params.homepage ) -}}
+    {{- $.Scratch.Add "eventsList" (dict "title" .Title "url" .Permalink "subtitle" .Params.subtitle "authors" .Params.authors "summary" .Summary "filterKind" .Params.filter.kind "filterState" .Params.filter.state "start" .Params.dates.start "end" .Params.dates.end "dateEntry" .Params.dates.entry "allDay" .Params.dates.allDay "locationVenue" .Params.location.venue "locationAddress" .Params.location.address "locationShowMap" .Params.location.showMap "pricePreSale" .Params.price.preSale "priceBoxOffice" .Params.price.boxOffice "infoCorona" .Params.info.corona "infoStatus" .Params.info.status "infoReason" .Params.info.reason "linkFacebook" .Params.link.facebook "linkHomepage" .Params.link.homepage "flyer" ($.Scratch.Get "image") "flyerCopyright" ($.Scratch.Get "imageCaption") "content" .Content "classNames" .Params.filter.kind ) -}}
     
     {{ $.Scratch.Delete "image" }}
     {{ $.Scratch.Delete "imageCaption" }}

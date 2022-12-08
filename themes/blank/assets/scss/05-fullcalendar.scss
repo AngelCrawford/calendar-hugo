@@ -267,7 +267,7 @@
                         font-size: 2rem;
                     }
 
-                    &.cancel {
+                    &.cancelled {
                         &::before {
                             position: absolute;
                             @include font-header;
@@ -374,8 +374,8 @@
                                     padding-left: .7em;
                                 }
 
-                                &.event-presale,
-                                &.event-boxoffice {
+                                &.event-pricePreSale,
+                                &.event-priceBoxOffice {
                                     flex-basis: 50%;
                                 }
 
@@ -443,8 +443,7 @@
                         bottom: 0;
                     }                    
 
-                    &.cancel {
-
+                    &.cancelled {
                         h3 {
                             color: #b94747;
                             text-decoration: line-through;

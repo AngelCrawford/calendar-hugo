@@ -1,6 +1,11 @@
 ---
 title: Christi Himmelfahrt
-startDate: 2023-05-18
-endDate: 2023-05-18
-kind: holiday
+filter:
+    kind: holiday
+dates:
+    start: 2023-05-18
+    end: 2023-05-18
+_build:
+  render: false # no permalink/single-page, we WANT THIS
+  list: true # but render on the list pages
 ---

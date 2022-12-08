@@ -1,6 +1,11 @@
 ---
 title: Karfreitag
-startDate: 2023-04-07
-endDate: 2023-04-07
-kind: holiday
+filter:
+    kind: holiday
+dates:
+    start: 2023-04-07
+    end: 2023-04-07
+_build:
+  render: false # no permalink/single-page, we WANT THIS
+  list: true # but render on the list pages
 ---
