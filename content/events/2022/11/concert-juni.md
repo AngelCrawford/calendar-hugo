@@ -1,8 +1,8 @@
 ---
 title: "** Concert juni"
 date: 2020-05-13T10:58:08-04:00
-startDate: 2022-12-20T21:00:00
-endDate: 2022-12-20T23:15:00
+startDate: 2022-12-07T18:00:00
+endDate: 2022-12-07T23:15:00
 entryTime: 2022-11-20T20:00:00
 boxOffice: "20.00"
 state: hh

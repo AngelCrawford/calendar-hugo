@@ -6,6 +6,11 @@ endDate: 2022-12-18T20:00:08
 authors: angel
 state: hh
 kind: party
+location: "In ganz Leipzig"
+locationMap: false
+preSale: "15,00"
+boxOffice: "20.00"
+corona: "2G • Keine Maskenpflicht"
 status:
   label: cancel # possible: cancel, soldout
   reason: Abgesagt wegen Covid-19

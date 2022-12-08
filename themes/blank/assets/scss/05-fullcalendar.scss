@@ -268,8 +268,6 @@
                     }
 
                     &.cancel {
-                        opacity: .2;
-
                         &::before {
                             position: absolute;
                             @include font-header;
@@ -281,10 +279,11 @@
                             border: 2px solid #b94747;
                             border-radius: 5px;
                             padding: .2em .4em .45em .4em;
-                            background: rgba($text, .4)
+                            background: rgba($text, .4);
                         }
                     }
                 }
+
     
                 .fc-list-event-body {
                     flex-grow: 1;
@@ -298,11 +297,6 @@
                         h3 {
                             color: $text;
                             font-size: 1.6em;
-
-                            &.cancel {
-                                color: #b94747;
-                                text-decoration: line-through;
-                            }
 
                             ~ div {
                                 color: #b94747;
@@ -447,6 +441,14 @@
                         // border-left: 3px dotted red;
                         height: calc(50% - 30px);
                         bottom: 0;
+                    }                    
+
+                    &.cancel {
+
+                        h3 {
+                            color: #b94747;
+                            text-decoration: line-through;
+                        }
                     }
                 }
             }

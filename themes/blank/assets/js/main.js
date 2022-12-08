@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       createDiv.innerHTML = '<div class="fc-list-event-time ' + statusLabel + '">' + string + '</div>' + 
-                            '<div class="fc-list-event-body columns is-gapless">' + 
+                            '<div class="fc-list-event-body columns is-gapless ' + statusLabel + '">' + 
                               eventFooter +
                               '<div class="column event-wrapper">' +
-                                '<h3 class="' + statusLabel + '">' + arg.event.title + '</h3>' + statusReason + subtitle +  
+                                '<h3>' + arg.event.title + '</h3>' + statusReason + subtitle +  
                                 desc +
                               '</div>' +
                               links +
