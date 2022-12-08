@@ -63,6 +63,9 @@
         &.concert {
             background: $event-concert;
         }
+        &.virtual {
+            background: $event-virtual;
+        }
         &.other {
             background: $event-other;
         }
@@ -205,6 +208,9 @@
         &.festival .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-festival;
         }
+        &.virtual .fc-list-event-title .fc-list-event-body {
+            border-left: 20px solid $event-virtual;
+        }
         &.other .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-other;
         }
@@ -267,39 +273,34 @@
                         font-size: 2rem;
                     }
 
-                    &.cancelled {
-                        &::before {
-                            position: absolute;
-                            @include font-header;
-                            font-size: 2em;
-                            color: darken(#b94747, 10%);
-                            content: "Abgesagt";
-                            transform: rotate(-60deg);
-                            left: 5px;
-                            border: 2px solid #b94747;
-                            border-radius: 5px;
-                            padding: .2em .4em .45em .4em;
-                            background: rgba($text, .4);
-                        }
+                    &.cancelled::before {
+                        position: absolute;
+                        @include font-header;
+                        font-size: 2em;
+                        color: darken(#b94747, 10%);
+                        content: "Abgesagt";
+                        transform: rotate(-60deg);
+                        left: 5px;
+                        border: 2px solid #b94747;
+                        border-radius: 5px;
+                        padding: .2em .4em .45em .4em;
+                        background: rgba($text, .4);
                     }
 
-                    &.soldout {
-                        &::before {
-                            position: absolute;
-                            @include font-header;
-                            font-size: 2em;
-                            color: darken(#b94747, 10%);
-                            content: "Ausverkauft";
-                            transform: rotate(-60deg);
-                            left: -10px;
-                            border: 2px solid #b94747;
-                            border-radius: 5px;
-                            padding: .2em .4em .45em .4em;
-                            background: rgba($text, .4);
-                        }
+                    &.soldout::before {
+                        position: absolute;
+                        @include font-header;
+                        font-size: 2em;
+                        color: darken(#b94747, 10%);
+                        content: "Ausverkauft";
+                        transform: rotate(-60deg);
+                        left: -10px;
+                        border: 2px solid #b94747;
+                        border-radius: 5px;
+                        padding: .2em .4em .45em .4em;
+                        background: rgba($text, .4);
                     }
                 }
-
     
                 .fc-list-event-body {
                     flex-grow: 1;
@@ -393,6 +394,14 @@
                                 &.event-pricePreSale,
                                 &.event-priceBoxOffice {
                                     flex-basis: 50%;
+                                }
+
+                                &.event-virtual {
+                                    color: $link;
+                                    
+                                    svg {
+                                        fill: $link;
+                                    }
                                 }
 
                                 a {

@@ -4,7 +4,7 @@ subtitle: Ein Subtitle zum Testen in einem Event
 authors: angel
 summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
 filter:
-    kind: concert # concert, party, festival, other, holiday
+    kind: concert # concert, party, festival, other, holiday, virtual
     state: hh # hh, sh
 dates:
     start: {{ .Date }}

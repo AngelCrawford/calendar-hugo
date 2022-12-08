@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       right: 'prev,today,next'
     },
     initialView: 'listMonth',
-    // googleCalendarApiKey: 'AIzaSyDcnW6WejpTOCffshGDDb4neIrXVUA1EAE',
+    // googleCalendarApiKey: 'AIzaSyBHZjQ98m4MH-6XdAJFhA5e2WgbkKhNNjg',
     displayEventTime: false,
     eventContent: function(arg) {
       createDiv = document.createElement('div');
@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
       var infoStatus = (arg.event.extendedProps.infoStatus) ? arg.event.extendedProps.infoStatus : '';
       var infoReason = (arg.event.extendedProps.infoReason) ? '<div>' + arg.event.extendedProps.infoReason + '</div>' : '';
       var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
+      var filterKind = (arg.event.extendedProps.filterKind) ? arg.event.extendedProps.filterKind : '';
+
+      console.log(filterKind);
 
       var location = '';
-      if (arg.event.extendedProps.locationAddress) {
+      if (filterKind !== 'virtual' && arg.event.extendedProps.locationAddress) {
         var argloc = arg.event.extendedProps.locationAddress;
         var arglocV = arg.event.extendedProps.locationVenue;
         location = '<li class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg><span>';
@@ -45,12 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var infoCorona = (arg.event.extendedProps.infoCorona) ? '<li class="event-infoCorona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.infoCorona + '</span></li>' : '';
 
+      filterKind = (filterKind == 'virtual') ? '<li class="event-virtual"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#hotel-line"></use></svg><span>Virtuelles Event</span>' : '';
+
       var linkFacebook = (arg.event.extendedProps.linkFacebook) ? '<a href="' + arg.event.extendedProps.linkFacebook + '" title="linkFacebook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
       var linkHomepage = (arg.event.extendedProps.linkHomepage) ? '<a href="' + arg.event.extendedProps.linkHomepage + '" title="linkHomepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
       var links = (linkFacebook.length != '' || linkHomepage.length != '') ? '<div class="event-links">' + linkFacebook + linkHomepage + '</div>' : '';
 
-      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '') {
-        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona +'</ul></div>';
+      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '' || filterKind.length != '') {
+        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona + filterKind + '</ul></div>';
       } else {
         var eventFooter = '';
       }
