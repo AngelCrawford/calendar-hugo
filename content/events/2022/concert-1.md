@@ -1,11 +1,11 @@
 ---
-title: "Party Reihe #2"
+title: "Concert #1"
 subtitle: Ein Subtitle zum Testen in einem Event
 authors: angel
 summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
 filter:
-  kind: party # concert, party, festival other
-  state: hh # hh, sh
+  kind: concert # concert, party, festival other
+  state: sh # hh, sh
 dates:
   start: 2022-12-18T10:58:08
   end: 2022-12-18T20:00:08
@@ -14,14 +14,12 @@ dates:
 location:
   venue: Name of club
   address: Eine Straße 25, 24118 Hamburg
-  showMap: false
+  showMap: true
 price:
   preSale: 15,00
-  boxOffice: 20.00
+  boxOffice: 20,00
 info:
-  corona: 2G • Keine Maskenpflicht
-  status: cancelled # possible: cancelled, soldout
-  reason: Abgesagt wegen Covid-19
+  status: soldout # possible: cancelled, soldout
 link:
   facebook: https://www.facebook.com
   homepage: https://www.livingdead.de

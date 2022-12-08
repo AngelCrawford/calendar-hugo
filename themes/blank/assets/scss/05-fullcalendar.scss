@@ -271,11 +271,27 @@
                         &::before {
                             position: absolute;
                             @include font-header;
-                            font-size: 3em;
+                            font-size: 2em;
                             color: darken(#b94747, 10%);
                             content: "Abgesagt";
                             transform: rotate(-60deg);
-                            left: -30px;
+                            left: 5px;
+                            border: 2px solid #b94747;
+                            border-radius: 5px;
+                            padding: .2em .4em .45em .4em;
+                            background: rgba($text, .4);
+                        }
+                    }
+
+                    &.soldout {
+                        &::before {
+                            position: absolute;
+                            @include font-header;
+                            font-size: 2em;
+                            color: darken(#b94747, 10%);
+                            content: "Ausverkauft";
+                            transform: rotate(-60deg);
+                            left: -10px;
                             border: 2px solid #b94747;
                             border-radius: 5px;
                             padding: .2em .4em .45em .4em;
@@ -447,6 +463,12 @@
                         h3 {
                             color: #b94747;
                             text-decoration: line-through;
+                        }
+                    }                  
+
+                    &.soldout {
+                        h3 {
+                            color: #b94747;
                         }
                     }
                 }
