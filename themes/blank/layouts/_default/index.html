@@ -5,6 +5,8 @@
 	{{ end }}
 
 	<div id="calendar-filter">
+		<input id="further" class="event_filter" name="event_filter_sel" type="checkbox" value="further" data-type="state" checked="true" />
+		<label for="further" class="further">Weitere</label>
 
 		<input id="hh" class="event_filter" name="event_filter_sel" type="checkbox" value="hh" data-type="state" checked="true" />
 		<label for="hh" class="hh">Hamburg</label>
@@ -14,9 +16,6 @@
 
 		<input id="other" class="event_filter" name="event_filter_sel" type="checkbox" value="other" data-type="kind" checked="true" />
 		<label for="other" class="other">Übrige</label>
-
-		<input id="virtual" class="event_filter" name="event_filter_sel"  type="checkbox" value="virtual" data-type="kind" checked="true" />
-		<label for="virtual" class="virtual">Virtuell</label>
 
 		<input id="festival" class="event_filter" name="event_filter_sel" type="checkbox" value="festival" data-type="kind" checked="true" />
 		<label for="festival" class="festival">Festivals</label>

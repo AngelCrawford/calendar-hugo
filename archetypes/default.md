@@ -4,24 +4,25 @@ subtitle: Ein Subtitle zum Testen in einem Event
 authors: angel
 summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
 filter:
-    kind: concert # concert, party, festival, other, holiday, virtual
-    state: hh # hh, sh
+  kind: concert # concert, party, festival, other, holiday
+  state: hh # hh, sh, further
 dates:
-    start: {{ .Date }}
-    end: {{ .Date }}
-    entry: {{ .Date }}
-    allDay: true
+  start: {{ .Date }}
+  end: {{ .Date }}
+  entry: {{ .Date }}
+  allDay: true
 location:
-    venue: Name of club
-    address: Eine Straße 25, 24118 Hamburg
-    showMap: false
+  venue: Name of club
+  address: Eine Straße 25, 24118 Hamburg
+  showMap: false
+  virtual: false
 price:
-    preSale: 15,00
-    boxOffice: 20.00
+  preSale: 15,00
+  boxOffice: 20.00
 info:
-    corona: 2G • Keine Maskenpflicht
-    status: cancelled # possible: cancelled, soldout
-    reason: Abgesagt wegen Covid-19
+  corona: 2G • Keine Maskenpflicht
+  status: cancelled # possible: cancelled, soldout
+  reason: Abgesagt wegen Covid-19
 link:
   facebook: https://www.facebook.com
   homepage: https://www.livingdead.de

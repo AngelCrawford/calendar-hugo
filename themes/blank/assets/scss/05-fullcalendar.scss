@@ -51,7 +51,7 @@
             transition: all linear .1s;
         }
 
-        &.sh, &.hh {
+        &.sh, &.hh, &.further {
             background: #607d8b;
         }
         &.party {
@@ -62,9 +62,6 @@
         }
         &.concert {
             background: $event-concert;
-        }
-        &.virtual {
-            background: $event-virtual;
         }
         &.other {
             background: $event-other;
@@ -207,9 +204,6 @@
         }
         &.festival .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-festival;
-        }
-        &.virtual .fc-list-event-title .fc-list-event-body {
-            border-left: 20px solid $event-virtual;
         }
         &.other .fc-list-event-title .fc-list-event-body {
             border-left: 20px solid $event-other;
@@ -374,7 +368,6 @@
                             height: 0%;
                             
                             li {
-                                display: block;
                                 padding: .3em;
                                 color: lighten($small, 15%);
                                 display: flex;
@@ -385,7 +378,8 @@
                                 svg {
                                     fill: rgba($small, .6);
                                     flex-shrink: 0;
-                                    width: 24px;
+                                    width: 16px;
+                                    @include translate(0px, -2px);
                                 }
                                 span {
                                     padding-left: .7em;

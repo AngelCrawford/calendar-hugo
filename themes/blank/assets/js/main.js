@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       var infoCorona = (arg.event.extendedProps.infoCorona) ? '<li class="event-infoCorona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.infoCorona + '</span></li>' : '';
 
-      filterKind = (filterKind == 'virtual') ? '<li class="event-virtual"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#hotel-line"></use></svg><span>Virtuelles Event</span>' : '';
+      locationVirtual = (arg.event.extendedProps.locationVirtual) ? '<li class="event-virtual"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#signal-tower-line"></use></svg><span>Virtuelles Event</span>' : '';
 
       var linkFacebook = (arg.event.extendedProps.linkFacebook) ? '<a href="' + arg.event.extendedProps.linkFacebook + '" title="linkFacebook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
       var linkHomepage = (arg.event.extendedProps.linkHomepage) ? '<a href="' + arg.event.extendedProps.linkHomepage + '" title="linkHomepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
       var links = (linkFacebook.length != '' || linkHomepage.length != '') ? '<div class="event-links">' + linkFacebook + linkHomepage + '</div>' : '';
 
-      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '' || filterKind.length != '') {
-        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona + filterKind + '</ul></div>';
+      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '' || locationVirtual.length != '') {
+        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona + locationVirtual + '</ul></div>';
       } else {
         var eventFooter = '';
       }
