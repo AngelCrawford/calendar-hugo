@@ -22,21 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
       var infoStatus = (arg.event.extendedProps.infoStatus) ? arg.event.extendedProps.infoStatus : '';
       var infoReason = (arg.event.extendedProps.infoReason) ? '<div>' + arg.event.extendedProps.infoReason + '</div>' : '';
-      var desc = (arg.event.extendedProps.summary) ? '<p>' + arg.event.extendedProps.summary + '</p>' : '';
+      var desc = (arg.event.extendedProps.description) ? '<p>' + arg.event.extendedProps.description + '</p>' : '';
       var filterKind = (arg.event.extendedProps.filterKind) ? arg.event.extendedProps.filterKind : '';
 
-      console.log(filterKind);
+      // console.log(filterKind);
 
       var location = '';
-      if (filterKind !== 'virtual' && arg.event.extendedProps.locationAddress) {
+      if (arg.event.extendedProps.locationAddress) {
         var argloc = arg.event.extendedProps.locationAddress;
         var arglocV = arg.event.extendedProps.locationVenue;
         location = '<li class="event-location"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#map-pin-line"></use></svg><span>';
 
         if (arg.event.extendedProps.locationShowMap != false ) {
-          location = location + '<a href="https://maps.google.com/?q=' + arglocV + ', ' + argloc + '" title="' + arglocV + ' ' + argloc + '" target="_blank">' + arglocV + ', ' + argloc + '</a>';
+          location = location + '<a href="https://maps.google.com/?q=' + arglocV + ', ' + argloc + '" title="' + arglocV + ' ' + argloc + '" target="_blank"><b>' + arglocV + '</b><br />' + argloc + '</a>';
         } else {
-          location = location + arglocV + ', ' + argloc;
+          location = location + '<b>' + arglocV + '</b><br />' + argloc;
         }
         location = location + '</span></li>';
       }
@@ -87,9 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let arrayOfDomNodes = [ createDiv ];
       return { domNodes: arrayOfDomNodes };
     },
-    eventSources: [{
-      url: '/events/index.json'
-    }],
+    googleCalendarApiKey: 'AIzaSyBHZjQ98m4MH-6XdAJFhA5e2WgbkKhNNjg',
+    eventSources: [
+      // { googleCalendarId: '4ce40c3143709f3fab95d5b714fdd3de717a8ab6297a74e57d073e2db913d2b0@group.calendar.google.com' },
+      { url: '/events/index.json'}
+    ],
     eventClassNames: function(info) {
         
       var result = true;

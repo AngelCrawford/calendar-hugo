@@ -13,7 +13,7 @@ dates:
   allDay: false
 location:
   venue: Name of club
-  address: Eine Straße 25, 24118 Hamburg
+  address: Eine Straße 25, <br />24118 Hamburg
   showMap: false
   virtual: true
 price:
