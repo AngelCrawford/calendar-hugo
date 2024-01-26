@@ -268,6 +268,10 @@
                     position: relative;
                     padding: 1.5em 0 1.2em 0;
                     background: transparent;
+
+                    @include until-widescreen {
+                        display: none;
+                    }
         
                     span {
                         font-size: 2rem;
@@ -307,9 +311,18 @@
                     position: relative;
                     background: rgba($sidebar-back, .7);
                     display: flex;
+                    flex-direction: row;
+
+                    @include mobile {
+                        flex-direction: column;
+                    }
                     
                     .event-wrapper {
                         padding: 1.5em !important;
+
+                        @include mobile {
+                            order: 1;
+                        }
 
                         h3 {
                             color: $text;
@@ -332,29 +345,39 @@
                         }
                     }
 
-                    figure {
-                        height: 100%;
-                        width: auto;
+                    .image {
+                        overflow: hidden;
+                        width: 300px;
 
-                        figcaption {
-                            position: absolute;
-                            border-top: 1px solid rgba(black, .5);
-                            height: auto;
-                            min-height: 48px;
-                            bottom: 0;
-                            width: 100%;
-                            padding: 5px;
-                            font-size: 80%;
-                            background: rgba(black, .4);
-                            color: lighten($small, 15%);
-                            display: flex;
-                            justify-content: left;
-                            align-items: center;
+                        @include until-fullhd {
+                            display: none;
+                        }
 
-                            &::before {
-                                content: "\ebe2";
-                                font-family: 'remixicon' !important;
-                                padding-right: 5px;
+                        figure {
+                            object-fit: cover;
+                            width: 320px;
+                            height: 100%;
+
+                            figcaption {
+                                position: absolute;
+                                border-top: 1px solid rgba(black, .5);
+                                height: auto;
+                                min-height: 48px;
+                                bottom: 0;
+                                width: 100%;
+                                padding: 5px;
+                                font-size: 80%;
+                                background: rgba(black, .4);
+                                color: lighten($small, 15%);
+                                display: flex;
+                                justify-content: left;
+                                align-items: center;
+
+                                &::before {
+                                    content: "\ebe2";
+                                    font-family: 'remixicon' !important;
+                                    padding-right: 5px;
+                                }
                             }
                         }
                     }
@@ -364,6 +387,11 @@
                         width: 300px;
                         bottom: 0;
                         top: 0;
+
+                        @include mobile {
+                            width: 100%;
+                            order: 2;
+                        }
 
                         ul {
                             height: 100%;
@@ -378,8 +406,17 @@
                                 color: lighten($small, 15%);
                                 display: flex;
                                 flex-basis: 100%;
-                                align-self: center;
-                                justify-self: center;
+                                align-content: flex-start;
+                                margin: 0px auto;
+
+                                @include mobile {
+                                    flex-basis: 0px;
+                                    flex-grow: 0;
+                                    min-width: max-content;
+                                    align-items: flex-start;
+                                    padding-right: 1em;
+                                    margin: 0;
+                                }
 
                                 svg {
                                     fill: rgba($small, .6);
@@ -391,9 +428,27 @@
                                     padding-left: .7em;
                                 }
 
+                                &.event-start-mobile {
+                                    display: none; 
+
+                                    @include until-widescreen {
+                                        display: flex;
+                                    }
+                                }
+
+                                &.event-location {
+                                    @include mobile {
+                                        flex-basis: 100%;
+                                    }
+                                }
+
                                 &.event-pricePreSale,
                                 &.event-priceBoxOffice {
                                     flex-basis: 50%;
+
+                                    @include mobile {
+                                        flex-basis: 0%;
+                                    }
                                 }
 
                                 &.event-virtual {
@@ -401,6 +456,42 @@
                                     
                                     svg {
                                         fill: $link;
+                                    }
+                                }
+
+                                &.event-status-mobile {
+                                    display: none;
+
+                                    @include until-widescreen {
+                                        display: flex;
+                                        color: #cf3232;
+                                    }
+                                    svg {
+                                        fill: #cf3232;
+                                        // @include translate(0px, 7px);
+                                    }
+                                }
+
+                                &.event-links-mobile {
+                                    display: none;                                    
+
+                                    @include until-widescreen {
+                                        display: flex;
+
+                                        svg {
+                                            margin-right: 0.7em;
+                                        }
+
+                                        a {
+                                            border-bottom: none;
+
+                                            svg {
+                                                fill: lighten($small, 15%);
+                                                margin-right: .5em;
+                                                width: 25px;
+                                                height: 25px;
+                                            }
+                                        }
                                     }
                                 }
 
@@ -424,6 +515,10 @@
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
+
+                        @include mobile {
+                            display: none;
+                        }
 
                         a {
                             transition: all 5s ease-out;

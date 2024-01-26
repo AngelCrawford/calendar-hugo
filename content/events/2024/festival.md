@@ -18,8 +18,6 @@ location:
 price:
   preSale: 15,00
   boxOffice: 20.00
-info:
-  corona: 2G • Keine Maskenpflicht
 link:
   facebook: https://www.facebook.com
   homepage: https://www.livingdead.de

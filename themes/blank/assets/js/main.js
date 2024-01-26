@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       createDiv = document.createElement('div');
    
       var flyerCopyright = (arg.event.extendedProps.flyerCopyright) ? '<figcaption>' + arg.event.extendedProps.flyerCopyright + '</figcaption>' : '';
-      var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-2"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
+      var flyer = (arg.event.extendedProps.flyer) ? '<div class="column is-narrow image"><figure class="image is-1by1"><img src="' + arg.event.extendedProps.flyer + '" alt="' + arg.event.title + '" loading="lazy" />' + flyerCopyright + '</figure></div>' : '';
       var subtitle = (arg.event.extendedProps.subtitle) ? '<h4>' + arg.event.extendedProps.subtitle + '</h4>' : '';
       var infoStatus = (arg.event.extendedProps.infoStatus) ? arg.event.extendedProps.infoStatus : '';
       var infoReason = (arg.event.extendedProps.infoReason) ? '<div>' + arg.event.extendedProps.infoReason + '</div>' : '';
@@ -39,25 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         location = location + '</span></li>';
       }
-
-      var dateEntry = (arg.event.extendedProps.dateEntry) ? '<li class="event-entry"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg><span>' + moment(arg.event.extendedProps.dateEntry).format('HH:mm') + ' Uhr</span></li>' : '';
-      
-      var pricePreSale = (arg.event.extendedProps.pricePreSale) ? '<li class="event-pricePreSale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg><span>' + arg.event.extendedProps.pricePreSale + ' €</span></li>' : '';
-      var priceBoxOffice = (arg.event.extendedProps.priceBoxOffice) ? '<li class="event-priceBoxOffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg><span>' + arg.event.extendedProps.priceBoxOffice + ' €</span></li>' : '';
-
-      var infoCorona = (arg.event.extendedProps.infoCorona) ? '<li class="event-infoCorona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.infoCorona + '</span></li>' : '';
-
-      locationVirtual = (arg.event.extendedProps.locationVirtual) ? '<li class="event-virtual"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#signal-tower-line"></use></svg><span>Virtuelles Event</span>' : '';
-
-      var linkFacebook = (arg.event.extendedProps.linkFacebook) ? '<a href="' + arg.event.extendedProps.linkFacebook + '" title="linkFacebook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
-      var linkHomepage = (arg.event.extendedProps.linkHomepage) ? '<a href="' + arg.event.extendedProps.linkHomepage + '" title="linkHomepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
-      var links = (linkFacebook.length != '' || linkHomepage.length != '') ? '<div class="event-links">' + linkFacebook + linkHomepage + '</div>' : '';
-
-      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '' || locationVirtual.length != '') {
-        var eventFooter = '<div class="event-footer"><ul>' + location + dateEntry + pricePreSale + priceBoxOffice + infoCorona + locationVirtual + '</ul></div>';
-      } else {
-        var eventFooter = '';
-      }
       
       var startTime = moment(arg.event.start).format('HH:mm');
       var endTime = (arg.event.end) ? moment(arg.event.end).format('HH:mm') : '00:00';
@@ -65,6 +46,31 @@ document.addEventListener('DOMContentLoaded', function() {
       var startDate = moment(arg.event.start, 'YYYY/MM/DD HH:mm');
       var endDate = moment(arg.event.end, 'YYYY/MM/DD HH:mm');
       var hoursDiff = endDate.diff(startDate, 'hours', true);
+
+      var dateEntry = (arg.event.extendedProps.dateEntry) ? '<li class="event-entry"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg><span>Einlass: ' + moment(arg.event.extendedProps.dateEntry).format('HH:mm') + ' Uhr</span></li>' : '';
+      
+      var pricePreSale = (arg.event.extendedProps.pricePreSale) ? '<li class="event-pricePreSale"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#coupon-3-line"></use></svg><span>' + arg.event.extendedProps.pricePreSale + ' €</span></li>' : '';
+      var priceBoxOffice = (arg.event.extendedProps.priceBoxOffice) ? '<li class="event-priceBoxOffice"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#price-tag-3-line"></use></svg><span>' + arg.event.extendedProps.priceBoxOffice + ' €</span></li>' : '';
+
+      var infoCorona = (arg.event.extendedProps.infoCorona) ? '<li class="event-infoCorona"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#surgical-mask-line"></use></svg><span>' + arg.event.extendedProps.infoCorona + '</span></li>' : '';
+
+      var locationVirtual = (arg.event.extendedProps.locationVirtual) ? '<li class="event-virtual"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#signal-tower-line"></use></svg><span>Virtuelles Event</span>' : '';
+
+      var infoStatusTxt = (infoStatus == "cancelled") ? "Abgesagt" : "Ausverkauft";
+      var infoStatusMobile = (arg.event.extendedProps.infoStatus) ? '<li class="event-status-mobile"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#information-line"></use></svg><span>' + infoStatusTxt + '</span>' : '';
+
+      var linkFacebook = (arg.event.extendedProps.linkFacebook) ? '<a href="' + arg.event.extendedProps.linkFacebook + '" title="linkFacebook Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#facebook-circle-line"></use></svg></a>' : '';
+      var linkHomepage = (arg.event.extendedProps.linkHomepage) ? '<a href="' + arg.event.extendedProps.linkHomepage + '" title="linkHomepage Link" target="_blank"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg></a>' : '';
+      var links = (linkFacebook.length != '' || linkHomepage.length != '') ? '<div class="event-links">' + linkFacebook + linkHomepage + '</div>' : '';
+      var linksMobile = (linkFacebook.length != '' || linkHomepage.length != '') ? '<li class="event-links-mobile"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#links-fill"></use></svg>' + linkFacebook + linkHomepage + '</li>' : '';
+
+      var timeMobile = '<li class="event-start-mobile"><svg class="remix"><use xlink:href="/fonts/remixicon/remixicon.symbol.svg#time-line"></use></svg><span>Uhrzeit: ' + startTime + ' - ' + endTime + '</span></li>';
+
+      if (location.length != '' || dateEntry.length != '' || pricePreSale.length != '' || priceBoxOffice.length != '' || infoCorona.length != '' || locationVirtual.length != '' || infoStatusMobile.length != '' || linksMobile.length != '') {
+        var eventFooter = '<div class="event-footer column is-narrow"><ul>' + location + timeMobile + dateEntry + pricePreSale + priceBoxOffice + infoCorona + locationVirtual + infoStatusMobile + linksMobile + '</ul></div>';
+      } else {
+        var eventFooter = '';
+      }
 
       if (hoursDiff >= 24 || arg.event.allDay || arg.event.end == null) {
         string = '<span>Ganz</span><br />- tägig';
