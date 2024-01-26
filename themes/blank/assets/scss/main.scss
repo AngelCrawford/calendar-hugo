@@ -6,14 +6,11 @@
  * Description: Theme for Cities in Dust.
 */
 
-@import "fullcalendar/fullcalendar";
-
 @import "00-variables";
 @import "01-fonts";
 @import "02-mixins";
-// @import "bootstrap/bootstrap";
-// @import "bulma/bulma";
-// @import "bulma-extensions/bulma-extensions";
+@import "bulma/bulma";
+@import "bulma-extensions/bulma-extensions";
 @import "03-sidebar";
 @import "04-header";
 @import "05-fullcalendar";
@@ -21,11 +18,13 @@
 
 html {
   font-size: 15px;
+  width: 100vw;
 }
 
 html, body {
   background-color: darken($background, 3%);
   color: $text;
+  min-width: 100%;
 }
 
 p:not(:first-of-type) {
@@ -75,6 +74,9 @@ main {
     display: block;
     position: absolute;
     // background: rgba(black, .3);
+  }
+
+  @include until-widescreen {
   }
 }
 

@@ -1,15 +1,27 @@
-aside {
+aside.column.is-2 {
     background: $sidebar-back;
-    height: 100%;
+    // height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     // width: 16.5vw;
+                
+    @include until-widescreen {
+        width: 220px;
+        position: fixed;
+        z-index: 9999;
+        overflow-y: scroll;
+        height: 100%;
+    }
 
     .brand-logo {
         // background: $sidebar-header;
         // width: 100%;
         height: 16.5vw;
+    
+        @include until-widescreen {
+            height: 236px;
+        }
 
         a {
             display: flex;
@@ -29,11 +41,20 @@ aside {
             text-shadow: 2px 2px 7px rgba(#000000, .7), 
                         -2px -2px 7px rgba(#000000, .7);
 
+            @include until-widescreen {
+                font-size: 95px;
+                margin-top: 35px;
+            }
+
             span {
                 display: block;
                 margin: 25% 0 0 7px;
                 letter-spacing: -2px;
                 font-size: 5.8vw;
+
+                @include until-widescreen {
+                    font-size: 77px;
+                }
             }
         }
 
@@ -48,6 +69,11 @@ aside {
             background-repeat: repeat-x;
             background-position: 47% 100%;
             background-size: auto 100%;
+    
+            @include until-widescreen {
+                width: 239px;
+                height: 236px;
+            }
         }
         
         // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
@@ -62,6 +88,11 @@ aside {
             background-repeat: no-repeat;
             background-position: 47% 100%;
             background-size: 150% 50%;
+    
+            @include until-widescreen {
+                width: 239px;
+                height: 236px;
+            }
         }
 
         .sun {
@@ -71,12 +102,22 @@ aside {
             #sun {
                 fill: #e0d8a6;
             }
+    
+            @include until-widescreen {
+                margin-top: 55%;
+                margin-left: 30%;
+            }
         }
 
         .moon {
             position: absolute;
             margin-top: 9%;
             margin-left: 6.2%;
+    
+            @include until-widescreen {
+                margin-top: 62%;
+                margin-left: 38%;
+            }
         }
 
         &.sky {
@@ -132,9 +173,15 @@ aside {
             height: auto;
 
             top: 0;
-            margin-top: 15.4%;
+            margin-top: 15.2%;
             margin-left: -1.7%;
             // opacity: .7;
+    
+            @include until-widescreen {
+                width: 50px;
+                margin-top: 215px;
+                margin-left: -1.7%;
+            }
 
             .wave {
                 fill: #4478e3;
@@ -155,6 +202,11 @@ aside {
             position: absolute;
             overflow: hidden;
             z-index: 1;
+    
+            @include until-widescreen {
+                width: 220px;
+                height: 150px;
+            }
           
             // n is number of stars required
             @function multiple-box-shadow ($n) {
@@ -203,7 +255,12 @@ aside {
             background: url("/img/logo/hotairballoon.svg") no-repeat;
             width: 40px;
             height: 40px;
-            transform: rotate(10deg)
+            transform: rotate(10deg);
+    
+            @include until-widescreen {
+                margin-top: 58%;
+                margin-left: 45%;
+            }
         }
 
         // THANKS: https://codepen.io/bennettfeely/pen/mEjio
@@ -213,12 +270,22 @@ aside {
             z-index: 55;
             margin-top: 4.75%;
             margin-left: 4.6%;
+    
+            @include until-widescreen {
+                margin-top: 27%;
+                margin-left: 28%;
+            }
           
             .front, .back {
                 position: absolute;
                 width: 4.7vw;
                 height: 3.6vw;
                 transform: rotate(-15deg);
+    
+                @include until-widescreen {
+                    width: 56px;
+                    height: 46px;
+                }
             }
           
             .front { 
@@ -249,6 +316,11 @@ aside {
             height: 16.5vw;
             z-index: 3;
             display: none;
+    
+            @include until-widescreen {
+                margin-top: 33%;
+                margin-left: -5%;
+            }
         
             svg#ghost {
                 -webkit-filter: url("#disfilter");
@@ -273,6 +345,11 @@ aside {
             left: 0;
             margin-top: 0%;
             z-index: 1;
+    
+            @include until-widescreen {
+                width: 240px;
+                height: 220px;
+            }
         }
     }
 

@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	var currentTime = new Date();
-	var stopTime = new Date(currentTime.getTime() + 7800);
+	var stopTime = new Date(currentTime.getTime() + 9900);
 
 	// main demo loop
 	function loop() {

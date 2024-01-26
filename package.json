@@ -1,0 +1,27 @@
+{
+  "name": "calendar-hugo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-tw": "npx tailwindcss -i ./themes/blank/assets/scss/main.scss -o ./assets/main.css -w --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelCrawford/calendar-hugo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelCrawford/calendar-hugo/issues"
+  },
+  "homepage": "https://github.com/AngelCrawford/calendar-hugo#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.0",
+    "tailwindcss": "^3.4.1"
+  }
+}

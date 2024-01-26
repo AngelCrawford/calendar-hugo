@@ -49,20 +49,18 @@
 </head>
 <body>
 	<div class="columns is-gapless">
-		<div class="column is-2">
+		<aside class="column is-2">
 			{{ partial "sidebar" . }}
-		</div>
+		</aside>
 
-		<div class="column">
-			<main>
+		<main class="column">
 
-				<section class="section">
-					<div class="container">
-						{{ block "main" . }}{{ end }}
-					</div>
-				</section>
-			</main>
-		</div>
+			<section class="section">
+				<div class="container">
+					{{ block "main" . }}{{ end }}
+				</div>
+			</section>
+		</main>
 	</div>
 
 </body>

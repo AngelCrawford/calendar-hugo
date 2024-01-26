@@ -27,7 +27,7 @@
         float: right;
         background: black;
         padding: 0 20px 0 60px;
-        margin: 0 1em 0 0;
+        margin: 0 0 1em 1em;
         height: 40px;
         line-height: 40px;
         cursor: pointer;
@@ -150,6 +150,11 @@
         }
     }
 
+    table.fc-list-table {
+        overflow:auto; 
+        position:relative;
+    }
+
     table, table tr, table td, table th,
     .fc-list table.fc-list-table th,
     .fc-list {
@@ -164,7 +169,8 @@
     }
     tr.fc-list-event:not(.fc-event-future),
     tr.fc-list-day.fc-day-past {
-        opacity: .35;
+        // opacity: .35;
+        display: none;
     }
 
     // Green Header with Weekday
@@ -411,7 +417,7 @@
 
                     .event-links{
                         background: rgba(black, .15);
-                        width: 5%;
+                        width: 55px;
                         bottom: 0;
                         top: 0;
                         display: flex;
