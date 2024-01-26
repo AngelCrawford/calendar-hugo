@@ -1,22 +1,23 @@
 ---
-title: "Concert #1"
+title: "Party Reihe #1"
+subtitle: Ein Subtitle zum Testen in einem Event
+authors: angel
+summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
 filter:
-  kind: concert # concert, party, festival other
-  state: sh # hh, sh, further
+  kind: party # concert, party, festival, other, virtual
+  state: hh # hh, sh, further
 dates:
-  start: 2023-08-18T10:58:08
-  end: 2023-08-18T20:00:08
-  entry: 2023-08-18T09:00:08
+  start: 2024-01-31T10:58:08
+  end: 2024-01-31T20:00:08
+  entry: 2024-01-28T09:00:08
   allDay: false
 location:
   venue: Name of club
-  address: Eine Straße 25, 24118 Hamburg
-  showMap: true
+  address: Eine Straße 25, <br />24118 Hamburg
+  showMap: false
+  virtual: true
 price:
-  preSale: 15,00
-  boxOffice: 20,00
-info:
-  status: soldout # possible: cancelled, soldout
+  boxOffice: 20.00
 link:
   facebook: https://www.facebook.com
   homepage: https://www.livingdead.de

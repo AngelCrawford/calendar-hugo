@@ -1,28 +1,33 @@
 ---
-title: "Festival over more Days"
-subtitle: Ein Subtitle zum Testen in einem Event
-authors: Chris
-summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
+title: "Concert #1"
 filter:
-  kind: festival # concert, party, festival, other
-  state: further # hh, sh, further
+  kind: concert # concert, party, festival other
+  state: sh # hh, sh, further
 dates:
-  start: 2023-08-22T10:58:08
-  end: 2023-08-25T20:00:08
+  start: 2024-01-29T10:58:08
+  end: 2024-01-29T20:00:08
+  entry: 2024-01-29T09:00:08
   allDay: false
 location:
-  venue: Flugplatz Hildesheim
-  address: 31134 Hildesheim
+  venue: Name of club
+  address: Eine Straße 25, <br />24118 Hamburg
   showMap: true
-  virtual: false
 price:
   preSale: 15,00
-  boxOffice: 20.00
+  boxOffice: 20,00
 info:
-  corona: 2G • Keine Maskenpflicht
+  status: soldout # possible: cancelled, soldout
 link:
   facebook: https://www.facebook.com
   homepage: https://www.livingdead.de
+flyer:
+  img: /flyer.jpg
+  copyright: "Lorem ipsum dolor sit amet"
+resources:
+  - src: "flyer.jpg"
+    params:
+      licence: MIT
+      caption: "Fotograf Namen und Webseite"
 _build:
   render: false # no permalink/single-page, we WANT THIS
   list: true # but render on the list pages

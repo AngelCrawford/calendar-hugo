@@ -7,13 +7,13 @@ filter:
   kind: party # concert, party, festival other
   state: hh # hh, sh, further
 dates:
-  start: 2023-08-18T10:58:08
-  end: 2023-08-18T20:00:08
-  entry: 2023-08-18T09:00:08
+  start: 2024-01-27T10:58:08
+  end: 2024-01-27T20:00:08
+  entry: 2024-01-27T09:00:08
   allDay: false
 location:
   venue: Name of club
-  address: Eine Straße 25, 24118 Hamburg
+  address: Eine Straße 25, <br />24118 Hamburg
   showMap: false
 price:
   preSale: 15,00
