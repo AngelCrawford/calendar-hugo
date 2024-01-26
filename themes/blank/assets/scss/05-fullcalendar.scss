@@ -151,8 +151,8 @@
     }
 
     table.fc-list-table {
-        overflow:auto; 
-        position:relative;
+        overflow: scroll; 
+        position: relative;
     }
 
     table, table tr, table td, table th,

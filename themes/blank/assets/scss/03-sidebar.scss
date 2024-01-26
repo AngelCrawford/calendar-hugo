@@ -1,3 +1,55 @@
+input#menu,
+label.menu {
+    display: none;
+}
+
+@include touch {
+    input#menu {
+        visibility: hidden;
+        position: absolute;
+        display: block;
+    }
+
+    label.menu {
+        position: absolute;
+        display: block;
+        z-index: 999;
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background: $sidebar-back;
+        border-radius: 20px;
+        @include box-shadow(false, 3px, 3px, 5px, rgba($sidebar-text, .3), rgba($sidebar-text, .05));
+        -webkit-transition: left 0.5s ease-out;
+        transition: left 0.5s ease-out;
+    }
+
+    input#menu:checked ~ label.menu {
+        top: 5px;
+        left: 10px;
+
+        &::before {
+            content: "\ef3f";
+            font-family: "remixicon";
+        }
+    }
+    input#menu:not(:checked) ~ label.menu {
+        top: 5px;
+        left: 180px;
+
+        &::before {
+            content: "\ef3c";
+            font-family: "remixicon";
+        }
+    }
+
+    input#menu:checked ~ aside.column.is-2 {
+        transform: translate(-100%, 0);
+    }
+}
+
+
 aside.column.is-2 {
     background: $sidebar-back;
     // height: 100%;
@@ -6,12 +58,19 @@ aside.column.is-2 {
     overflow: hidden;
     // width: 16.5vw;
                 
-    @include until-widescreen {
-        width: 220px;
+    @include touch {
         position: fixed;
-        z-index: 9999;
-        overflow-y: scroll;
+        z-index: 88;
+        overflow-y: auto;
         height: 100%;
+        width: 220px;
+        -webkit-transition: transform 0.5s ease-out;
+        transition: transform 0.5s ease-out;
+        left: 0;
+    }
+
+    .sidebar {
+        display: inline-block;
     }
 
     .brand-logo {

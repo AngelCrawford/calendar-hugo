@@ -75,12 +75,12 @@
 
 @font-face {
   font-family: "remixicon";
-  src: url('fonts/remixicon/remixicon.eot?t=1691335316669'); /* IE9*/
-  src: url('fonts/remixicon/remixicon.eot?t=1691335316669#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("fonts/remixicon/remixicon.woff2?t=1691335316669") format("woff2"),
-  url("fonts/remixicon/remixicon.woff?t=1691335316669") format("woff"),
-  url('fonts/remixicon/remixicon.ttf?t=1691335316669') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('fonts/remixicon/remixicon.svg?t=1691335316669#remixicon') format('svg'); /* iOS 4.1- */
+  src: url('fonts/remixicon/remixicon.eot?t=1706288055273'); /* IE9*/
+  src: url('fonts/remixicon/remixicon.eot?t=1706288055273#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("fonts/remixicon/remixicon.woff2?t=1706288055273") format("woff2"),
+  url("fonts/remixicon/remixicon.woff?t=1706288055273") format("woff"),
+  url('fonts/remixicon/remixicon.ttf?t=1706288055273') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/remixicon/remixicon.svg?t=1706288055273#remixicon') format('svg'); /* iOS 4.1- */
   font-display: swap;
 }
 
@@ -108,41 +108,24 @@
 .ri-10x { font-size: 10em; }
 .ri-fw { text-align: center; width: 1.25em; }
 
-:global {
-  .ri-lg { font-size: 1.3333em; line-height: 0.75em; vertical-align: -.0667em; }
-  .ri-xl { font-size: 1.5em; line-height: 0.6666em; vertical-align: -.075em; }
-  .ri-xxs { font-size: .5em; }
-  .ri-xs { font-size: .75em; }
-  .ri-sm { font-size: .875em }
-  .ri-1x { font-size: 1em; }
-  .ri-2x { font-size: 2em; }
-  .ri-3x { font-size: 3em; }
-  .ri-4x { font-size: 4em; }
-  .ri-5x { font-size: 5em; }
-  .ri-6x { font-size: 6em; }
-  .ri-7x { font-size: 7em; }
-  .ri-8x { font-size: 8em; }
-  .ri-9x { font-size: 9em; }
-  .ri-10x { font-size: 10em; }
-  .ri-fw { text-align: center; width: 1.25em; }
-
-  .ri-price-tag-3-line:before { content: "\f023"; }
-  .ri-facebook-circle-line:before { content: "\ecbb"; }
-  .ri-github-line:before { content: "\edcb"; }
-  .ri-rss-line:before { content: "\f09f"; }
-  .ri-copyright-line:before { content: "\ebe2"; }
-  .ri-close-fill:before { content: "\eb98"; }
-  .ri-check-fill:before { content: "\eb7a"; }
-  .ri-arrow-right-s-line:before { content: "\ea6e"; }
-  .ri-arrow-left-s-line:before { content: "\ea64"; }
-  .ri-share-forward-line:before { content: "\f0fd"; }
-  .ri-share-line:before { content: "\f0fe"; }
-  .ri-time-line:before { content: "\f20f"; }
-  .ri-links-fill:before { content: "\eeb7"; }
-  .ri-mail-send-line:before { content: "\eefc"; }
-  .ri-coupon-3-line:before { content: "\ebe8"; }
-  .ri-shopping-cart-line:before { content: "\f120"; }
-  .ri-surgical-mask-line:before { content: "\f1c3"; }
-  .ri-map-pin-line:before { content: "\ef14"; }
-  .ri-signal-tower-line:before { content: "\f12a"; }
-}
+.ri-price-tag-3-line:before { content: "\f023"; }
+.ri-facebook-circle-line:before { content: "\ecbb"; }
+.ri-github-line:before { content: "\edcb"; }
+.ri-rss-line:before { content: "\f09f"; }
+.ri-copyright-line:before { content: "\ebe2"; }
+.ri-close-fill:before { content: "\eb98"; }
+.ri-check-fill:before { content: "\eb7a"; }
+.ri-arrow-right-s-line:before { content: "\ea6e"; }
+.ri-arrow-left-s-line:before { content: "\ea64"; }
+.ri-share-forward-line:before { content: "\f0fd"; }
+.ri-share-line:before { content: "\f0fe"; }
+.ri-time-line:before { content: "\f20f"; }
+.ri-links-fill:before { content: "\eeb7"; }
+.ri-mail-send-line:before { content: "\eefc"; }
+.ri-coupon-3-line:before { content: "\ebe8"; }
+.ri-shopping-cart-line:before { content: "\f120"; }
+.ri-surgical-mask-line:before { content: "\f1c3"; }
+.ri-map-pin-line:before { content: "\ef14"; }
+.ri-signal-tower-line:before { content: "\f12a"; }
+.ri-menu-unfold-fill:before { content: "\ef3f"; }
+.ri-menu-fold-fill:before { content: "\ef3c"; }
