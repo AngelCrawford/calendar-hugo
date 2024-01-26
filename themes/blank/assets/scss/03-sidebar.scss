@@ -7,7 +7,7 @@ label.menu {
 
     h1.title.mobile {
         @include font-header;
-        font-size: 4vw;
+        font-size: 40px;
         margin: 0;
         padding: 0 0 0 1.5em;
         background: $sidebar-back;
@@ -88,6 +88,7 @@ aside.column.is-2 {
         -webkit-transition: transform 0.5s ease-out;
         transition: transform 0.5s ease-out;
         left: 0;
+        bottom: 0;
     }
 
     .sidebar {

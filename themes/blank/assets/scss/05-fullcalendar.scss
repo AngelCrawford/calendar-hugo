@@ -2,6 +2,14 @@
     position: absolute;
     margin-top: 8em;
 
+    @media only screen and (max-width: 1493px) {
+        margin-top: 6.5em;
+    }
+
+    @include mobile {
+        display: none;
+    }
+
     input {
         float: left;
         display: none;
@@ -16,11 +24,16 @@
 
             &:hover {
                 color: $text;
+                background: rgba(#000000, .3);
 
                 &::before {
                     content: "\eb7a";
                 }
             }
+        }
+
+        &:checked + label {
+            // background: rgba(#000000, .3);
         }
     }
     label {
@@ -34,6 +47,10 @@
         color: $text;
         font-weight: 600;
         transition: all linear .1s;
+
+        &:last-of-type {
+            margin: 0;
+        }
 
         &::before {
             font-family: 'remixicon' !important;
@@ -105,47 +122,59 @@
     .fc-header-toolbar {
         margin-bottom: 10em;
 
+        @include mobile {
+            margin-bottom: unset;
+            flex-direction: column;
+        }
+
         h2.fc-toolbar-title {
             @include font-header;
             font-size: 50px;
         }
 
-        button {
-            border-radius: 0;
-            height: 45px;
-            border: none;
-            padding: .7em;
-            font-weight: 600;
+        .fc-button-group {
 
-            &.fc-button-primary {
-                background: $sidebar-back;
-            }
-            &.fc-button-primary:not(.fc-prev-button):not(.fc-next-button) {
-                padding-left: 1.2em;
-                padding-right: 1.2em;
-            }
-            
-            &.fc-today-button {
-                background: $link;
+            @include mobile {
+                padding-bottom: 1em;
             }
 
-            &:disabled {
-                background: $disabled;
-                opacity: 1;
-                cursor: not-allowed;
-            }
-
-            &.fc-button-active {
-                background: $disabled;
-                cursor: not-allowed;
-            }
-
-            &:hover:not(:disabled):not(.fc-button-active) {
-                background: $link;
-            }
-
-            &:focus {
-                box-shadow: none;
+            button {
+                border-radius: 0;
+                height: 45px;
+                border: none;
+                padding: .7em;
+                font-weight: 600;
+    
+                &.fc-button-primary {
+                    background: $sidebar-back;
+                }
+                &.fc-button-primary:not(.fc-prev-button):not(.fc-next-button) {
+                    padding-left: 1.2em;
+                    padding-right: 1.2em;
+                }
+                
+                &.fc-today-button {
+                    background: $link;
+                }
+    
+                &:disabled {
+                    background: $disabled;
+                    opacity: 1;
+                    cursor: not-allowed;
+                }
+    
+                &.fc-button-active {
+                    background: $disabled;
+                    cursor: not-allowed;
+                }
+    
+                &:hover:not(:disabled):not(.fc-button-active) {
+                    background: $sidebar-back;
+                }
+    
+                &:focus {
+                    box-shadow: none;
+                }
             }
         }
     }
@@ -188,6 +217,17 @@
                 text-transform: uppercase;
                 @include font-header;
                 cursor: default;
+            }
+
+            a.fc-list-day-side-text {
+                @include mobile {
+                    white-space: nowrap;
+                    display:inline-block;
+                    overflow: hidden;
+                    text-overflow: clip;
+                    max-width: 3.25ch;
+                    font-family: monospace;
+                }
             }
         }
     }
