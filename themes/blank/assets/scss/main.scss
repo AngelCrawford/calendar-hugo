@@ -12,7 +12,6 @@
 @import "bulma/bulma";
 @import "bulma-extensions/bulma-extensions";
 @import "03-sidebar";
-@import "04-header";
 @import "05-fullcalendar";
 @import "06-summary";
 
@@ -58,7 +57,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 main {
-  background: url("/img/background-darker.jpg");
+  background: url("/img/background-darker.webp");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;

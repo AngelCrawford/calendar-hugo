@@ -2,7 +2,6 @@
 title: "Festival over more Days"
 subtitle: Ein Subtitle zum Testen in einem Event
 authors: Chris
-summary: Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
 filter:
   kind: festival # concert, party, festival, other
   state: further # hh, sh, further

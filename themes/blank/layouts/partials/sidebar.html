@@ -132,8 +132,8 @@
 					{{ $start := .start }}
 					{{ $ageDays := div (sub .start.Unix now.Unix) 86400 }}
 					{{ $days := add $ageDays 1 }}
-					<a href="{{ .url }}" title="{{ .name }} Webseite" target="_blank">
-						<li style="{{ if le $days 0 }}opacity:.2;{{ end }}{{ if ge $days 30 }}opacity:.5;{{ end }}">
+					<li style="{{ if le $days 0 }}opacity:.2;{{ end }}{{ if ge $days 30 }}opacity:.5;{{ end }}">
+						<a href="{{ .url }}" title="{{ .name }} Webseite" target="_blank">
 							<span class="variable">{{ .name }}</span>
 							<span class="variable-number">
 								{{ if le $days 0 }}
@@ -142,8 +142,8 @@
 									{{ $days }}
 								{{ end }}
 							</span>
-						</li>
-					</a>
+						</a>
+					</li>
 				{{ end }}
 			</ul>
 		</div>

@@ -1,5 +1,8 @@
 article.message {
     background: rgba($sidebar-back, .5);
+    width: 100%;
+    height: auto; 
+    
     .message-header {
         padding: 10px 20px 0 20px;
         background: transparent;

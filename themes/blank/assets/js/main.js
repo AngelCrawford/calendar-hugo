@@ -144,35 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // },
   });
 
-  calendar.render();
-
-  // if ($(window).width() < 800) {
-  //   calendar.changeView('listWeek');
-  // }
+  $(window).on("load", function() {
+    calendar.render();
+  });   
 
   $('input[class=event_filter]').change(function() {
     calendar.render();
   });
-  
-
-  // Bulma Navbar Header Toggle
-  
-  // ***************** Navigation
-  // Check for click events on the navbar burger icon
-  $(".navbar-burger").click(function() {
-  
-    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-    $(".navbar-burger").toggleClass("is-active");
-    $(".navbar-menu").toggleClass("is-active");
-  });
-  
-  
-  $(".navbar-item.has-dropdown").click(function () { 
-    $(this).children('.navbar-dropdown').toggle();
-  });
-  
-  if ($(window).width() <= 1023) {
-    $(".navbar-item.has-dropdown a.navbar-link").removeAttr("href");
-  }
   
 });

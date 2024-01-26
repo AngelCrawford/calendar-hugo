@@ -15,6 +15,7 @@ location:
   venue: Name of club
   address: Eine Straße 25, <br />24118 Hamburg
   showMap: false
+  virtual: true
 price:
   preSale: 15,00
   boxOffice: 20.00
