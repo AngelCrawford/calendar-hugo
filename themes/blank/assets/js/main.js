@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
       right: 'prev,today,next'
     },
     initialView: 'listMonth',
-    // googleCalendarApiKey: 'AIzaSyBHZjQ98m4MH-6XdAJFhA5e2WgbkKhNNjg',
     displayEventTime: false,
     eventContent: function(arg) {
       createDiv = document.createElement('div');
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let arrayOfDomNodes = [ createDiv ];
       return { domNodes: arrayOfDomNodes };
     },
-    googleCalendarApiKey: 'AIzaSyBHZjQ98m4MH-6XdAJFhA5e2WgbkKhNNjg',
+    // googleCalendarApiKey: 'AIzaSyBHZjQ98m4MH-6XdAJFhA5e2WgbkKhNNjg',
     eventSources: [
       // { googleCalendarId: '4ce40c3143709f3fab95d5b714fdd3de717a8ab6297a74e57d073e2db913d2b0@group.calendar.google.com' },
       { url: '/events/index.json'}
