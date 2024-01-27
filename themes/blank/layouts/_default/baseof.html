@@ -2,37 +2,58 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ .Title }}</title>
-	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+
+	<base href="{{ .Site.BaseURL }}">
+
+	<!-- \SEO -->
+	<title>{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+	{{ with .Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
+	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}" />{{ end }}
+	{{ with .Site.Params.keywords }}<meta name="keywords" content="{{ . }}" />{{ end }}
+	<!-- <meta name="robots" content="index, follow" /> -->
+	{{ with .Params.robotsdisallow }}
+	  <meta name="robots" content="noindex, nofollow, noarchive">
+	{{ else }}
+	  <meta name="robots" content="index, follow, archive">
+	{{ end }}
+	<meta name="referrer" content="always" />
+
+	<!-- Social & Open Graph -->
+	<meta property="og:title" content="{{ if .IsPage }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
+	{{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}" />{{ end }}
+	<meta property="og:url" content="{{ .Site.BaseURL }}" />
+	{{ with .Site.Params.shareImage }}
+	  <meta property="og:image" content="{{ . | absURL }}" />
+	  <meta name="twitter:card" content="summary_large_image" />
+	{{ end }}
+	{{ with .Params.twitterHandle }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
 
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
 	<!-- Styles -->
-	{{- $sassOptions := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true ) -}}
-	{{- $sass := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.css" . -}}
-	{{- $style := $sass | resources.ToCSS $sassOptions | resources.Fingerprint -}}
+	{{ $sass := resources.Get "scss/main.scss" | resources.ExecuteAsTemplate "style.scss" . }}
+	{{ $style := $sass | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 	<link rel="stylesheet" href="{{ $style.Permalink }}">
 
 	<!-- Scripts -->
 	{{- $jQuery := resources.Get "js/jquery-3.7.1.js" -}}
 	{{- $momentJS := resources.Get "js/moment.js" -}}
 	
-	{{- $main := resources.Get "js/main.js" -}}
+	{{- $calendar := resources.Get "js/calendar.js" -}}
 	{{- $suncalc := resources.Get "js/suncalc.js" -}}
 	{{- $firework := resources.Get "js/firework.js" -}}
-	{{- $header := resources.Get "js/header.js" -}}
+	{{- $sidebar := resources.Get "js/sidebar.js" -}}
 
 	<!-- Fullcalendar -->
 	{{- $fullCore := resources.Get "js/fullcalendar.js" -}}
 	{{- $fullDe := resources.Get "js/fullcalendar-de.js" -}}
 	{{- $fullMoment := resources.Get "js/fullcalendar-moment.js" -}}
 
-	{{- $script := slice $jQuery $momentJS $fullCore $fullDe $fullMoment $suncalc $main $firework $header | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	{{- $script := slice $jQuery $momentJS $suncalc $firework $sidebar | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
 	<script src="{{ $script.Permalink }}"></script>
 
 	<!-- Robots -->
@@ -48,6 +69,10 @@
 
 </head>
 <body>
+
+	{{- $script := slice $fullCore $fullDe $fullMoment $calendar | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+	<script defer src="{{ $script.Permalink }}"></script>
+
 	<div class="columns is-gapless">
 				
 		<input id="menu" name="menu" type="checkbox" value="open" checked="false" />
@@ -58,6 +83,8 @@
 		</aside>
 
 		<main class="column">
+			<picture class="background-img-wrapper"><img class="background-img" src="/img/background-darker.webp" alt="Background Image" /></picture>
+
 			<h1 class="title is-hidden-desktop mobile">Cities in Dust</h1>
 
 			<section class="section">

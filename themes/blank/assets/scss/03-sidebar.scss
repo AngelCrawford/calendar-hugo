@@ -93,6 +93,7 @@ aside.column.is-2 {
         flex-direction: column;
         height: 100%;
         flex-basis: 0%;
+        overflow: hidden;
 
         .brand-logo {
             // background: $sidebar-header;
@@ -159,7 +160,7 @@ aside.column.is-2 {
             // THANKS: https://www.deviantart.com/ztphotography/art/NicePng-transparent-fog-png-8047958-837159072
             #fog {
                 position: absolute;
-                width: 17vw;
+                width: 16.6vw;
                 height: 16.5vw;
                 z-index: 3;
                 opacity: .4;

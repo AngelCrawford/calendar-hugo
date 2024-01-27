@@ -11,6 +11,22 @@
 @import "02-mixins";
 @import "bulma/bulma";
 @import "bulma-extensions/bulma-extensions";
+
+main {
+  .background-img-wrapper {
+    position: fixed;
+    width : 100vw;
+    height : 100vh;
+    // display: block;
+
+    img.background-img {
+      width : 100vw;
+      height : 100vh;
+      z-index: 6;
+    }
+  }
+}
+
 @import "03-sidebar";
 @import "05-fullcalendar";
 @import "06-summary";
@@ -53,30 +69,6 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
   -webkit-appearance: none;
-}
-
-
-main {
-  background: url("/img/background-darker.webp");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-	background-attachment: fixed;
-  // background-color: $background;
-  z-index: 6;
-  position: relative;
-
-  &::before {
-    content: "";
-    height: 100%;
-    width: 100%;
-    display: block;
-    position: absolute;
-    // background: rgba(black, .3);
-  }
-
-  @include until-widescreen {
-  }
 }
 
 h3 {
